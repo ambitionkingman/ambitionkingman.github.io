@@ -2202,7 +2202,7 @@ $(document).ready(function() {
 
     var sidebar = $('#sidebar');
     var sidebarHeader = $('#sidebar .sidebar-header');
-    var sidebarImg = sidebarHeader.css('background-image');
+    var sidebarImg = sidebarHeader.css('background-img');
     var toggleButtons = $('.sidebar-toggle');
 
     // Hide toggle buttons on default position
