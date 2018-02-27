@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="display: none;" lang="zh">
+<html style="display: none;" >
     <head>
     <meta charset="utf-8">
     <!--
@@ -12,9 +12,9 @@
     
     <title>
         
-            Hello World | 
+            Spring Boot 远程调试 | 
         
-        Stars Blog
+        Hexo
     </title>
 
     <!-- dns prefetch -->
@@ -34,7 +34,7 @@
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Wu wei">
+    <meta name="author" content="Wu Wei">
     <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="">
 
@@ -60,31 +60,31 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Stars Blog">
+    <meta name="apple-mobile-web-app-title" content="Hexo">
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:url" content="https://github.com/ambitionkingman">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hello World | Stars Blog">
+    <meta property="og:title" content="Spring Boot 远程调试 | Hexo">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="2月 26, 2018" />
-        <meta property="article:modified_time" content="2月 26, 2018" />
+        <meta property="article:published_time" content="Feb 27, 2018" />
+        <meta property="article:modified_time" content="Feb 27, 2018" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Hello World | Stars Blog">
+    <meta name="twitter:title" content="Spring Boot 远程调试 | Hexo">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://yoursite.com" />
+    <meta name="twitter:url" content="https://github.com/ambitionkingman" />
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/02/26/hello-world/index.html" />
+        <link rel="canonical" href="https://github.com/ambitionkingman/2018/02/27/springboot-debug/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -98,26 +98,26 @@
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
-        "name": "Stars Blog",
+        "name": "Hexo",
         "logo": "/img/favicon.png"
     },
     "author": {
         "@type": "Person",
-        "name": "Wu wei",
+        "name": "Wu Wei",
         "image": {
             "@type": "ImageObject",
             "url": "/img/favicon.png"
         },
         "description": "Hi, nice to meet you"
     },
-    "headline": "Hello World",
-    "url": "http://yoursite.com/2018/02/26/hello-world/index.html",
-    "datePublished": "2月 26, 2018",
-    "dateModified": "2月 26, 2018",
+    "headline": "Spring Boot 远程调试",
+    "url": "https://github.com/ambitionkingman/2018/02/27/springboot-debug/index.html",
+    "datePublished": "Feb 27, 2018",
+    "dateModified": "Feb 27, 2018",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://yoursite.com"
+        "@id": "https://github.com/ambitionkingman"
     }
 }
 </script>
@@ -129,7 +129,7 @@
         <link rel="stylesheet" href="/css/ie-blocker.css">
 
         
-            <script src="/js/ie-blocker.zhCN.js"></script>
+            <script src="/js/ie-blocker.en.js"></script>
         
     <![endif]-->
 
@@ -338,7 +338,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-number">1.</span> <span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Spring-Boot-调试"><span class="post-toc-number">1.</span> <span class="post-toc-text">Spring Boot 调试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Spring-Boot-工程"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Spring Boot 工程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#idea开发环境"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">idea开发环境</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">方法</span></a></li></ol></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -376,7 +376,7 @@
         
     
             <p class="article-headline-p">
-                Hello World
+                Spring Boot 远程调试
             </p>
         </div>
 
@@ -394,8 +394,8 @@
     </div>
     <!-- Author Name & Date -->
     <div>
-        <strong>Wu wei</strong>
-        <span>2月 26, 2018</span>
+        <strong>Wu Wei</strong>
+        <span>Feb 27, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -435,36 +435,36 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Hello World&url=http://yoursite.com/2018/02/26/hello-world/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Spring Boot 远程调试&url=https://github.com/ambitionkingman/2018/02/27/springboot-debug/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
-                分享到微博
+                شارك على Weibo
             </li>
         </a>
     
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Hello World&url=http://yoursite.com/2018/02/26/hello-world/index.html&via=Wu wei" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Spring Boot 远程调试&url=https://github.com/ambitionkingman/2018/02/27/springboot-debug/index.html&via=Wu Wei" target="_blank">
             <li class="mdl-menu__item">
-                分享到 Twitter
+                شارك على Twitter
             </li>
         </a>
     
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/26/hello-world/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/ambitionkingman/2018/02/27/springboot-debug/index.html" target="_blank">
             <li class="mdl-menu__item">
-                分享到 Facebook
+                شارك على Facebook
             </li>
         </a>
     
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/26/hello-world/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://github.com/ambitionkingman/2018/02/27/springboot-debug/index.html" target="_blank">
             <li class="mdl-menu__item">
-                分享到 Google+
+                شارك على Google+
             </li>
         </a>
     
@@ -486,15 +486,15 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>Welcome to Wuwei`Blog</p>
+<h1 id="Spring-Boot-调试"><a href="#Spring-Boot-调试" class="headerlink" title="Spring Boot 调试"></a>Spring Boot 调试</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><h3 id="Spring-Boot-工程"><a href="#Spring-Boot-工程" class="headerlink" title="Spring Boot 工程"></a>Spring Boot 工程</h3><h3 id="idea开发环境"><a href="#idea开发环境" class="headerlink" title="idea开发环境"></a>idea开发环境</h3><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&emsp;&emsp;本篇博客介绍一下在Intellij IDEA下对Springboot类型的项目的远程调试功能。所谓的远程调试就是服务端程序运行在一台远程服务器上，我们可以在本地服务端的代码（前提是本地的代码必须和远程服务器运行的代码一致）中设置断点，每当有请求到远程服务器时时能够在本地知道远程服务端的此时的内部状态.</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>&emsp;&emsp;首先，打开Edit configurations，点击+号，创建一个Remote应用。<br><img src="CreateRemote.png" alt="Create Remote"></p>
+<p>&emsp;&emsp;填写name，配置Host地址（远程服务器地址）和端口（选一个未被占用的端口）。然后复制For JDK1.4.x下面的参数，示例配置的端口为5005：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005</span><br></pre></td></tr></table></figure></p>
+<p><img src="ConfigRemote.png" alt="Config Remote"></p>
+<p>&emsp;&emsp;经过以上步骤，已经获得了启动远程服务器的参数。在启动springboot时默认使用java命令来启动。<br>比如，示例项目启动命令为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar test-tool.jar</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;那么此时在启动命令上添加上面获得的参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 test-tool.jar</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这样服务端就监听在5005端口了。可以通过以下命令来检查是否监听成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 5005</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;通过以上步骤已经完成了服务器端参数的添加。下面启动刚才配置的Remote服务，即test-tool-remote。在启动时候我们会发现此项启动程序只有debug启动模式。<br>&emsp;&emsp;启动完成，对需要debug的代码打上断点，剩下的操作步骤就是访问远程服务器对应的业务请求，本地就会同步debug。其余的操作与本地debug相同，此处就不再赘述了。</p>
 
     
 
@@ -514,19 +514,19 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/02/27/spring-security/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2018/02/27/hello-world/" id="post_nav-older" class="next-content">
+            أقدم
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -558,7 +558,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Wu wei's avatar">
+        <img src="/img/avatar.png" alt="Wu Wei's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -594,7 +594,7 @@
                 
                     <i class="material-icons sidebar-material-icons">home</i>
                 
-                主页
+                الرئيسية
             </a>
         </li>
         
@@ -607,12 +607,12 @@
                 
                     <i class="material-icons sidebar-material-icons">inbox</i>
                 
-                    归档
+                    أرشيف
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/02/">February 2018<span class="sidebar_archives-count">3</span></a>
             </ul>
         </li>
         
@@ -649,7 +649,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
+            سمة - Material
             <span class="sidebar-badge badge-circle">i</span>
         </div>
     </a>
@@ -761,7 +761,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Stars Blog
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Hexo
         </div>
 
         <!-- Paradox Footer Right Section -->
