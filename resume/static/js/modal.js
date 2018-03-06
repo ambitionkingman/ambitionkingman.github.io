@@ -157,7 +157,7 @@
     if ( this.isShown && this.settings.backdrop ) {
       var doAnimate = $.support.transition && animate
 
-      this.$backdrop = $('<div class="modal-backdrop ' + animate + '">')
+      this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
         .appendTo(document.body)
 
       if ( this.settings.backdrop != 'static' ) {
@@ -257,4 +257,4 @@
     })
   })
 
-}( window.jQuery || window.ender );</div>
+}( window.jQuery || window.ender );
