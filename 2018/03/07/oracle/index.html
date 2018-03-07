@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Oracle 学习笔记基础 创建用户以及表空间：  创建临时表空间 123456create temporary tablespace user_temptempfile &amp;apos;D:\oracle\oradata\Oracle9i\user_temp.dbf&amp;apos;size 50mautoextend onnext 50m maxsize 20480mextent management">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle 学习笔记">
+<meta property="og:url" content="https://github.com/ambitionkingman/2018/03/07/oracle/index.html">
+<meta property="og:site_name" content="Wuwei` Blog">
+<meta property="og:description" content="Oracle 学习笔记基础 创建用户以及表空间：  创建临时表空间 123456create temporary tablespace user_temptempfile &amp;apos;D:\oracle\oradata\Oracle9i\user_temp.dbf&amp;apos;size 50mautoextend onnext 50m maxsize 20480mextent management">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-07T15:19:07.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle 学习笔记">
+<meta name="twitter:description" content="Oracle 学习笔记基础 创建用户以及表空间：  创建临时表空间 123456create temporary tablespace user_temptempfile &amp;apos;D:\oracle\oradata\Oracle9i\user_temp.dbf&amp;apos;size 50mautoextend onnext 50m maxsize 20480mextent management">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/ambitionkingman/2018/03/07/oracle/"/>
+
+
+
+
+
+  <title>Oracle 学习笔记 | Wuwei` Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wuwei` Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ambitionkingman/2018/03/07/oracle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p4ucv3uvl.bkt.clouddn.com/avatar/godnaruto.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wuwei` Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Oracle 学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T22:54:28+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Oracle-学习笔记"><a href="#Oracle-学习笔记" class="headerlink" title="Oracle 学习笔记"></a>Oracle 学习笔记</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ol>
+<li><p>创建用户以及表空间：</p>
+<ul>
+<li><p>创建临时表空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create temporary tablespace user_temp</span><br><span class="line">tempfile &apos;D:\oracle\oradata\Oracle9i\user_temp.dbf&apos;</span><br><span class="line">size 50m</span><br><span class="line">autoextend on</span><br><span class="line">next 50m maxsize 20480m</span><br><span class="line">extent management local;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建数据表空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create tablespace test_data</span><br><span class="line">datafile &apos;D:\oracle\oradata\Oracle9i\user_data.dbf&apos;</span><br><span class="line">size 50m</span><br><span class="line">autoextend on</span><br><span class="line">next 50m maxsize 20480m</span><br><span class="line">extent management local;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>删除表空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLESPACE tablespace_name INCLUDING CONTENTS AND DATAFILES;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建用户并指定表空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create user username identified by password</span><br><span class="line">default tablespace user_data</span><br><span class="line">temporary tablespace user_temp;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给用户授予权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant connect,resource to username;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以后以该用户登录，创建的任何数据库对象都属于user_temp 和user_data表空间，这就不用在每创建一个对象给其指定表空间。</p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="谓词"><a href="#谓词" class="headerlink" title="谓词"></a>谓词</h4><p>谓词顺序：</p>
+<ol>
+<li>首先编码联接谓词，然后是本地谓词（单个表上的谓词），顺序与 FROM 子句中的已命名表的顺序相同。</li>
+<li>过滤性较强的谓词应该放在过滤性较差的谓词前面，可能会有作用，因为优化器会重排谓词，所以在保证可读性的情况下，使用是可以的。</li>
+<li>无论谓词的编码顺序如何，Stage 1 非索引谓词都按以下顺序应用：</li>
+</ol>
+<ul>
+<li>等于谓词</li>
+<li>范围谓词</li>
+<li>列表和相似谓词</li>
+</ul>
+<p>注意事项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from RG_BUSINESS_INFO rg where rg.DATATIME&gt;(select rg1.datatime from rg_business_info rg1 where rg1.recid =&apos;123&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>当子查询返回结果集为空，（0个结果）,where判断执行找不到结果，所以结果集返回为空。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select rg1.datatime from rg_business_info rg1 where rg1.recid =&apos;123&apos;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select * from RG_BUSINESS_INFO rg where rg.DATATIME&gt;（select case when max(log.SYNDATE)is null then DATE&apos;1970-01-07&apos; else max(log.syndate) end as time from datasynlogtable  log）;</span><br></pre></td></tr></table></figure></p>
+<p>当使用聚合函数时，子查询数据表中没值时，某些聚合函数返回null，因此可以使用case when 设置默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select   max(log.SYNDATE) from datasynlogtable  log;</span><br></pre></td></tr></table></figure></p>
+<h4 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h4><p>聚合函数：一般会忽略空值。<br>当然对sum,max,min,avg等其他聚合函数都是如此。<br>1 .对于聚合函数，如果给定的值中存在空值的话，oracle将会直接忽略。<br>例如,对于scott的schema中有表emp;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Select count(*) from emp;</span><br></pre></td></tr></table></figure></p>
+<p>将会得到结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COUNT(*)  14</span><br></pre></td></tr></table></figure></p>
+<p>但是我们注意到在Mgr列中有一列是空值，于是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Select count(mgr) from emp;</span><br></pre></td></tr></table></figure></p>
+<p>将会得到如下结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COUNT(MGR) 13</span><br></pre></td></tr></table></figure></p>
+<h3 id="Pro-Oracle-sql学习笔记："><a href="#Pro-Oracle-sql学习笔记：" class="headerlink" title="Pro Oracle sql学习笔记："></a>Pro Oracle sql学习笔记：</h3><h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><p>标量子查询：当使用另一个SELECT语句来生成结果中某一列的值时，这个查询只能返回一行一列的值，这种类型的查询叫标量子查询。（注意）：标量子查询在结果集中的每一行结果产生时都要执行一遍。<br>DISTINCT：DISTINCT子句用来在其他子句执行完之后从结果集中去除重复的行。<br>排序是查询过程中开销相当大的一个处理步骤，尤其是当结果集非常大的时候。<br>MERGE : 可以按条件获取要更新活插入到表中的数据行。<br>ORACLE架构基础：<br>SGA共享池：共享池是Oracle缓存程序数据的地方。共享池中存储这些语句的地方称为库告诉缓存。<br>用一个sql更新多个字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlserver：</span><br><span class="line">    update A set A.c1=B.c1,A.c2=B.c2 from B where A.xx=B.xx and ...;</span><br><span class="line">Oracle：</span><br><span class="line">    update a set (c1,c2) =(select c1,c2 from b where a.xx=b.xx) where ...;</span><br></pre></td></tr></table></figure></p>
+<h4 id="已知字段查找所在的表"><a href="#已知字段查找所在的表" class="headerlink" title="已知字段查找所在的表"></a>已知字段查找所在的表</h4><p>–查找该用户下(其他表如果有访问权限也算)有备注的字段中某个字段所在的表<br>SELECT <em><br>  FROM ALL_COL_COMMENTS<br> where column_name = ‘BBLX’<br>    or column_name = ‘bblx’;<br>–查找当前用户下某个字段所属的表<br>select </em><br>  from user_tab_columns t<br> where t.COLUMN_NAME = ‘BOOK_FLAG’<br>     or t.COLUMN_NAME = ‘book_flag’;  </p>
+<p> –在整个库查找某个字段所在的表<br> select ‘所在的表名 = ‘ || a.name||’, 字段名 = ‘ || b.name from sysobjects a<br>   join syscolumns b on a.id = b.id<br>  where b.name = ‘BOOK_FLAG’;  </p>
+<h4 id="orcl卸载"><a href="#orcl卸载" class="headerlink" title="orcl卸载"></a>orcl卸载</h4><p>1.关闭oracle所有的服务</p>
+<p>windows的服务管理器（Windows+R，然后输入services.msc快速打开任务管理器）中关闭（如果您没有打开过oracle任务，那就直接跳过吧！）</p>
+<p>2.删除oracle在注册表中的信息</p>
+<p>windows+R，然后输入regedit 打开注册表。</p>
+<p>（1）删除Oracle在Windows中注册的各种服务</p>
+<p>打开路径： HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ ，删除该路径下的所有以oracle开始的服务名称。</p>
+<p>（2）删除Oracle注册的安装信息</p>
+<p>打开路径：HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE ，删除该oracle目录。</p>
+<p>（3）删除oracle注册的事件日志</p>
+<p>打开路径： HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application，删除注册表的以oracle开头的所有项目。</p>
+<p>3.删除环境变量path中关于oracle的内容。</p>
+<p>鼠标右键右单击“我的电脑–&gt;属性–&gt;高级–&gt;环境变量–&gt;PATH 变量；删除Oracle在该值中的内容。注意:path中记录着一堆操作系统的目录，在windows中各个目录之间使用分号（;）隔开的，删除时注意。 建议：删除PATH环境变量中关于Oracle的值时，将该值全部拷贝到文本编辑器中，找到对应的Oracle的值，删除后，再拷贝修改的串，粘贴到PATH环境变量中，这样相对而言比较安全。</p>
+<p>4.重新启动操作系统。<br>5.删除oracle安装目录</p>
+<p>重启操作系统后各种Oracle相关的进程都不会加载了，这时删除Oracle_Home下的所有数据（Oracle_Home指Oracle程序的安装目录）；.删除C:\Program Files下oracle目录。 （该目录视Oracle安装所在路径而定）。</p>
+<p>6.删除开始菜单下oracle项。</p>
+<p>如： C:\Documents and Settings\All Users\「开始」菜单\程序\Oracle - Ora10g 不同的安装这个目录稍有不同。 如果不删除开始菜单下的Oracle相关菜单目录，没关系，这个不影响再次安装Oracle.当再次安装Oracle时，该菜单会被替换。</p>
+<p>At present，You can say that you have made oracle got out of your computer 。。。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/wechatpay0.5.png" alt="Wu Wei 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/alipay0.5.jpg" alt="Wu Wei 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/07/reference/" rel="next" title="常用开源框架参考文档地址">
+                <i class="fa fa-chevron-left"></i> 常用开源框架参考文档地址
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/07/mysql/" rel="prev" title="mysql笔记">
+                mysql笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p4ucv3uvl.bkt.clouddn.com/avatar/godnaruto.jpeg"
+                alt="Wu Wei" />
+            
+              <p class="site-author-name" itemprop="name">Wu Wei</p>
+              <p class="site-description motion-element" itemprop="description">Be a thoutghtfull programer。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ambitionkingman/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ambition_kingman@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wu-wei-8-35/" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Oracle-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Oracle 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化"><span class="nav-number">1.2.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#谓词"><span class="nav-number">1.2.1.</span> <span class="nav-text">谓词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">聚合函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pro-Oracle-sql学习笔记："><span class="nav-number">1.3.</span> <span class="nav-text">Pro Oracle sql学习笔记：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#子查询"><span class="nav-number">1.3.1.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#已知字段查找所在的表"><span class="nav-number">1.3.2.</span> <span class="nav-text">已知字段查找所在的表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orcl卸载"><span class="nav-number">1.3.3.</span> <span class="nav-text">orcl卸载</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Wei</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

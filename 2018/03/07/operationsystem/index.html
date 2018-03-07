@@ -123,20 +123,17 @@
 
 
 
-<meta name="description" content="Welcome to Wuwei`Blog Spring Boot 调试环境Spring Boot 工程idea开发环境简介&amp;emsp;&amp;emsp;本篇博客介绍一下在Intellij IDEA下对Springboot类型的项目的远程调试功能。所谓的远程调试就是服务端程序运行在一台远程服务器上，我们可以在本地服务端的代码（前提是本地的代码必须和远程服务器运行的代码一致）中设置断点，每当有请求到远程服">
+<meta name="description" content="操作系统操作系统：引导标题：Windows系统引导文件(boot.ini)格式详解2013-08-13 14:16:50 当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的系统后回车即可。 Windows操作系统主要依赖Boot.ini文件来确定计算机在引导过程中显示的可供选取的操作系统类别。系统安装时，会在引导分区的根目录中建立引导菜单文件 boo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot 远程调试">
-<meta property="og:url" content="https://github.com/ambitionkingman/2018/02/27/springboot-debug/index.html">
+<meta property="og:title" content="操作系统">
+<meta property="og:url" content="https://github.com/ambitionkingman/2018/03/07/operationsystem/index.html">
 <meta property="og:site_name" content="Wuwei` Blog">
-<meta property="og:description" content="Welcome to Wuwei`Blog Spring Boot 调试环境Spring Boot 工程idea开发环境简介&amp;emsp;&amp;emsp;本篇博客介绍一下在Intellij IDEA下对Springboot类型的项目的远程调试功能。所谓的远程调试就是服务端程序运行在一台远程服务器上，我们可以在本地服务端的代码（前提是本地的代码必须和远程服务器运行的代码一致）中设置断点，每当有请求到远程服">
+<meta property="og:description" content="操作系统操作系统：引导标题：Windows系统引导文件(boot.ini)格式详解2013-08-13 14:16:50 当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的系统后回车即可。 Windows操作系统主要依赖Boot.ini文件来确定计算机在引导过程中显示的可供选取的操作系统类别。系统安装时，会在引导分区的根目录中建立引导菜单文件 boo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/CreateRemote.png">
-<meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/ConfigRemote.png">
-<meta property="og:updated_time" content="2018-02-28T03:55:29.371Z">
+<meta property="og:updated_time" content="2018-03-07T15:18:18.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot 远程调试">
-<meta name="twitter:description" content="Welcome to Wuwei`Blog Spring Boot 调试环境Spring Boot 工程idea开发环境简介&amp;emsp;&amp;emsp;本篇博客介绍一下在Intellij IDEA下对Springboot类型的项目的远程调试功能。所谓的远程调试就是服务端程序运行在一台远程服务器上，我们可以在本地服务端的代码（前提是本地的代码必须和远程服务器运行的代码一致）中设置断点，每当有请求到远程服">
-<meta name="twitter:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/CreateRemote.png">
+<meta name="twitter:title" content="操作系统">
+<meta name="twitter:description" content="操作系统操作系统：引导标题：Windows系统引导文件(boot.ini)格式详解2013-08-13 14:16:50 当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的系统后回车即可。 Windows操作系统主要依赖Boot.ini文件来确定计算机在引导过程中显示的可供选取的操作系统类别。系统安装时，会在引导分区的根目录中建立引导菜单文件 boo">
 
 
 
@@ -166,13 +163,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/ambitionkingman/2018/02/27/springboot-debug/"/>
+  <link rel="canonical" href="https://github.com/ambitionkingman/2018/03/07/operationsystem/"/>
 
 
 
 
 
-  <title>Spring Boot 远程调试 | Wuwei` Blog</title>
+  <title>操作系统 | Wuwei` Blog</title>
   
 
 
@@ -299,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ambitionkingman/2018/02/27/springboot-debug/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ambitionkingman/2018/03/07/operationsystem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wu Wei">
@@ -316,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring Boot 远程调试</h1>
+          <h1 class="post-title" itemprop="name headline">操作系统</h1>
         
 
         <div class="post-meta">
@@ -328,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T16:30:57+08:00">
-                2018-02-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T23:16:28+08:00">
+                2018-03-07
               </time>
             
 
@@ -366,15 +363,24 @@
       
 
       
-        <p>Welcome to Wuwei`Blog</p>
-<h1 id="Spring-Boot-调试"><a href="#Spring-Boot-调试" class="headerlink" title="Spring Boot 调试"></a>Spring Boot 调试</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><h3 id="Spring-Boot-工程"><a href="#Spring-Boot-工程" class="headerlink" title="Spring Boot 工程"></a>Spring Boot 工程</h3><h3 id="idea开发环境"><a href="#idea开发环境" class="headerlink" title="idea开发环境"></a>idea开发环境</h3><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&emsp;&emsp;本篇博客介绍一下在Intellij IDEA下对Springboot类型的项目的远程调试功能。所谓的远程调试就是服务端程序运行在一台远程服务器上，我们可以在本地服务端的代码（前提是本地的代码必须和远程服务器运行的代码一致）中设置断点，每当有请求到远程服务器时时能够在本地知道远程服务端的此时的内部状态.</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>&emsp;&emsp;首先，打开Edit configurations，点击+号，创建一个Remote应用。<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/CreateRemote.png" alt="Create Remote"></p>
-<p>&emsp;&emsp;填写name，配置Host地址（远程服务器地址）和端口（选一个未被占用的端口）。然后复制For JDK1.4.x下面的参数，示例配置的端口为5005：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/ConfigRemote.png" alt="Config Remote"></p>
-<p>&emsp;&emsp;经过以上步骤，已经获得了启动远程服务器的参数。在启动springboot时默认使用java命令来启动。<br>比如，示例项目启动命令为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar test-tool.jar</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;那么此时在启动命令上添加上面获得的参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 test-tool.jar</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;这样服务端就监听在5005端口了。可以通过以下命令来检查是否监听成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 5005</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;通过以上步骤已经完成了服务器端参数的添加。下面启动刚才配置的Remote服务，即test-tool-remote。在启动时候我们会发现此项启动程序只有debug启动模式。<br>&emsp;&emsp;启动完成，对需要debug的代码打上断点，剩下的操作步骤就是访问远程服务器对应的业务请求，本地就会同步debug。其余的操作与本地debug相同，此处就不再赘述了。</p>
+        <h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h4 id="操作系统：引导"><a href="#操作系统：引导" class="headerlink" title="操作系统：引导"></a>操作系统：引导</h4><p>标题：Windows系统引导文件(boot.ini)格式详解<br>2013-08-13 14:16:50</p>
+<p>当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的系统后回车即可。</p>
+<p>Windows操作系统主要依赖Boot.ini文件来确定计算机在引导过程中显示的可供选取的操作系统类别。系统安装时，会在引导分区的根目录中建立引导菜单文件 boot.ini。boot.ini 在缺省状态下被设定为隐含和系统文件属性，并且被标识为只读文件。使用它我们可以轻松对电脑中的多系统进行引导，还可以通过该引导文件，设置个性化的启动菜单。<br>一、boot.ini文件格式 当电脑开机时，计算机将根据此引导菜单文件启动相应的操作系统。如果是多操作系统，可会提示用户选择要启动哪一个操作系统。boot.init文件示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[boot loader]</span><br><span class="line">timeout=30</span><br><span class="line">default=multi(0)disk(0)rdisk(0)partition(2)\WINNT</span><br><span class="line"></span><br><span class="line">[operating systems]</span><br><span class="line">multi(0)disk(0)rdisk(0)partition(2)\WINNT=&quot;Microsoft Windows XP Professional&quot; /fastdetect</span><br><span class="line">multi(0)disk(0)rdisk(1)partition(1)\WINNT=&quot;Microsoft Windows NT Sever&quot; /fastdetect</span><br><span class="line">C:\=&quot;Microsoft Windows&quot;</span><br><span class="line">C:\bootsect.bin=&quot;linux&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这里，大家可以看到boot.ini文件分为两部分，[boot loader]和[operating systems]。 [boot loader]<br>timeout=???</p>
+<p>timeout=??? 表示在出现多操作系统引导时。选择菜单滞留的时间，单位为妙。默认为30秒。时间定义不同值时含义如下：</p>
+<p>1&gt;1-999：时间范围有效，多操作系统时，在显示选择菜单后，如果用户不做任何操作，则菜单在这个时间后消息，并进入默认的操作系统。<br>2&gt;0    ：不会出现多操作系统选择菜单。默认进入第一个操作系统（即[operating systems]下面的第一个操作系统）。<br>3&gt;负数或者大于999：系统认为此值无效，在显示选择菜单后，如果用户不做任何操作，则一直显示该菜单。</p>
+<p>default=???</p>
+<p>default=???表示默认进入的操作系统的路径，其中???的格式为[operating systems]下面等号之前的部分。大概有两种情况：win9x系列（95、98、ME）和NT系列(NT4.0、WIN2000、WINXP)。前一种，由于Active区的问题，基本上为C:\ 后一种，遵从ARC命名规则。<br>[operating systems]<br>这部分的每一行都代表引导一个操作系统，每一行可分四部分：等号之前、等号、等号之后、/???</p>
+<p>multi(0)disk(0)rdisk(0)partition(2)\WINNT=”Microsoft Windows 2000 Professional” /fastdetect</p>
+<p>蓝色背景部分表示操作系统的引导分区所在的设备路径，它遵循ARC命名规则。<br>绿色背景部分表示操作系统选择菜单中显示的操作系统的名字，随便你在英文双引号里添什么都可以。<br>橙色背景部分表示操作操作系统的启动参数，/fastdetect，表示快速引导。/console 表示虚拟控制台等，参数和前面的内容用空格分隔。</p>
+<p>win9x系列（95、98、ME）通常用以下格式命名：<br>C:\=”Microsoft Windows”<br>二、boot.ini文件在哪里<br>Boot.ini文件通常位于C盘根目录下，是一个隐藏文件，你可以通过以下操作显示隐藏文件“工具”—“文件夹选项”—“查看”菜单上选择“显示隐含文件和文件夹”。<br>也可以在“运行”中输入“c:\boot.ini”打开该文件。<br>三、修改boot.ini文件的方法<br>更改boot.int前，右击boot.int—“属性”，去掉“只读” 。</p>
+<ol>
+<li>使用记事本或文本编辑器直接编辑</li>
+<li>借助命令行工具bootcfg.exe对Boot.ini文件执行编辑操作（在cmd窗口中，输入bootcfg可以查询当前boot.ini文件的详情，输入bootcfg /?来查看相关参数功能）<br>四、设置个性化的启动菜单 1.自定义延迟时间<br>　　延迟时间是系统启动引导菜单后在设定的延迟时间内用户没有进行任何操作时，进入默认的操作系统。<br> 打开Boot.ini文件，将timeout=???的等号后面直接输入要延迟的时间，单位为秒，更改后保存文件即可。<br>　　还可以在“系统配置实用程序”中对其进行修改。在“开始/运行”中键入“msconfig”命令，在弹出的“系统配置实用程序”中单击“Boot.ini”标签，在“Boot.ini”界面中的“超时XX秒”项中输入需要的延时时间即可。<br>2.自定义显示内容<br>　　在多系统启动时，有一个操作系统选择列表，这些列表显示的是电脑中所有操作系统的名称，如：Microsoft Windows XP Professional。<br>　　我们可以对这些显示内容进行修改，加载一些个性化的设置。<br>　　打开“boot.ini”文件，找到[operating systems]字段，该字段是显示当前操作系统列表，<br>　　其格式为multi(0)disk(0)rdisk(0)partition(3)\WINDOWS=”Microsoft Windows XP Professional” /fastdetect<br>　　后面引号中的部分就是系统启动时显示的内容，只要将引号中的这些内容更改为自己需要的文字即可。<br>3.定义默认启动系统<br>　　装了多系统后，boot.ini会将其中一个系统设置为默认启动系统，如Windows XP，在超过延迟时间后将自动引导默认的系统启动。<br>　　我们可以根据需要将默认的启动系统更改为其它的系统（如Windows 98），如果不想直接修改boot.ini文件的话，可以这样做：<br>　　右键单击“我的电脑”，选择“属性”，在系统属性对话框中单击“高级”选项，随后在下面的“启动和故障恢复”项中选择“设置”按钮，弹出一个“启动和故障恢复”对话框，单击“系统启动”项中的默认操作系统下拉菜单，选择一个需要的系统，单击“确定”即可；<br>　　也可以在“系统配置实用程序”中进行设置，选中想要设为默认的操作系统，点击下面的“设为默认”即可。<br>4.加载启动参数，更改启动画面<br>　　boot.ini在引导多系统启动时提供了很多的参数命令，这些启动参数可以得到不同的启动效果。<br>　　boot.ini在默认的情况下加载的是/fastdetect参数，表示启动时不检查串行口和并行口。<br>　　其实我们可以更改为其它参数，更改时首先在“boot.ini”中选择需要更改的系统列表，随后将该系统中的参数/fastdetect改为相应的参数值即可。以后再启动该系统就会加载一些设置信息或画面。我们以可以在“系统配置实用程序”中对一些参数进行设置，切换到“boot.ini”选项，先选中需要更改的系统，随后在“启动选项”下端勾选需要的启动参数即可,此对几个常用参数加以说明：<br>　　SAFEBOOT：安全启动，只启动HKLM\System\CurrentControlSetControl\SafeBoot中的驱动程序和服务，其后可跟三个参数Minimal、Network或Dsrepair。<br>　　Minimal和Network允许在网络连接下启动系统;Dsrepair要求系统从备份设备中调入活动目录的设置,还有一个选项是Minimal（AlternateShell），它让系统调入由HKLM\System\CurrentControlSetSafeBoot\AlternateShell指定的SHELL程序，而不使用默认的Explorer。<br>　　/NOGUIBOOT:不加载VGA驱动程序，也就不会显示启动过程和失败时的蓝屏信息。<br>　　/BOOTLOG：将日志写入Nnbtlog.txt文件。<br>　　/BASEVIDEO：使用标准VGA方式启动，这种方式主要用于显示驱动程序失效时。<br>　　/SOS：在调入驱动程序名时显示它的名称，因驱动问题而无法启动时使用比较好。<br>五、boot.ini文件丢失怎么办？<br>1.通过手动在C盘创建一个boot.ini文件，一般的XP下面的boot.ini文件为：</li>
+</ol>
+<p>　　[boot loader]<br>　　timeout=10<br>　　default=multi(0)disk(0)rdisk(0)partition(1)\WINDOWS<br>　　[operating systems]<br>　　multi(0)disk(0)rdisk(0)partition(1)\WINDOWS=”Microsoft Windows XP Professional” /noexecute=optin /fastdetect /usepmtimer</p>
+<p>　　然后把此文件保存为boot.ini文件即可。<br>2.把C:\Windows\pss下的boot.ini.backup复制到C盘下，去掉.backup扩展名即可。</p>
+<p>windows事件查看器，当软件，服务，程序启动不了，或报错可以来瞄一眼。</p>
 
       
     </div>
@@ -428,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/27/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/03/07/shortname/" rel="next" title="兴趣爱好之英文缩写">
+                <i class="fa fa-chevron-left"></i> 兴趣爱好之英文缩写
               </a>
             
           </div>
@@ -438,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/27/redis/" rel="prev" title="Redis">
-                Redis <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/07/linux/" rel="prev" title="Linux 笔记">
+                Linux 笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -580,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot-调试"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot 调试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.1.</span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot-工程"><span class="nav-number">1.1.1.</span> <span class="nav-text">Spring Boot 工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#idea开发环境"><span class="nav-number">1.1.2.</span> <span class="nav-text">idea开发环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.3.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">1.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统：引导"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统：引导</span></a></li></ol></li></ol></div>
             
 
           </div>
