@@ -123,17 +123,17 @@
 
 
 
-<meta name="description" content="Redisredis 启动1. 直接启动&amp;emsp;&amp;emsp;进入redis根目录，执行命令:加上‘&amp;amp;’号使redis以后台程序方式运行 1./redis-server &amp;amp; 2. 通过指定配置文件启动&amp;emsp;&amp;emsp;可以为redis服务启动指定配置文件，例如配置为/etc/redis/6379.conf&amp;emsp;&amp;emsp;进入redis根目录，输入命令： 1./red">
+<meta name="description" content="RedisREmote DIctionary Server(Redis) 描述  &amp;emsp;&amp;emsp;REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源(BSD许可)的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，内存中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis">
 <meta property="og:url" content="https://github.com/ambitionkingman/2018/02/27/redis/index.html">
 <meta property="og:site_name" content="Wuwei` Blog">
-<meta property="og:description" content="Redisredis 启动1. 直接启动&amp;emsp;&amp;emsp;进入redis根目录，执行命令:加上‘&amp;amp;’号使redis以后台程序方式运行 1./redis-server &amp;amp; 2. 通过指定配置文件启动&amp;emsp;&amp;emsp;可以为redis服务启动指定配置文件，例如配置为/etc/redis/6379.conf&amp;emsp;&amp;emsp;进入redis根目录，输入命令： 1./red">
+<meta property="og:description" content="RedisREmote DIctionary Server(Redis) 描述  &amp;emsp;&amp;emsp;REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源(BSD许可)的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，内存中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-28T04:00:51.778Z">
+<meta property="og:updated_time" content="2018-03-12T04:02:41.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis">
-<meta name="twitter:description" content="Redisredis 启动1. 直接启动&amp;emsp;&amp;emsp;进入redis根目录，执行命令:加上‘&amp;amp;’号使redis以后台程序方式运行 1./redis-server &amp;amp; 2. 通过指定配置文件启动&amp;emsp;&amp;emsp;可以为redis服务启动指定配置文件，例如配置为/etc/redis/6379.conf&amp;emsp;&amp;emsp;进入redis根目录，输入命令： 1./red">
+<meta name="twitter:description" content="RedisREmote DIctionary Server(Redis) 描述  &amp;emsp;&amp;emsp;REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源(BSD许可)的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，内存中">
 
 
 
@@ -363,7 +363,29 @@
       
 
       
-        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="redis-启动"><a href="#redis-启动" class="headerlink" title="redis 启动"></a>redis 启动</h2><h3 id="1-直接启动"><a href="#1-直接启动" class="headerlink" title="1. 直接启动"></a>1. 直接启动</h3><p>&emsp;&emsp;进入redis根目录，执行命令:<br>加上‘&amp;’号使redis以后台程序方式运行</p>
+        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="REmote-DIctionary-Server-Redis"><a href="#REmote-DIctionary-Server-Redis" class="headerlink" title="REmote DIctionary Server(Redis)"></a>REmote DIctionary Server(Redis)</h2><ol>
+<li>描述</li>
+</ol>
+<p>&emsp;&emsp;REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。<br>Redis是一个开源(BSD许可)的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。它支持多种类型的数据结构，如 字符串（strings）， 散列（hashes）， 列表（lists）， 集合（sets）， 有序集合（sorted sets） 与范围查询， bitmaps， hyperloglogs 和 地理空间（geospatial） 索引半径查询。 Redis 内置了 复制（replication），LUA脚本（Lua scripting）， LRU驱动事件（LRU eviction），事务（transactions） 和不同级别的 磁盘持久化（persistence）， 并通过 Redis哨兵（Sentinel）和自动 分区（Cluster）提供高可用性（high availability）<br>并提供多种语言的API。</p>
+<ol>
+<li>简介</li>
+</ol>
+<p>Redis 与其他 key - value 缓存产品有以下三个特点：</p>
+<ul>
+<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
+<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+</ul>
+<ol>
+<li>优势</li>
+</ol>
+<ul>
+<li>性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。</li>
+<li>丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。</li>
+<li>原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。单个操作是原子性的。多个操作也支持事务，即原子性，通过MULTI和EXEC指令包起来。</li>
+<li>丰富的特性 – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
+</ul>
+<h2 id="redis-启动"><a href="#redis-启动" class="headerlink" title="redis 启动"></a>redis 启动</h2><h3 id="1-直接启动"><a href="#1-直接启动" class="headerlink" title="1. 直接启动"></a>1. 直接启动</h3><p>&emsp;&emsp;进入redis根目录，执行命令:<br>加上‘&amp;’号使redis以后台程序方式运行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-server &amp;</span><br></pre></td></tr></table></figure>
 <h4 id="2-通过指定配置文件启动"><a href="#2-通过指定配置文件启动" class="headerlink" title="2. 通过指定配置文件启动"></a>2. 通过指定配置文件启动</h4><p>&emsp;&emsp;可以为redis服务启动指定配置文件，例如配置为/etc/redis/6379.conf<br><br>&emsp;&emsp;进入redis根目录，输入命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-server /etc/redis/6379.conf</span><br></pre></td></tr></table></figure>
@@ -572,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis-启动"><span class="nav-number">1.1.</span> <span class="nav-text">redis 启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-直接启动"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 直接启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-通过指定配置文件启动"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">2. 通过指定配置文件启动</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#REmote-DIctionary-Server-Redis"><span class="nav-number">1.1.</span> <span class="nav-text">REmote DIctionary Server(Redis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis-启动"><span class="nav-number">1.2.</span> <span class="nav-text">redis 启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-直接启动"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 直接启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-通过指定配置文件启动"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">2. 通过指定配置文件启动</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
