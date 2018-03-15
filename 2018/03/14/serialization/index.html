@@ -130,7 +130,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="Serialization 序列化概念Serialization（序列化）是一种将对象以一连串的字节描述的过程；反序列化 deserialization 是一种将这些字节重建成一个对象的过程。 java中，请求为 application/json时，参数为 json 字符串，封装成对象的过程为反序列化，Controller 中将对象转换成 json 字符串返回给前端的过程叫序列化。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-15T01:32:39.442Z">
+<meta property="og:updated_time" content="2018-03-15T15:49:42.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Serialization 序列化">
 <meta name="twitter:description" content="Serialization 序列化概念Serialization（序列化）是一种将对象以一连串的字节描述的过程；反序列化 deserialization 是一种将这些字节重建成一个对象的过程。 java中，请求为 application/json时，参数为 json 字符串，封装成对象的过程为反序列化，Controller 中将对象转换成 json 字符串返回给前端的过程叫序列化。">
@@ -339,6 +339,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/14/serialization/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/14/serialization/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -363,7 +373,8 @@
       
 
       
-        <h1 id="Serialization-序列化"><a href="#Serialization-序列化" class="headerlink" title="Serialization 序列化"></a>Serialization 序列化</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Serialization（序列化）是一种将对象以一连串的字节描述的过程；反序列化 deserialization 是一种将这些字节重建成一个对象的过程。</p>
+        <a id="more"></a>
+<h1 id="Serialization-序列化"><a href="#Serialization-序列化" class="headerlink" title="Serialization 序列化"></a>Serialization 序列化</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Serialization（序列化）是一种将对象以一连串的字节描述的过程；反序列化 deserialization 是一种将这些字节重建成一个对象的过程。</p>
 <p>java中，请求为 application/json时，参数为 json 字符串，封装成对象的过程为反序列化，Controller 中将对象转换成 json 字符串返回给前端的过程叫序列化。</p>
 
       
@@ -458,6 +469,14 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
 
   
 
@@ -761,6 +780,52 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '',
+            repo: '',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'd68058794833aa6387839d94fa7f07165418803e',
+            
+                client_id: '4b1bc62cf280a7e4b8ae'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
 
 
 
