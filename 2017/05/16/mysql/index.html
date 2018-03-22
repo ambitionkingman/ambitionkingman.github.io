@@ -164,7 +164,7 @@
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/usingindex.png">
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/impwhere.png">
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/case.png">
-<meta property="og:updated_time" content="2018-03-22T07:48:06.646Z">
+<meta property="og:updated_time" content="2018-03-22T07:50:57.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql 执行计划与优化">
 <meta name="twitter:description" content="本篇文章主要介绍 sql 的查询计划执行的顺序，过程，性能，优化等知识。">
@@ -445,17 +445,10 @@
 <h3 id="explain-执行计划详解"><a href="#explain-执行计划详解" class="headerlink" title="explain 执行计划详解"></a>explain 执行计划详解</h3><p>&emsp;&emsp;使用explain关键字可以模拟优化器执行SQL查询语句，从而知道MySQL是如何处理你的SQL语句的，分析你的查询语句或是表结构的性能瓶颈。<br>执行计划包含的信息：<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/explainsql.png" alt="执行计划包含的信息"></p>
 <h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>&emsp;&emsp;select查询的序列号，包含一组数字，表示查询中执行select子句或操作表的顺序 。</p>
 <ol>
-<li>id相同：执行顺序由上至下</li>
+<li>id相同：执行顺序由上至下<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/idsame.png" alt="id相同"></li>
+<li>id不同：如果是子查询，id的序号会递增，id值越大优先级越高，越先被执行<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/iddiff.png" alt="id不同"></li>
+<li>id相同又不同（两种情况同时存在）：id如果相同，可以认为是一组，从上往下顺序执行；在所有组中，id值越大，优先级越高，越先执行<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/idsamediff.png" alt="id相同又不同"></li>
 </ol>
-<p><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/idsame.png" alt="id相同"></p>
-<ol>
-<li>id不同：如果是子查询，id的序号会递增，id值越大优先级越高，越先被执行</li>
-</ol>
-<p><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/iddiff.png" alt="id不同"></p>
-<ol>
-<li>id相同又不同（两种情况同时存在）：id如果相同，可以认为是一组，从上往下顺序执行；在所有组中，id值越大，优先级越高，越先执行</li>
-</ol>
-<p><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/idsamediff.png" alt="id相同又不同"></p>
 <h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h4><p>&emsp;&emsp;查询的类型，主要是用于区分普通查询、联合查询、子查询等复杂的查询</p>
 <ol>
 <li>SIMPLE：简单的select查询，查询中不包含子查询或者union</li>
