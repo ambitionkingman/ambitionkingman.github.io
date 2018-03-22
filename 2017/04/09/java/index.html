@@ -147,7 +147,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="java 基础相关知识：hashmap,优化。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-22T05:16:47.926Z">
+<meta property="og:updated_time" content="2018-03-22T08:52:58.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 相关笔记">
 <meta name="twitter:description" content="java 基础相关知识：hashmap,优化。">
@@ -419,7 +419,10 @@
       
 
       
-        <h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><h4 id="HashMap-LinkedHashMap"><a href="#HashMap-LinkedHashMap" class="headerlink" title="HashMap,LinkedHashMap"></a>HashMap,LinkedHashMap</h4><p>Java HashMap,LinkedHashMap<br>如果需要使用的Map中的key无序，选择HashMap；如果要求key有序，则选择TreeMap。<br>但是选择TreeMap就会有性能问题，因为TreeMap的get操作的时间复杂度是O(log(n))的，<br>相比于HashMap的O(1)还是差不少的，LinkedHashMap的出现就是为了平衡这些因素，使得能够以O(1)时间复杂度增加查找元素，又能够保证key的有序性此外，LinkedHashMap提供了两种key的顺序：<br>      ○ 访问顺序（access order）。非常实用，可以使用这种顺序实现LRU（Least Recently Used）缓存<br>      ○ 插入顺序（insertion orde）。同一key的多次插入，并不会影响其顺序</p>
+        <blockquote>
+<p>本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。<br><br>邮箱地址:<a href="mailto:ambition_kingman@163.com" target="_blank" rel="noopener">ambition_kingman@163.com</a><br><br>QQ:864113210</p>
+</blockquote>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><h4 id="HashMap-LinkedHashMap"><a href="#HashMap-LinkedHashMap" class="headerlink" title="HashMap,LinkedHashMap"></a>HashMap,LinkedHashMap</h4><p>Java HashMap,LinkedHashMap<br>如果需要使用的Map中的key无序，选择HashMap；如果要求key有序，则选择TreeMap。<br>但是选择TreeMap就会有性能问题，因为TreeMap的get操作的时间复杂度是O(log(n))的，<br>相比于HashMap的O(1)还是差不少的，LinkedHashMap的出现就是为了平衡这些因素，使得能够以O(1)时间复杂度增加查找元素，又能够保证key的有序性此外，LinkedHashMap提供了两种key的顺序：<br>      ○ 访问顺序（access order）。非常实用，可以使用这种顺序实现LRU（Least Recently Used）缓存<br>      ○ 插入顺序（insertion orde）。同一key的多次插入，并不会影响其顺序</p>
 <h5 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h5><ol>
 <li><p>HashMap构造函数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public HashMap(int initialCapacity, float loadFactor) &#123;</span><br><span class="line">    if (initialCapacity &lt; 0)</span><br><span class="line">        throw new IllegalArgumentException(&quot;Illegal initial capacity: &quot; + initialCapacity);</span><br><span class="line">    if (initialCapacity &gt; MAXIMUM_CAPACITY)</span><br><span class="line">        initialCapacity = MAXIMUM_CAPACITY;</span><br><span class="line">    if (loadFactor &lt;= 0 || Float.isNaN(loadFactor))</span><br><span class="line">        throw new IllegalArgumentException(&quot;Illegal load factor: &quot; + loadFactor);</span><br><span class="line">    this.loadFactor = loadFactor;</span><br><span class="line">    threshold = initialCapacity;</span><br><span class="line">    init();   //注意这个模板函数，在LinkHashMap中有使用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

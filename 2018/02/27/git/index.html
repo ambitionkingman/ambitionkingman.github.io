@@ -139,17 +139,17 @@
 
 
 
-<meta name="description" content="Git分支删除远程分支并保留本地分支&amp;emsp;&amp;emsp;先声明一点，如果要同时删除本地的和github上的文件，直接删除本地的再push就行了，比较简单。这里的要求是不能删除本地的文件，而要删除github里，就是网页上的文件。&amp;emsp;&amp;emsp;其实质就是删除缓冲区里的文件，再提交给服务器端。  首先进入要删除的文件夹或文件的根目录下，如F:\myprojects\supermarket">
+<meta name="description" content="Git 本文仅限于个人使用。倘若您对本文若有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。邮箱地址:ambition_kingman@163.comQQ:864113210  分支删除远程分支并保留本地分支&amp;emsp;&amp;emsp;先声明一点，如果要同时删除本地的和github上的文件，直接删除本地的再push就行了，比较简单。这里的要求是不能删除本地的文件，而要删除github里，就是网页上">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git">
 <meta property="og:url" content="http://www.wowker.cn/2018/02/27/git/index.html">
 <meta property="og:site_name" content="Wuwei` Blog">
-<meta property="og:description" content="Git分支删除远程分支并保留本地分支&amp;emsp;&amp;emsp;先声明一点，如果要同时删除本地的和github上的文件，直接删除本地的再push就行了，比较简单。这里的要求是不能删除本地的文件，而要删除github里，就是网页上的文件。&amp;emsp;&amp;emsp;其实质就是删除缓冲区里的文件，再提交给服务器端。  首先进入要删除的文件夹或文件的根目录下，如F:\myprojects\supermarket">
+<meta property="og:description" content="Git 本文仅限于个人使用。倘若您对本文若有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。邮箱地址:ambition_kingman@163.comQQ:864113210  分支删除远程分支并保留本地分支&amp;emsp;&amp;emsp;先声明一点，如果要同时删除本地的和github上的文件，直接删除本地的再push就行了，比较简单。这里的要求是不能删除本地的文件，而要删除github里，就是网页上">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T16:15:42.275Z">
+<meta property="og:updated_time" content="2018-03-22T08:52:35.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
-<meta name="twitter:description" content="Git分支删除远程分支并保留本地分支&amp;emsp;&amp;emsp;先声明一点，如果要同时删除本地的和github上的文件，直接删除本地的再push就行了，比较简单。这里的要求是不能删除本地的文件，而要删除github里，就是网页上的文件。&amp;emsp;&amp;emsp;其实质就是删除缓冲区里的文件，再提交给服务器端。  首先进入要删除的文件夹或文件的根目录下，如F:\myprojects\supermarket">
+<meta name="twitter:description" content="Git 本文仅限于个人使用。倘若您对本文若有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。邮箱地址:ambition_kingman@163.comQQ:864113210  分支删除远程分支并保留本地分支&amp;emsp;&amp;emsp;先声明一点，如果要同时删除本地的和github上的文件，直接删除本地的再push就行了，比较简单。这里的要求是不能删除本地的文件，而要删除github里，就是网页上">
 
 
 
@@ -414,7 +414,10 @@
       
 
       
-        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="删除远程分支并保留本地分支"><a href="#删除远程分支并保留本地分支" class="headerlink" title="删除远程分支并保留本地分支"></a>删除远程分支并保留本地分支</h3><p>&emsp;&emsp;先声明一点，如果要同时删除本地的和github上的文件，直接删除本地的再push就行了，比较简单。这里的要求是不能删除本地的文件，而要删除github里，就是网页上的文件。<br>&emsp;&emsp;其实质就是删除缓冲区里的文件，再提交给服务器端。</p>
+        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><blockquote>
+<p>本文仅限于个人使用。<br><br>倘若您对本文若有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。<br><br>邮箱地址:<a href="mailto:ambition_kingman@163.com" target="_blank" rel="noopener">ambition_kingman@163.com</a><br><br>QQ:864113210</p>
+</blockquote>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="删除远程分支并保留本地分支"><a href="#删除远程分支并保留本地分支" class="headerlink" title="删除远程分支并保留本地分支"></a>删除远程分支并保留本地分支</h3><p>&emsp;&emsp;先声明一点，如果要同时删除本地的和github上的文件，直接删除本地的再push就行了，比较简单。这里的要求是不能删除本地的文件，而要删除github里，就是网页上的文件。<br>&emsp;&emsp;其实质就是删除缓冲区里的文件，再提交给服务器端。</p>
 <ol>
 <li><p>首先进入要删除的文件夹或文件的根目录下，如F:\myprojects\supermarketmanager1115</p>
 </li>

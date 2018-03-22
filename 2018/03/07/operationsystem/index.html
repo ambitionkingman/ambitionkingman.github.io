@@ -139,17 +139,17 @@
 
 
 
-<meta name="description" content="操作系统操作系统：引导标题：Windows系统引导文件(boot.ini)格式详解2013-08-13 14:16:50 当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的系统后回车即可。 Windows操作系统主要依赖Boot.ini文件来确定计算机在引导过程中显示的可供选取的操作系统类别。系统安装时，会在引导分区的根目录中建立引导菜单文件 boo">
+<meta name="description" content="本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。邮箱地址:ambition_kingman@163.comQQ:864113210  操作系统：引导标题：Windows系统引导文件(boot.ini)格式详解2013-08-13 14:16:50 当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统">
 <meta property="og:url" content="http://www.wowker.cn/2018/03/07/operationsystem/index.html">
 <meta property="og:site_name" content="Wuwei` Blog">
-<meta property="og:description" content="操作系统操作系统：引导标题：Windows系统引导文件(boot.ini)格式详解2013-08-13 14:16:50 当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的系统后回车即可。 Windows操作系统主要依赖Boot.ini文件来确定计算机在引导过程中显示的可供选取的操作系统类别。系统安装时，会在引导分区的根目录中建立引导菜单文件 boo">
+<meta property="og:description" content="本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。邮箱地址:ambition_kingman@163.comQQ:864113210  操作系统：引导标题：Windows系统引导文件(boot.ini)格式详解2013-08-13 14:16:50 当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-07T15:18:18.094Z">
+<meta property="og:updated_time" content="2018-03-22T08:53:21.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
-<meta name="twitter:description" content="操作系统操作系统：引导标题：Windows系统引导文件(boot.ini)格式详解2013-08-13 14:16:50 当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的系统后回车即可。 Windows操作系统主要依赖Boot.ini文件来确定计算机在引导过程中显示的可供选取的操作系统类别。系统安装时，会在引导分区的根目录中建立引导菜单文件 boo">
+<meta name="twitter:description" content="本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。邮箱地址:ambition_kingman@163.comQQ:864113210  操作系统：引导标题：Windows系统引导文件(boot.ini)格式详解2013-08-13 14:16:50 当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的">
 
 
 
@@ -414,7 +414,10 @@
       
 
       
-        <h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h4 id="操作系统：引导"><a href="#操作系统：引导" class="headerlink" title="操作系统：引导"></a>操作系统：引导</h4><p>标题：Windows系统引导文件(boot.ini)格式详解<br>2013-08-13 14:16:50</p>
+        <blockquote>
+<p>本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。<br><br>邮箱地址:<a href="mailto:ambition_kingman@163.com" target="_blank" rel="noopener">ambition_kingman@163.com</a><br><br>QQ:864113210</p>
+</blockquote>
+<h4 id="操作系统：引导"><a href="#操作系统：引导" class="headerlink" title="操作系统：引导"></a>操作系统：引导</h4><p>标题：Windows系统引导文件(boot.ini)格式详解<br>2013-08-13 14:16:50</p>
 <p>当我们在电脑中安装了多个操作系统之后，每次启动计算机时都会出现一个系统引导菜单，在此选择需要进入的系统后回车即可。</p>
 <p>Windows操作系统主要依赖Boot.ini文件来确定计算机在引导过程中显示的可供选取的操作系统类别。系统安装时，会在引导分区的根目录中建立引导菜单文件 boot.ini。boot.ini 在缺省状态下被设定为隐含和系统文件属性，并且被标识为只读文件。使用它我们可以轻松对电脑中的多系统进行引导，还可以通过该引导文件，设置个性化的启动菜单。<br>一、boot.ini文件格式 当电脑开机时，计算机将根据此引导菜单文件启动相应的操作系统。如果是多操作系统，可会提示用户选择要启动哪一个操作系统。boot.init文件示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[boot loader]</span><br><span class="line">timeout=30</span><br><span class="line">default=multi(0)disk(0)rdisk(0)partition(2)\WINNT</span><br><span class="line"></span><br><span class="line">[operating systems]</span><br><span class="line">multi(0)disk(0)rdisk(0)partition(2)\WINNT=&quot;Microsoft Windows XP Professional&quot; /fastdetect</span><br><span class="line">multi(0)disk(0)rdisk(1)partition(1)\WINNT=&quot;Microsoft Windows NT Sever&quot; /fastdetect</span><br><span class="line">C:\=&quot;Microsoft Windows&quot;</span><br><span class="line">C:\bootsect.bin=&quot;linux&quot;</span><br></pre></td></tr></table></figure></p>
 <p>这里，大家可以看到boot.ini文件分为两部分，[boot loader]和[operating systems]。 [boot loader]<br>timeout=???</p>
@@ -689,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">1.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统：引导"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统：引导</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统：引导"><span class="nav-number">1.</span> <span class="nav-text">操作系统：引导</span></a></li></ol></div>
             
 
           </div>
