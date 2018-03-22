@@ -548,16 +548,10 @@ Browser Support
 
       
         
-          
-          
-
-您对本文若有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。邮箱地址:ambition_kingman@163.comQQ:864113210
-
-概述&emsp;&emsp;HTTP/1.1 协议规定的 HTTP 请求方法有 OPTIONS、GET、HEAD、POST、PUT、DELETE、
-          ...
+          协议规定 POST 提交的数据必须放在消息主体（entity-body）中，但协议并没有规定数据必须使用什么编码方式。实际上，开发者完全可以自己决定消息主体的格式，只要最后发送的 HTTP 请求满足上面的格式就可以。但是，数据发送出去，还要服务端解析成功才有意义。一般服务端语言如 java、php等，以及它们的 framework，都内置了自动解析常见数据格式的功能。服务端通常是根据请求头（headers）中的 Content-Type 字段来获知请求中的消息主体是用何种方式编码，再对主体进行解析。所以说到 POST 提交数据方案，包含了 Content-Type 和消息主体编码方式两部分。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/22/http_post_type/#more" rel="contents">
+            <a class="btn" href="/2018/03/22/http_post_type/">
               阅读全文 &raquo;
             </a>
           </div>
