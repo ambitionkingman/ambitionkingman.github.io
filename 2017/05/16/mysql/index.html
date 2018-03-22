@@ -164,7 +164,7 @@
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/usingindex.png">
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/impwhere.png">
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/case.png">
-<meta property="og:updated_time" content="2018-03-22T08:52:10.512Z">
+<meta property="og:updated_time" content="2018-03-22T09:05:40.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql 执行计划与优化">
 <meta name="twitter:description" content="本篇文章主要介绍 sql 的查询计划执行的顺序，过程，性能，优化等知识。">
@@ -483,18 +483,17 @@
 <ol>
 <li>Using filesort ：<br>mysql对数据使用一个外部的索引排序，而不是按照表内的索引进行排序读取。也就是说mysql无法利用索引完成的排序操作成为“文件排序”<br>这里写图片描述<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/filesort.png" alt="filesort"><br>由于索引是先按email排序、再按address排序，所以查询时如果直接按address排序，索引就不能满足要求了，mysql内部必须再实现一次“文件排序”</li>
 <li>Using temporary：<br>使用临时表保存中间结果，也就是说mysql在对查询结果排序时使用了临时表，常见于order by 和 group by<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/temporary.png" alt="temporary"></li>
-<li>Using index：<br>表示相应的select操作中使用了覆盖索引（Covering Index），避免了访问表的数据行，效率高<br>如果同时出现Using where，表明索引被用来执行索引键值的查找（参考上图）<br>如果没用同时出现Using where，表明索引用来读取数据而非执行查找动作<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/usingindex.png" alt="usingindex"><br>覆盖索引（Covering Index）：也叫索引覆盖。就是select列表中的字段，只用从索引中就能获取，不必根据索引再次读取数据文件，换句话说查询列要被所建的索引覆盖。<br>注意：</li>
-</ol>
-<ul>
-<li>如需使用覆盖索引，select列表中的字段只取出需要的列，不要使用select *</li>
-<li>如果将所有字段都建索引会导致索引文件过大，反而降低crud性能</li>
-</ul>
-<ol>
-<li>Using where ：<br>使用了where过滤</li>
+<li><p>Using index：<br>表示相应的select操作中使用了覆盖索引（Covering Index），避免了访问表的数据行，效率高<br>如果同时出现Using where，表明索引被用来执行索引键值的查找（参考上图）<br>如果没用同时出现Using where，表明索引用来读取数据而非执行查找动作<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/usingindex.png" alt="usingindex"><br>覆盖索引（Covering Index）：也叫索引覆盖。就是select列表中的字段，只用从索引中就能获取，不必根据索引再次读取数据文件，换句话说查询列要被所建的索引覆盖。</p>
+<blockquote>
+<p>注意：<br>如需使用覆盖索引，select列表中的字段只取出需要的列，不要使用select *<br>如果将所有字段都建索引会导致索引文件过大，反而降低crud性能</p>
+</blockquote>
+</li>
+<li><p>Using where ：<br>使用了where过滤</p>
+</li>
 <li>Using join buffer ：<br>使用了链接缓存</li>
 <li>Impossible WHERE：<br>where子句的值总是false，不能用来获取任何元祖<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/impwhere.png" alt="impwhere"></li>
 <li>select tables optimized away：<br>在没有group by子句的情况下，基于索引优化MIN/MAX操作或者对于MyISAM存储引擎优化COUNT（* /）操作，不必等到执行阶段在进行计算，查询执行计划生成的阶段即可完成优化</li>
-<li>distinct：<br>优化distinct操作，在找到第一个匹配的元祖后即停止找同样值得动作<h3 id="综合例子"><a href="#综合例子" class="headerlink" title="综合例子"></a>综合例子</h3></li>
+<li>distinct：<br>优化distinct操作，在找到第一个匹配的元素后即停止找同样值得动作<h3 id="综合例子"><a href="#综合例子" class="headerlink" title="综合例子"></a>综合例子</h3></li>
 </ol>
 <p><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/case.png" alt="case"></p>
 <p>执行顺序<br><br>1（id = 4）、【select id, name from t2】：select_type 为union，说明id=4的select是union里面的第二个select。</p>
@@ -532,7 +531,7 @@
   <p><span>本文标题:</span><a href="/2017/05/16/mysql/">Mysql 执行计划与优化</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2017年05月16日 - 00:05</p>
-  <p><span>最后更新:</span>2018年03月22日 - 16:03</p>
+  <p><span>最后更新:</span>2018年03月22日 - 17:03</p>
   <p><span>原始链接:</span><a href="/2017/05/16/mysql/" title="Mysql 执行计划与优化">http://www.wowker.cn/2017/05/16/mysql/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2017/05/16/mysql/"  aria-label="复制成功！"></i></span>
   </p>
