@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据库,设计,databse," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据库设计相关。">
+<meta name="keywords" content="数据库,设计,databse">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库设计">
+<meta property="og:url" content="http://www.wowker.cn/2018/03/25/database_design/index.html">
+<meta property="og:site_name" content="Wuwei` Blog">
+<meta property="og:description" content="数据库设计相关。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-26T14:30:12.007Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库设计">
+<meta name="twitter:description" content="数据库设计相关。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.wowker.cn/2018/03/25/database_design/"/>
+
+
+
+
+
+  <title>数据库设计 | Wuwei` Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wuwei` Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wowker.cn/2018/03/25/database_design/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p4ucv3uvl.bkt.clouddn.com/avatar/godnaruto.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wuwei` Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库设计</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T22:09:00+08:00">
+                2018-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/25/database_design/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/25/database_design/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  数据库设计相关。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。<br><br>邮箱地址:<a href="mailto:ambition_kingman@163.com" target="_blank" rel="noopener">ambition_kingman@163.com</a><br><br>QQ:864113210</p>
+</blockquote>
+<h3 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h3><p>第一范式（1NF）：数据表中的每一列（每个字段）必须是不可拆分的最小单元，也就是确保每一列的原子性；</p>
+<p>第二范式（2NF）：满足1NF后，要求表中的所有列，都必须依赖于主键，而不能有任何一列与主键没有关系，也就是说一个表只描述一件事情；</p>
+<p>第三范式（3NF）：必须先满足第二范式（2NF），要求：表中的每一列只与主键直接相关而不是间接相关，（表中的每一列只能依赖于主键）；</p>
+<h3 id="数据库拆分"><a href="#数据库拆分" class="headerlink" title="数据库拆分"></a>数据库拆分</h3><p>&emsp;&emsp;概述：当我们使用读写分离、缓存后，数据库的压力还是很大的时候，这就需要使用到数据库拆分了。<br>数据库拆分简单来说，就是指通过某种特定的条件，按照某个维度，将我们存放在同一个数据库中的数据分散存放到多个数据库（主机）上面以达到分散单库（主机）负载的效果。</p>
+<blockquote>
+<p>切分模式： 垂直（纵向）拆分、水平拆分。</p>
+</blockquote>
+<ol>
+<li>垂直拆分<br>专库专用:一个数据库由很多表的构成，每个表对应着不同的业务，垂直切分是指按照业务将表进行分类，分布到不同的数据库上面，这样也就将数据或者说压力分担到不同的库上面，如下图：<br><img src="" alt="垂直拆分图"></li>
+</ol>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><pre><code>1. 拆分后业务清晰，拆分规则明确。
+2. 系统之间整合或扩展容易。
+3. 数据维护简单。
+</code></pre><h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><pre><code>1. 部分业务表无法join，只能通过接口方式解决，提高了系统复杂度。
+2. 受每种业务不同的限制存在单库性能瓶颈，不易数据扩展跟性能提高。
+3. 事务处理复杂。
+</code></pre><ol>
+<li>水平拆分：垂直拆分后遇到单机瓶颈，可以使用水平拆分。相对于垂直拆分的区别是：垂直拆分是把不同的表拆到不同的数据库中，而水平拆分是把同一个表拆到不同的数据库中。<br>相对于垂直拆分，水平拆分不是将表的数据做分类，而是按照某个字段的某种规则来分散到多个库之中，每个表中包含一部分数据。简单来说，我们可以将数据的水平切分理解为是按照数据行的切分，就是将表中 的某些行切分到一个数据库，而另外的某些行又切分到其他的数据库中，主要有分表，分库两种模式，如图：<br><img src="" alt="分库模式图"></li>
+</ol>
+<h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>不存在单库大数据，高并发的性能瓶颈。</li>
+<li>对应用透明，应用端改造较少。     </li>
+<li>按照合理拆分规则拆分，join操作基本避免跨库。</li>
+<li>提高了系统的稳定性跟负载能力。<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4></li>
+<li>拆分规则难以抽象。</li>
+<li>分片事务一致性难以解决。</li>
+<li>数据多次扩展难度跟维护量极大。</li>
+<li>跨库join性能较差。<h4 id="拆分的处理难点"><a href="#拆分的处理难点" class="headerlink" title="拆分的处理难点"></a>拆分的处理难点</h4>两张方式共同缺点</li>
+<li>引入分布式事务的问题。</li>
+<li>跨节点Join 的问题。</li>
+<li>跨节点合并排序分页问题。</li>
+</ol>
+<h4 id="针对数据源管理，目前主要有两种思路："><a href="#针对数据源管理，目前主要有两种思路：" class="headerlink" title="针对数据源管理，目前主要有两种思路："></a>针对数据源管理，目前主要有两种思路：</h4><ol>
+<li>客户端模式，在每个应用程序模块中配置管理自己需要的一个（或者多个）数据源，直接访问各个 数据库，在模块内完成数据的整合。</li>
+</ol>
+<p>优点：相对简单，无性能损耗。<br>缺点：不够通用，数据库连接的处理复杂，对业务不够透明，处理复杂。</p>
+<ol>
+<li>通过中间代理层来统一管理所有的数据源，后端数据库集群对前端应用程序透明；</li>
+</ol>
+<p>优点：通用，对应用透明，改造少。<br>缺点：实现难度大，有二次转发性能损失。</p>
+<h4 id="拆分原则"><a href="#拆分原则" class="headerlink" title="拆分原则"></a>拆分原则</h4><ol>
+<li>尽量不拆分，架构是进化而来，不是一蹴而就。(SOA)</li>
+<li>最大可能的找到最合适的切分维度。</li>
+<li>由于数据库中间件对数据Join 实现的优劣难以把握，而且实现高性能难度极大，业务读取  尽量少使用多表Join -尽量通过数据冗余，分组避免数据垮库多表join。</li>
+<li>尽量避免分布式事务。</li>
+<li>单表拆分到数据1000万以内。<h4 id="切分方案"><a href="#切分方案" class="headerlink" title="切分方案"></a>切分方案</h4>范围、枚举、时间、取模、哈希、指定等</li>
+</ol>
+<h3 id="案析"><a href="#案析" class="headerlink" title="案析"></a>案析</h3><h4 id="场景一"><a href="#场景一" class="headerlink" title="场景一"></a>场景一</h4><p>建立一个历史his系统，将公司的一些历史个人游戏数据保存到这个his系统中，主要是写入，还有部分查询，读写比约为1:4；由于是所有数据的历史存取，所以并发要求比较高；</p>
+<p>分析：<br>历史数据<br><br>写多读少<br><br>越近日期查询越频繁？<br><br>什么业务数据？用户游戏数据<br><br>有没有大规模分析查询？<br><br>数据量多大？<br><br>保留多久？<br><br>机器资源有多少？<br><br>方案1：按照日期每月一个分片<br><br>带来的问题：1.数据热点问题（压力不均匀）<br><br>方案2：按照用户取模，  –by Jerome 就这个比较合适了<br><br>带来的问题：后续扩容困难<br><br>方案3：按用户ID范围分片（1-1000万=分片1，xxx）<br><br>带来的问题：用户活跃度无法掌握，可能存在热点问题<br></p>
+<h4 id="场景二"><a href="#场景二" class="headerlink" title="场景二"></a>场景二</h4><p>建立一个商城订单系统，保存用户订单信息。<br><br>分析：<br><br>电商系统<br><br>一号店或京东类？淘宝或天猫？<br><br>实时性要求高<br><br>存在瞬时压力<br><br>基本不存在大规模分析<br><br>数据规模？<br><br>机器资源有多少？<br><br>维度？商品？用户？商户？<br><br>方案1：按照用户取模，<br><br>带来的问题：后续扩容困难<br><br>方案2：按用户ID范围分片（1-1000万=分片1，xxx）<br><br>带来的问题：用户活跃度无法掌握，可能存在热点问题<br><br>方案3：按省份地区或者商户取模<br><br>数据分配不一定均匀<br></p>
+<h4 id="场景三"><a href="#场景三" class="headerlink" title="场景三"></a>场景三</h4><p>上海公积金，养老金，社保系统<br><br>分析：<br><br>社保系统<br><br>实时性要求不高<br><br>不存在瞬时压力<br><br>大规模分析？<br><br>数据规模大<br><br>数据重要不可丢失<br><br>偏于查询？<br><br>方案1：按照用户取模，<br><br>带来的问题：后续扩容困难<br><br>方案2：按用户ID范围分片（1-1000万=分片1，xxx）<br><br>带来的问题：用户活跃度无法掌握，可能存在热点问题<br><br>方案3：按省份区县地区枚举<br><br>数据分配不一定均匀<br><br>数据库问题解决后，应用面对的新挑战就是拆分应用等<br></p>
+<!-- [参考地址](https://blog.csdn.net/jerome_s/article/details/52492616) -->
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/25/database_design/">数据库设计</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
+  <p><span>发布时间:</span>2018年03月25日 - 22:03</p>
+  <p><span>最后更新:</span>2018年03月26日 - 22:03</p>
+  <p><span>原始链接:</span><a href="/2018/03/25/database_design/" title="数据库设计">http://www.wowker.cn/2018/03/25/database_design/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/25/database_design/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });
+</script>
+
+
+      
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/wechatpay0.5.png" alt="Wu Wei 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/alipay0.5.jpg" alt="Wu Wei 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+            <a href="/tags/设计/" rel="tag"># 设计</a>
+          
+            <a href="/tags/databse/" rel="tag"># databse</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/22/http_post_type/" rel="next" title="POST 提交数据的四种">
+                <i class="fa fa-chevron-left"></i> POST 提交数据的四种
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p4ucv3uvl.bkt.clouddn.com/avatar/godnaruto.jpeg"
+                alt="Wu Wei" />
+            
+              <p class="site-author-name" itemprop="name">Wu Wei</p>
+              <p class="site-description motion-element" itemprop="description">Be a thoutghtfull programer,做一个有思想的程序猿。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ambitionkingman/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ambition_kingman@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wu-wei-8-35/" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/WowkerFive" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#范式"><span class="nav-number">1.</span> <span class="nav-text">范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库拆分"><span class="nav-number">2.</span> <span class="nav-text">数据库拆分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">2.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">2.2.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点：-1"><span class="nav-number">2.3.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点：-1"><span class="nav-number">2.4.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拆分的处理难点"><span class="nav-number">2.5.</span> <span class="nav-text">拆分的处理难点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#针对数据源管理，目前主要有两种思路："><span class="nav-number">2.6.</span> <span class="nav-text">针对数据源管理，目前主要有两种思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拆分原则"><span class="nav-number">2.7.</span> <span class="nav-text">拆分原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切分方案"><span class="nav-number">2.8.</span> <span class="nav-text">切分方案</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案析"><span class="nav-number">3.</span> <span class="nav-text">案析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#场景一"><span class="nav-number">3.1.</span> <span class="nav-text">场景一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#场景二"><span class="nav-number">3.2.</span> <span class="nav-text">场景二</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#场景三"><span class="nav-number">3.3.</span> <span class="nav-text">场景三</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Wei</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'ambitionkingman',
+            repo: 'ambitionkingman.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'd68058794833aa6387839d94fa7f07165418803e',
+            
+                client_id: '4b1bc62cf280a7e4b8ae'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -128,7 +128,7 @@
 
 
 
-  <meta name="keywords" content="AspectJ,切面编程," />
+  <meta name="keywords" content="Aop,切面编程,AspectJ," />
 
 
 
@@ -140,16 +140,16 @@
 
 
 <meta name="description" content="AspectJ 面向切面编程">
-<meta name="keywords" content="AspectJ,切面编程">
+<meta name="keywords" content="Aop,切面编程,AspectJ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AspectJ">
+<meta property="og:title" content="Spring Aop">
 <meta property="og:url" content="http://www.wowker.cn/2018/03/18/aspectj/index.html">
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="AspectJ 面向切面编程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-22T09:26:12.902Z">
+<meta property="og:updated_time" content="2018-03-23T14:59:51.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AspectJ">
+<meta name="twitter:title" content="Spring Aop">
 <meta name="twitter:description" content="AspectJ 面向切面编程">
 
 
@@ -186,7 +186,7 @@
 
 
 
-  <title>AspectJ | Wuwei` Blog</title>
+  <title>Spring Aop | Wuwei` Blog</title>
   
 
 
@@ -350,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">AspectJ</h1>
+          <h1 class="post-title" itemprop="name headline">Spring Aop</h1>
         
 
         <div class="post-meta">
@@ -372,6 +372,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Aop/" itemprop="url" rel="index">
+                    <span itemprop="name">Aop</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -423,6 +445,113 @@
 <blockquote>
 <p>本文仅限于个人使用。<br><br>倘若您对本文若有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。<br><br>邮箱地址:<a href="mailto:ambition_kingman@163.com" target="_blank" rel="noopener">ambition_kingman@163.com</a><br><br>QQ:864113210</p>
 </blockquote>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
+<li>权限控制</li>
+<li>缓存控制</li>
+<li>事物控制</li>
+<li>设计日志</li>
+<li>性能监控</li>
+<li>分布式追踪</li>
+<li>异常处理</li>
+</ol>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><ol>
+<li>XML配置</li>
+<li>注解方式(推荐)</li>
+</ol>
+<h3 id="主要注解"><a href="#主要注解" class="headerlink" title="主要注解"></a>主要注解</h3><ol>
+<li>@Aspect</li>
+<li>@Pointcut</li>
+<li>Advice</li>
+</ol>
+<h4 id="expression"><a href="#expression" class="headerlink" title="expression"></a>expression</h4><ol>
+<li>designators 指示器<ul>
+<li>匹配方法 execution() <strong>常用</strong></li>
+<li>匹配注解 @target() @args() @within() @annotation()</li>
+<li>匹配包/类型 within()</li>
+<li>匹配对象 this() bean() target()</li>
+<li>匹配参数 args()</li>
+</ul>
+</li>
+<li>wildcards 通配符<ul>
+<li><ul>
+<li>匹配任意数量的字符</li>
+</ul>
+</li>
+<li>.. 一般用于匹配任意数的子包或参数</li>
+<li><ul>
+<li>匹配指定类及其子类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>operators 操作符<ul>
+<li>&amp;&amp; 与</li>
+<li>|| 或</li>
+<li>! 非</li>
+</ul>
+</li>
+</ol>
+<h4 id="case"><a href="#case" class="headerlink" title="case"></a>case</h4><ol>
+<li>匹配包/类型<br>匹配Service类里头的所有方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;within(com.stars.service.TestService)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>匹配com.stars包及子包下所有类的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;within(com.stars..*)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>匹配对象<br>匹配AOP对象的目标对象为指定类型的方法，即DemoDao的aop代理对象的方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;this(com.stars.TestDao)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>匹配实现IDao接口的目标对象（而不是aop代理后的对象）的方法，这里即TestDao的的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;target(com.stars.ITestDao)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>匹配所有以Service结尾的bean里头的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;bean(*Service)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>参数匹配<br>匹配任何以find开头的而且只有一个Long参数的方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;execution(* *..find*(Long))&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>匹配任何只有一个Long参数的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;args(Long)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>匹配任何以find开头的而且第一个参数为Long型的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;execution(* *..find*(Long,..)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>匹配第一个参数为Long型的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;args(Long,..)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>注解匹配<br>匹配方法标注有Test的注解方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;@annotation(com.stars.test.annotation.Test)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>匹配标注有 Test 的类地下的方法，要求的annotation的RetentionPolicy 级别为Class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;within(com.stars.test.annotation.Test)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>匹配标注有 Test 的类地下的方法，要求的annotation的RetentionPolicy 级别为 RunTimeCla<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;target(com.stars.test.annotation.Test)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>匹配传入的参数类标注有 Test 注解的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Pointcut(&quot;@args(con.stars.test.annotation.Test)&quot;)</span><br><span class="line">public void match()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="注解详解"><a href="#注解详解" class="headerlink" title="注解详解"></a>注解详解</h4><ol>
+<li><p>execution<br>标注有 ? 的标识可以省略，其他为必须元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">execution(</span><br><span class="line">  modifier-pattern?</span><br><span class="line">  ret-type-pattern</span><br><span class="line">  declaring-type-pattern?</span><br><span class="line">  name-pattern(param-pattern)</span><br><span class="line">  throws-pattern?</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5种 advice 注解</p>
+<ul>
+<li>@Before ，前置通知</li>
+<li>@After (finally) ,后置通知，方法执行完之后</li>
+<li>@AfterReturning ,返回通知，方法执行完之后</li>
+<li>@AfterThrowing ,异常通知，抛出异常之后</li>
+<li>@Around ，环绕通知</li>
+</ul>
+</li>
+</ol>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><ol>
+<li>概述<ol>
+<li>织入时机<ol>
+<li>编译期（AspectJ)</li>
+<li>类加载时（AspectJ 5+）</li>
+<li>运行时（Spring AOP）<br>运行时（Spring AOP）<br>织入实现：从静态代理到动态代理，基于接口代理与基于继承代理。<br>代理模式：</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>设计<ol>
+<li>代理模式</li>
+<li>责任链模式</li>
+</ol>
+</li>
+<li>实现<ol>
+<li>JDK实现</li>
+<li>Cglib实现</li>
+</ol>
+</li>
+</ol>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>不宜把重要的业务逻辑放到Aop中处理<br>无法拦截static、final方法、privat方法<br>无法拦截内部方法调用</p>
 
       
     </div>
@@ -448,11 +577,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/03/18/aspectj/">AspectJ</a></p>
+  <p><span>本文标题:</span><a href="/2018/03/18/aspectj/">Spring Aop</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2018年03月18日 - 00:03</p>
-  <p><span>最后更新:</span>2018年03月22日 - 17:03</p>
-  <p><span>原始链接:</span><a href="/2018/03/18/aspectj/" title="AspectJ">http://www.wowker.cn/2018/03/18/aspectj/</a>
+  <p><span>最后更新:</span>2018年03月23日 - 22:03</p>
+  <p><span>原始链接:</span><a href="/2018/03/18/aspectj/" title="Spring Aop">http://www.wowker.cn/2018/03/18/aspectj/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/18/aspectj/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
@@ -513,9 +642,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/AspectJ/" rel="tag"># AspectJ</a>
+            <a href="/tags/Aop/" rel="tag"># Aop</a>
           
             <a href="/tags/切面编程/" rel="tag"># 切面编程</a>
+          
+            <a href="/tags/AspectJ/" rel="tag"># AspectJ</a>
           
         </div>
       
@@ -543,8 +674,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/17/hashmap/" rel="next" title="java HashMap">
-                <i class="fa fa-chevron-left"></i> java HashMap
+              <a href="/2018/03/18/jvm/" rel="next" title="Jvm">
+                <i class="fa fa-chevron-left"></i> Jvm
               </a>
             
           </div>
@@ -614,8 +745,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -634,12 +774,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -647,7 +796,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -698,6 +847,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式"><span class="nav-number">2.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要注解"><span class="nav-number">3.</span> <span class="nav-text">主要注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#expression"><span class="nav-number">3.1.</span> <span class="nav-text">expression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#case"><span class="nav-number">3.2.</span> <span class="nav-text">case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注解详解"><span class="nav-number">3.3.</span> <span class="nav-text">注解详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现原理"><span class="nav-number">3.4.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意事项"><span class="nav-number">3.5.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

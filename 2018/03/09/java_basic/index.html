@@ -139,19 +139,19 @@
 
 
 
-<meta name="description" content="java 基础相关知识：运算符,jvm">
+<meta name="description" content="java 基础相关知识：运算符,静态代码块、代码块、构造方法执行顺序。">
 <meta name="keywords" content="java,基础,运算符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java 基础">
 <meta property="og:url" content="http://www.wowker.cn/2018/03/09/java_basic/index.html">
 <meta property="og:site_name" content="Wuwei` Blog">
-<meta property="og:description" content="java 基础相关知识：运算符,jvm">
+<meta property="og:description" content="java 基础相关知识：运算符,静态代码块、代码块、构造方法执行顺序。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/java_operation_ priority.png">
-<meta property="og:updated_time" content="2018-03-22T08:52:54.177Z">
+<meta property="og:updated_time" content="2018-03-26T14:25:41.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 基础">
-<meta name="twitter:description" content="java 基础相关知识：运算符,jvm">
+<meta name="twitter:description" content="java 基础相关知识：运算符,静态代码块、代码块、构造方法执行顺序。">
 <meta name="twitter:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/java_operation_ priority.png">
 
 
@@ -404,7 +404,7 @@
 
           
               <div class="post-description">
-                  java 基础相关知识：运算符,jvm
+                  java 基础相关知识：运算符,静态代码块、代码块、构造方法执行顺序。
               </div>
           
 
@@ -500,7 +500,22 @@
 <blockquote>
 <p>百度百科说这是特殊的栗子。<br><br>解释：其实这里涉及到一个概念，就是 b在运算中，可以看作是，b先做运算再自增一。<br>如果这里是 a -= ++b; 则是先自增再使用b进行运算。<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">    int a = 10, b = 6;</span><br><span class="line">    System.out.println(&quot;改变之前的数：a=&quot; + a + &quot;,b=&quot; + b);</span><br><span class="line">    //其实这里涉及到一个概念，就是 b在运算中，可以看作是，b先做运算再自增一。</span><br><span class="line">    //如果这里是 a -= ++b; 则是先自增再使用b进行运算。</span><br><span class="line">    a -= b++;</span><br><span class="line">    System.out.println(&quot;改变之后的数：a=&quot; + a + &quot;,b=&quot; + b);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="深入了解jvm"><a href="#深入了解jvm" class="headerlink" title="深入了解jvm"></a>深入了解jvm</h2><p><a href="http://www.importnew.com/20386.html" target="_blank" rel="noopener">1</a><br><a href="http://www.importnew.com/21136.html" target="_blank" rel="noopener">2</a><br><a href="http://www.importnew.com/23746.html" target="_blank" rel="noopener">3</a><br><a href="http://www.importnew.com/27454.html" target="_blank" rel="noopener">4</a><br><a href="https://www.cnblogs.com/tlnshuju/p/7389833.html" target="_blank" rel="noopener">5</a></p>
+<h2 id="静态代码块、代码块、构造方法执行顺序"><a href="#静态代码块、代码块、构造方法执行顺序" class="headerlink" title="静态代码块、代码块、构造方法执行顺序"></a>静态代码块、代码块、构造方法执行顺序</h2><p>静态代码块：在java中使用static关键字声明的代码块。静态块用于初始化类，为类的属性初始化。每个静态代码块只会执行一次。由于JVM在加载类时会执行静态代码块，所以静态代码块先于主方法执行。<br><br>作用：类加载时初始化数据。<br><br>注意：静态代码块不能存在于任何方法体内。2 静态代码块不能直接访问静态实例变量和实例方法，需要通过类的实例对象来访问。</p>
+<p>代码块:直接在类中定义且没有加static关键字的代码块称为{}构造代码;<br><br>作用：给对象统一初始化数据。<br><br>注意：：</p>
+<ol>
+<li>java编译器编译java类时，会先将成员属性的声明放到类的前端</li>
+<li>成员变量的初始化工作放到构造函数中</li>
+<li>如果类中有构造代码块，java编译器在编译时会先将构造代码块中的代码移到构造函数中执行，<br>构造函数中原有的代码最后执行</li>
+<li>成员属性的初始化和构造代码块的执行顺序是根据原码中的位置执行</li>
+</ol>
+<p>构造方法：略<br>作用：略</p>
+<blockquote>
+<p>不bb，直接上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class A &#123;</span><br><span class="line">    public A() &#123;</span><br><span class="line">        System.out.println(&quot;构造函数：A&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.println(&quot;静态代码块： A&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;代码块： A&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class B extends A&#123;</span><br><span class="line">    public B() &#123;</span><br><span class="line">        System.out.println(&quot;构造函数：B&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.println(&quot;静态代码块： B&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;代码块： B&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new A();</span><br><span class="line">        new A();</span><br><span class="line">        new B();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">静态代码块： A</span><br><span class="line">静态代码块： B</span><br><span class="line">代码块： A</span><br><span class="line">构造函数：A</span><br><span class="line">代码块： A</span><br><span class="line">构造函数：A</span><br><span class="line">代码块： A</span><br><span class="line">构造函数：A</span><br><span class="line">代码块： B</span><br><span class="line">构造函数：B</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
       
     </div>
@@ -594,8 +609,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/07/linux/" rel="next" title="Linux 笔记">
-                <i class="fa fa-chevron-left"></i> Linux 笔记
+              <a href="/2018/03/07/operationsystem/" rel="next" title="操作系统">
+                <i class="fa fa-chevron-left"></i> 操作系统
               </a>
             
           </div>
@@ -694,12 +709,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -707,7 +731,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -768,7 +792,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java运算符"><span class="nav-number">1.</span> <span class="nav-text">java运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入了解jvm"><span class="nav-number">2.</span> <span class="nav-text">深入了解jvm</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java运算符"><span class="nav-number">1.</span> <span class="nav-text">java运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态代码块、代码块、构造方法执行顺序"><span class="nav-number">2.</span> <span class="nav-text">静态代码块、代码块、构造方法执行顺序</span></a></li></ol></div>
             
 
           </div>
