@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+<script>
+    (function(){
+        if('stars'){
+            if (prompt('请输入文章密码') !== 'stars'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="面试 笔记">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试 笔记">
+<meta property="og:url" content="http://www.wowker.cn/2018/03/15/interview/index.html">
+<meta property="og:site_name" content="Wuwei` Blog">
+<meta property="og:description" content="面试 笔记">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-27T14:20:55.456Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试 笔记">
+<meta name="twitter:description" content="面试 笔记">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.wowker.cn/2018/03/15/interview/"/>
+
+
+
+
+
+  <title>面试 笔记 | Wuwei` Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wuwei` Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wowker.cn/2018/03/15/interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p4ucv3uvl.bkt.clouddn.com/avatar/godnaruto.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wuwei` Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面试 笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T00:00:00+08:00">
+                2018-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/15/interview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/15/interview/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  面试 笔记
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- [问题地址](https://segmentfault.com/a/1190000014000744) -->
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
+<li>多个线程同时读写，读线程的数量远远⼤于写线程，你认为应该如何解决 并发的问题？你会选择加什么样的锁？</li>
+<li>JAVA的AQS是否了解，它是⼲嘛的？</li>
+<li>除了synchronized关键字之外，你是怎么来保障线程安全的？</li>
+<li>什么时候需要加volatile关键字？它能保证线程安全吗？</li>
+<li>线程池内的线程如果全部忙，提交⼀个新的任务，会发⽣什么？队列全部 塞满了之后，还是忙，再提交会发⽣什么？</li>
+<li>Tomcat 本身的参数你⼀般会怎么调整？</li>
+<li>synchronized 关键字锁住的是什么东⻄？在字节码中是怎么表示的？在内存中的对象上表现为什么？</li>
+<li><p>wait/notify/notifyAll⽅法需不需要被包含在 synchronized 块中？这是为什么？</p>
+</li>
+<li><p>ExecutorService 你⼀般是怎么⽤的？是每个service放⼀个还是⼀个项⽬⾥⾯放⼀个？有什么好处？</p>
+</li>
+</ol>
+<h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p><a href="https://www.cnblogs.com/waterystone/p/4920797.html" target="_blank" rel="noopener">2</a><br><a href="https://blog.csdn.net/xiangxianghehe/article/details/51135299" target="_blank" rel="noopener">3</a><br><a href="http://www.importnew.com/24082.html" target="_blank" rel="noopener">4</a><br><a href="http://www.importnew.com/18523.html" target="_blank" rel="noopener">7</a><br><a href="http://www.importnew.com/20263.html" target="_blank" rel="noopener">9</a></p>
+<h2 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h2><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><ol>
+<li>你有没有⽤过Spring的AOP? 是⽤来⼲嘛的? ⼤概会怎么使⽤？</li>
+<li>如果⼀个接⼝有2个不同的实现, 那么怎么来 Autowire ⼀个指定的实现？</li>
+<li>Spring的声明式事务 @Transaction注解⼀般写在什么位置? 抛出了异常会⾃动回滚吗？有没有办法控制不触发回滚?</li>
+<li>如果想在某个Bean⽣成并装配完毕后执⾏⾃⼰的逻辑，可以什么⽅式实现？</li>
+<li>SpringBoot没有放到web容器⾥为什么能跑HTTP服务？</li>
+<li>SpringBoot中如果你想使⽤⾃定义的配置⽂件⽽不仅仅是 application.properties，应该怎么弄？</li>
+<li>SpringMVC中RequestMapping可以指定GET, POST⽅法么？怎么指定？</li>
+<li>SpringMVC如果希望把输出的Object(例如XXResult或者XXResponse)这种包装为JSON输出, 应该怎么处理?</li>
+<li>怎样拦截SpringMVC的异常，然后做⾃定义的处理，⽐如打⽇志或者包装 成JSON</li>
+<li>1.struts1和struts2的区别</li>
+<li><p>struts2和springMVC的区别</p>
+</li>
+<li><p>spring框架中需要引用哪些jar包，以及这些jar包的用途</p>
+</li>
+<li><p>springMVC的原理</p>
+</li>
+<li>springMVC注解的意思</li>
+<li>spring中beanFactory 和 ApplicationContext 的联系和区别</li>
+<li>spring 注入的几种方式</li>
+<li>spring如何实现事物管理的</li>
+<li>spring IOC 和 AOP 的原理</li>
+<li>hibernate中的1级和2级缓存的使用方式以及区别原理</li>
+<li>spring中循环注入的方式<h3 id="解答-1"><a href="#解答-1" class="headerlink" title="解答"></a>解答</h3></li>
+</ol>
+<p><a href="https://blog.csdn.net/yalishadaa/article/details/70261973" target="_blank" rel="noopener">3</a></p>
+<ol>
+<li>bean 装配<br><a href="https://blog.csdn.net/shadow_zed/article/details/72566611" target="_blank" rel="noopener">16</a></li>
+<li><p>Spring 的事务，可以说是 Spring AOP 的一种实现。<br>AOP面向切面编程，即在不修改源代码的情况下，对原有功能进行扩展，通过代理类来对具体类进行操作。<br>spring是一个容器，通过spring这个容器来对对象进行管理，根据配置文件来实现spring对对象的管理。<br>spring的事务声明有两种方式，编程式和声明式。spring主要是通过“声明式事务”的方式对事务进行管理，即在配置文件中进行声明，通过AOP将事务切面切入程序，最大的好处是大大减少了代码量。<br><a href="https://www.cnblogs.com/cyhzzu/p/6644981.html" target="_blank" rel="noopener">18</a><br><a href="https://blog.csdn.net/u010644448/article/details/59108799" target="_blank" rel="noopener">20</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class MediePlayerConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Bean   //该方法返回的MusicSource对象需要注册为Spring应用上下文中的bean</span><br><span class="line">    public MusicSource cdsource()&#123;</span><br><span class="line">        return new CDSource();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean  //该方法返回的MediaPlayer对象需要注册为Spring应用上下文中的bean</span><br><span class="line">    public MediaPlayer cdplayer()&#123;</span><br><span class="line">        return new CDPlayer();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>答案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1）利用@Service注解自动将类ImgDataDao和类PayDataDao注解为bean，id为imgDataDao和payDataDao，即类ImgDataDao和类PayDataDao的第一个字母小写的id。</span><br><span class="line"></span><br><span class="line">2）@Resource按byName自动注入，@Autowired按byType自动注入；</span><br><span class="line"></span><br><span class="line">3）@Resource可用@Autowired替换</span><br><span class="line"></span><br><span class="line">4）当不想用默认的imgDataDao和payDataDao----id命名时，可用变为如下：</span><br><span class="line"></span><br><span class="line">@Resource(name=&quot;imgDataDao&quot;)                             </span><br><span class="line"></span><br><span class="line">private DataDao xx;</span><br><span class="line"></span><br><span class="line">或者：</span><br><span class="line"></span><br><span class="line">@Autowired</span><br><span class="line"></span><br><span class="line">@Qualifier(&quot;imgDataDao&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">在变成过程中经常遇到一个实现类有许多借口的问题，当一个借口有多个实现类的时候，@Autowired就会出现问题，解决办法：</span><br><span class="line">1、通过增加@Qualifier(实现类的名字)，MailStudentImpl类实现student接口如下：</span><br><span class="line"></span><br><span class="line">@Autowired</span><br><span class="line">@Qualifier(&quot;GirlStudentImpl&quot;)</span><br><span class="line">private Student student;</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">2、也可以通过@Resource(name=”*“)装配，则编程更加简洁：</span><br><span class="line"></span><br><span class="line">@Resource(name=&quot;GirlStudentImpl&quot;)</span><br><span class="line">private Student student;</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">自动装配：Ioc容器可以自动装配相互协作bean之间的关联关系。因此，如果可能的话可以自动让Spring通过检查BeanFactory中的内容类替我们制定bean的协作者。</span><br><span class="line">自动装配需要满足两点：</span><br><span class="line">1、bean2.java里面的属性名字必须和appliationContext.xml里面对应的bean id的名字相同，也就是private Bean3 bean3；这个bean3(对应的get，set方法)必须和</span><br><span class="line"></span><br><span class="line">&lt;bean id=&quot;bean3&quot; class=&quot;com.test.model.Bean3&quot;</span><br><span class="line">  parent=&quot;abstractBean&quot;&gt;</span><br><span class="line">  &lt;property name=&quot;name&quot; value=&quot;Tom&quot; /&gt;</span><br><span class="line">  &lt;property name=&quot;password&quot; value=&quot;123&quot; /&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br><span class="line">这个bean3相同.否则不能自动装配，</span><br><span class="line">2、在声明里配置一个属性，default-autowire=”byName”通过名字装配。</span><br></pre></td></tr></table></figure>
+<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><h3 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h3><ol>
+<li>如果有很多数据插⼊MYSQL 你会选择什么⽅式?</li>
+<li>如果查询很慢，你会想到的第⼀个⽅式是什么？索引是⼲嘛的?</li>
+<li>如果建了⼀个单列索引，查询的时候查出2列，会⽤到这个单列索引吗？</li>
+<li>如果建了⼀个包含多个列的索引，查询的时候只⽤了第⼀列，能不能⽤上 这个索引？查三列呢？</li>
+<li>接上题，如果where条件后⾯带有⼀个 i + 5 &lt; 100 会使⽤到这个索引吗？</li>
+<li>怎么看是否⽤到了某个索引？</li>
+<li>like %aaa%会使⽤索引吗? like aaa%呢?</li>
+<li>drop、truncate、delete的区别？</li>
+<li>平时你们是怎么监控数据库的? 慢SQL是怎么排查的？</li>
+<li>你们数据库是否⽀持emoji表情，如果不⽀持，如何操作?</li>
+<li>你们的数据库单表数据量是多少？⼀般多⼤的时候开始出现查询性能急剧下降？</li>
+<li>查询死掉了，想要找出执⾏的查询进程⽤什么命令？找出来之后⼀般你会⼲嘛？</li>
+<li>读写分离是怎么做的？你认为中间件会怎么来操作？这样操作跟事务有什么关系？ 14. 分库分表有没有做过？线上的迁移过程是怎么样的？如何确定数据是正确的？</li>
+<li>MySQL常用命令</li>
+<li>数据库中事物的特征？</li>
+<li>JDBC的使用？</li>
+<li>InnodB与MyISAM的区别</li>
+<li>MySQL为什么使用B+树作为索引？<h3 id="解答-2"><a href="#解答-2" class="headerlink" title="解答"></a>解答</h3><a href="https://www.cnblogs.com/zhizhao/p/7825469.html" target="_blank" rel="noopener">8</a><br><a href="https://blog.csdn.net/camhan/article/details/73368725" target="_blank" rel="noopener">13</a><br><a href="https://blog.csdn.net/wolenski/article/details/7980521" target="_blank" rel="noopener">15</a><h2 id="Jvm"><a href="#Jvm" class="headerlink" title="Jvm"></a>Jvm</h2><h3 id="问题-3"><a href="#问题-3" class="headerlink" title="问题"></a>问题</h3><ol>
+<li>你知道哪些或者你们线上使⽤什么GC策略? 它有什么优势，适⽤于什么场景？</li>
+<li>JAVA类加载器包括⼏种？它们之间的⽗⼦关系是怎么样的？双亲委派机制是什么意思？有什么好处？</li>
+<li>如何⾃定义⼀个类加载器？你使⽤过哪些或者你在什么场景下需要⼀个⾃定义的类加载器吗？</li>
+<li>堆内存设置的参数是什么？ 5. Perm Space中保存什么数据? 会引起OutOfMemory吗？ 6. 做gc时，⼀个对象在内存各个Space中被移动的顺序是什么？</li>
+<li>你有没有遇到过OutOfMemory问题？你是怎么来处理这个问题的？处理 过程中有哪些收获？</li>
+<li>1.8之后Perm Space有哪些变动? MetaSpace⼤⼩默认是⽆限的么? 还是 你们会通过什么⽅式来指定⼤⼩?</li>
+<li>Jstack是⼲什么的? Jstat呢? 如果线上程序周期性地出现卡顿，你怀疑可能是gc导致的，你会怎么来排查这个问题？线程⽇志⼀般你会看其中的什么部分？</li>
+<li>StackOverFlow异常有没有遇到过？⼀般你猜测会在什么情况下被触发？如何指定⼀个线程的堆栈⼤⼩？⼀般你们写多少？</li>
+</ol>
+</li>
+</ol>
+<h2 id="线程-1"><a href="#线程-1" class="headerlink" title="线程"></a>线程</h2><h3 id="问题-4"><a href="#问题-4" class="headerlink" title="问题"></a>问题</h3><ol>
+<li>什么是线程？</li>
+<li>线程和进程有什么区别？</li>
+<li>如何在Java中实现线程？</li>
+<li>用Runnable还是Thread？</li>
+<li>Thread 类中的start() 和 run() 方法有什么区别？</li>
+<li>Java中CyclicBarrier 和 CountDownLatch有什么不同？</li>
+<li>Java中的volatile变量是什么？</li>
+<li>Java中的同步集合与并发集合有什么区别？</li>
+<li>如何避免死锁？</li>
+<li>Java中活锁和死锁有什么区别？</li>
+<li>Java中synchronized 和 ReentrantLock 有什么不同？</li>
+<li>Java中ConcurrentHashMap的并发度是什么？</li>
+<li>如何在Java中创建Immutable对象？</li>
+<li>单例模式的双检锁是什么？</li>
+<li>写出3条你遵循的多线程最佳实践<h3 id="解答-3"><a href="#解答-3" class="headerlink" title="解答"></a>解答</h3></li>
+<li>两者最大（甚至可以说唯一，因为其他差异对新人来说无关紧要）的区别是Thread是类而Runnable是接口，至于用类还是用接口，取决于继承上的实际需要。</li>
+<li><a href="https://blog.csdn.net/ls5718/article/details/51896159" target="_blank" rel="noopener">https://blog.csdn.net/ls5718/article/details/51896159</a></li>
+<li><a href="https://blog.csdn.net/u011116672/article/details/51051352" target="_blank" rel="noopener">https://blog.csdn.net/u011116672/article/details/51051352</a></li>
+<li><a href="http://www.importnew.com/22007.html" target="_blank" rel="noopener">http://www.importnew.com/22007.html</a></li>
+<li><a href="https://my.oschina.net/jasonultimate/blog/166810" target="_blank" rel="noopener">https://my.oschina.net/jasonultimate/blog/166810</a></li>
+</ol>
+<p>常用的线程池模式以及不同线程池的使用场景</p>
+<h2 id="reids"><a href="#reids" class="headerlink" title="reids"></a>reids</h2><h3 id="问题-5"><a href="#问题-5" class="headerlink" title="问题"></a>问题</h3><ol>
+<li>Redis与Memorycache的区别？</li>
+<li>Redis的五种数据结构？</li>
+<li>渐进式rehash过程？</li>
+<li>rehash源码？</li>
+<li>持久化机制</li>
+<li>reaof源码？</li>
+<li>事务与事件</li>
+<li>主从复制</li>
+<li>启动过程</li>
+<li>集群</li>
+<li>Redis的6种数据淘汰策略</li>
+<li>redis的并发竞争问题？<h3 id="解答-4"><a href="#解答-4" class="headerlink" title="解答"></a>解答</h3></li>
+<li><a href="http://bluenemo.iteye.com/blog/2157736" target="_blank" rel="noopener">http://bluenemo.iteye.com/blog/2157736</a></li>
+<li><a href="https://blog.csdn.net/tr1912/article/details/70197085?foxhandler=RssReadRenderProcessHandler" target="_blank" rel="noopener">https://blog.csdn.net/tr1912/article/details/70197085?foxhandler=RssReadRenderProcessHandler</a></li>
+<li><a href="https://blog.csdn.net/i10630226/article/details/79058513" target="_blank" rel="noopener">https://blog.csdn.net/i10630226/article/details/79058513</a></li>
+<li><a href="https://blog.csdn.net/pestd/article/details/31385553" target="_blank" rel="noopener">https://blog.csdn.net/pestd/article/details/31385553</a></li>
+</ol>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="问题-6"><a href="#问题-6" class="headerlink" title="问题"></a>问题</h3><ol>
+<li>HDFS的特点？</li>
+<li>客户端从HDFS中读写数据过程？</li>
+<li>HDFS的文件目录结构？</li>
+<li>NameNode的内存结构？</li>
+<li><p>NameNode的重启优化？</p>
+</li>
+<li><p>Git的使用？</p>
+</li>
+<li>Maven的使用</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/15/interview/">面试 笔记</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
+  <p><span>发布时间:</span>2018年03月15日 - 00:03</p>
+  <p><span>最后更新:</span>2018年03月27日 - 22:03</p>
+  <p><span>原始链接:</span><a href="/2018/03/15/interview/" title="面试 笔记">http://www.wowker.cn/2018/03/15/interview/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/15/interview/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });
+</script>
+
+
+      
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/wechatpay0.5.png" alt="Wu Wei 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/alipay0.5.jpg" alt="Wu Wei 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/15/hello-world/" rel="next" title="hexo 标准配置">
+                <i class="fa fa-chevron-left"></i> hexo 标准配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/16/spring-security/" rel="prev" title="Spring Security based on Spring Boot">
+                Spring Security based on Spring Boot <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p4ucv3uvl.bkt.clouddn.com/avatar/godnaruto.jpeg"
+                alt="Wu Wei" />
+            
+              <p class="site-author-name" itemprop="name">Wu Wei</p>
+              <p class="site-description motion-element" itemprop="description">Be a thoutghtfull programer,做一个有思想的程序猿。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ambitionkingman/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ambition_kingman@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wu-wei-8-35/" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/WowkerFive" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">1.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答"><span class="nav-number">1.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-number">2.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-1"><span class="nav-number">2.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">3.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2"><span class="nav-number">3.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-2"><span class="nav-number">3.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jvm"><span class="nav-number">4.</span> <span class="nav-text">Jvm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-3"><span class="nav-number">4.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程-1"><span class="nav-number">5.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-4"><span class="nav-number">5.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-3"><span class="nav-number">5.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reids"><span class="nav-number">6.</span> <span class="nav-text">reids</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-5"><span class="nav-number">6.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-4"><span class="nav-number">6.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">7.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-6"><span class="nav-number">7.1.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Wei</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'ambitionkingman',
+            repo: 'ambitionkingman.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'd68058794833aa6387839d94fa7f07165418803e',
+            
+                client_id: '4b1bc62cf280a7e4b8ae'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
