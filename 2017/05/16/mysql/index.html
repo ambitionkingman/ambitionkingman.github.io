@@ -164,7 +164,7 @@
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/usingindex.png">
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/impwhere.png">
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/blog/case.png">
-<meta property="og:updated_time" content="2018-03-22T09:05:40.712Z">
+<meta property="og:updated_time" content="2018-07-10T11:57:40.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql 执行计划与优化">
 <meta name="twitter:description" content="本篇文章主要介绍 sql 的查询计划执行的顺序，过程，性能，优化等知识。">
@@ -445,6 +445,17 @@
 </ol>
 <h4 id="UTF8编码"><a href="#UTF8编码" class="headerlink" title="UTF8编码:"></a>UTF8编码:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</span><br></pre></td></tr></table></figure>
 <h4 id="GBK编码"><a href="#GBK编码" class="headerlink" title="GBK编码:"></a>GBK编码:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database test2 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;</span><br></pre></td></tr></table></figure>
+<h4 id="大小写敏感问题"><a href="#大小写敏感问题" class="headerlink" title="大小写敏感问题"></a>大小写敏感问题</h4><p>utf8_unicode_ci和utf8_general_ci对中、英文来说没有实质的差别。<br>utf8_general_ci 校对速度快，但准确度稍差。<br>utf8_unicode_ci 准确度高，但校对速度稍慢。</p>
+<p>ci是 case insensitive, 即 “大小写不敏感”, a 和 A 会在字符判断中会被当做一样的；<br>bin 是二进制, a 和 A 会别区别对待。<br>例如你运行：<br>SELECT * FROM table WHERE txt = ‘a’<br>那么在utf8_bin中你就找不到 txt = ‘A’ 的那一行， 而 utf8_general_ci 则可以。<br>utf8_general_ci 不区分大小写，这个你在注册用户名和邮箱的时候就要使用。<br>utf8_general_cs 区分大小写，如果用户名和邮箱用这个 就会照成不良后果<br>utf8_bin:字符串每个字符串用二进制数据编译存储。 区分大小写，而且可以存二进制的内容</p>
+<p>如果你的应用有德语、法语或者俄语，请一定使用utf8_unicode_ci。一般用utf8_general_ci就够了</p>
+<ol>
+<li><p>ci： case ignore/insensitive，比较的时候不区分大小写</p>
+</li>
+<li><p>mb4:  multi-bytes-4，4字节字符集</p>
+</li>
+<li><p>utf8mb4_unicode_ci： utf8mb4表示编码规则为支持4个字节字符的utf8，unicode表示采用UNICODE编码（UNICODE编码将几乎地球上所有字符都赋予一个数字编号）。</p>
+</li>
+</ol>
 <h3 id="explain-执行计划详解"><a href="#explain-执行计划详解" class="headerlink" title="explain 执行计划详解"></a>explain 执行计划详解</h3><p>&emsp;&emsp;使用explain关键字可以模拟优化器执行SQL查询语句，从而知道MySQL是如何处理你的SQL语句的，分析你的查询语句或是表结构的性能瓶颈。<br>执行计划包含的信息：<br><img src="http://p4ucv3uvl.bkt.clouddn.com/blog/explainsql.png" alt="执行计划包含的信息"></p>
 <h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>&emsp;&emsp;select查询的序列号，包含一组数字，表示查询中执行select子句或操作表的顺序 。</p>
 <ol>
@@ -531,7 +542,7 @@
   <p><span>本文标题:</span><a href="/2017/05/16/mysql/">Mysql 执行计划与优化</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2017年05月16日 - 00:05</p>
-  <p><span>最后更新:</span>2018年03月22日 - 17:03</p>
+  <p><span>最后更新:</span>2018年07月10日 - 19:07</p>
   <p><span>原始链接:</span><a href="/2017/05/16/mysql/" title="Mysql 执行计划与优化">http://www.wowker.cn/2017/05/16/mysql/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2017/05/16/mysql/"  aria-label="复制成功！"></i></span>
   </p>
@@ -725,7 +736,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -736,7 +747,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -747,7 +758,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -808,7 +819,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UTF8编码"><span class="nav-number">1.1.</span> <span class="nav-text">UTF8编码:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GBK编码"><span class="nav-number">1.2.</span> <span class="nav-text">GBK编码:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#explain-执行计划详解"><span class="nav-number">2.</span> <span class="nav-text">explain 执行计划详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id"><span class="nav-number">2.1.</span> <span class="nav-text">id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select-type"><span class="nav-number">2.2.</span> <span class="nav-text">select_type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type"><span class="nav-number">2.3.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#possible-keys"><span class="nav-number">2.4.</span> <span class="nav-text">possible_keys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key"><span class="nav-number">2.5.</span> <span class="nav-text">key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key-len"><span class="nav-number">2.6.</span> <span class="nav-text">key_len</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ref"><span class="nav-number">2.7.</span> <span class="nav-text">ref</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rows"><span class="nav-number">2.8.</span> <span class="nav-text">rows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Extra"><span class="nav-number">2.9.</span> <span class="nav-text">Extra</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合例子"><span class="nav-number">3.</span> <span class="nav-text">综合例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6版本及以前版本，与5-7版本问题"><span class="nav-number">4.</span> <span class="nav-text">5.6版本及以前版本，与5.7版本问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UTF8编码"><span class="nav-number">1.1.</span> <span class="nav-text">UTF8编码:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GBK编码"><span class="nav-number">1.2.</span> <span class="nav-text">GBK编码:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大小写敏感问题"><span class="nav-number">1.3.</span> <span class="nav-text">大小写敏感问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#explain-执行计划详解"><span class="nav-number">2.</span> <span class="nav-text">explain 执行计划详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id"><span class="nav-number">2.1.</span> <span class="nav-text">id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select-type"><span class="nav-number">2.2.</span> <span class="nav-text">select_type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type"><span class="nav-number">2.3.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#possible-keys"><span class="nav-number">2.4.</span> <span class="nav-text">possible_keys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key"><span class="nav-number">2.5.</span> <span class="nav-text">key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key-len"><span class="nav-number">2.6.</span> <span class="nav-text">key_len</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ref"><span class="nav-number">2.7.</span> <span class="nav-text">ref</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rows"><span class="nav-number">2.8.</span> <span class="nav-text">rows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Extra"><span class="nav-number">2.9.</span> <span class="nav-text">Extra</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合例子"><span class="nav-number">3.</span> <span class="nav-text">综合例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6版本及以前版本，与5-7版本问题"><span class="nav-number">4.</span> <span class="nav-text">5.6版本及以前版本，与5.7版本问题</span></a></li></ol></div>
             
 
           </div>

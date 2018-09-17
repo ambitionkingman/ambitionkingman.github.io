@@ -147,7 +147,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="Docker容器学习笔记，仅个人使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-31T10:39:24.908Z">
+<meta property="og:updated_time" content="2018-05-22T03:07:17.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
 <meta name="twitter:description" content="Docker容器学习笔记，仅个人使用。">
@@ -437,7 +437,7 @@
 <ol>
 <li>正确的命令：<br>$docker version</li>
 </ol>
-<h3 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h3><ol>
+<h3 id="搜索docker-镜像"><a href="#搜索docker-镜像" class="headerlink" title="搜索docker 镜像"></a>搜索docker 镜像</h3><ol>
 <li><p>搜索可用的docker镜像<br>使用docker最简单的方式莫过于从现有的容器镜像开始。Docker官方网站专门有一个页面来存储所有可用的镜像，网址是：index.docker.io。你可以通过浏览这个网页来查找你想要使用的镜像，或者使用命令行的工具来检索。</p>
 </li>
 <li><p>目标：<br>学会使用命令行的工具来检索名字叫做tutorial的镜像。</p>
@@ -447,7 +447,7 @@
 <li><p>正确的命令：<br>$docker search tutorial</p>
 </li>
 </ol>
-<h3 id="Next-1"><a href="#Next-1" class="headerlink" title="Next"></a>Next</h3><ol>
+<h3 id="下载-docker-镜像"><a href="#下载-docker-镜像" class="headerlink" title="下载 docker 镜像"></a>下载 docker 镜像</h3><ol>
 <li><p>学会使用docker命令来下载镜像<br>下载镜像的命令非常简单，使用docker pull命令即可。(译者按：docker命令和git有一些类似的地方）。在docker的镜像索引网站上面，镜像都是按照用户名/镜像名的方式来存储的。有一组比较特殊的镜像，比如ubuntu这类基础镜像，经过官方的验证，值得信任，可以直接用镜像名来检索到。</p>
 </li>
 <li><p>目标：<br>通过docker命令下载tutorial镜像。</p>
@@ -457,7 +457,7 @@
 <li><p>正确的命令：<br>$docker pull learn/tutorial</p>
 </li>
 </ol>
-<h3 id="Next-2"><a href="#Next-2" class="headerlink" title="Next"></a>Next</h3><ol>
+<h3 id="运行-docker-容器"><a href="#运行-docker-容器" class="headerlink" title="运行 docker 容器"></a>运行 docker 容器</h3><ol>
 <li><p>在docker容器中运行hello world!<br>docker容器可以理解为在沙盒中运行的进程。这个沙盒包含了该进程运行所必须的资源，包括文件系统、系统类库、shell 环境等等。但这个沙盒默认是不会运行任何程序的。你需要在沙盒中运行一个进程来启动某一个容器。这个进程是该容器的唯一进程，所以当该进程结束的时候，容器也会完全的停止。</p>
 </li>
 <li><p>目标：<br>在我们刚刚下载的镜像中输出”hello word”。为了达到这个目的，我们需要在这个容器中运行”echo”命令，输出”hello word”。</p>
@@ -467,7 +467,7 @@
 <li><p>正确的命令：<br>$docker run learn/tutorial echo “hello word”</p>
 </li>
 </ol>
-<h3 id="Next-3"><a href="#Next-3" class="headerlink" title="Next"></a>Next</h3><ol>
+<h3 id="安装新程序"><a href="#安装新程序" class="headerlink" title="安装新程序"></a>安装新程序</h3><ol>
 <li>在容器中安装新的程序<br>下一步我们要做的事情是在容器里面安装一个简单的程序(ping)。我们之前下载的tutorial镜像是基于ubuntu的，所以你可以使用ubuntu的apt-get命令来安装ping程序：apt-get install -y ping。</li>
 </ol>
 <p>备注：apt-get 命令执行完毕之后，容器就会停止，但对容器的改动不会丢失。</p>
@@ -479,7 +479,7 @@
 <li><p>正确的命令：<br>$docker run learn/tutorial apt-get install -y ping</p>
 </li>
 </ol>
-<h3 id="Next-4"><a href="#Next-4" class="headerlink" title="Next"></a>Next</h3><ol>
+<h3 id="保存修改"><a href="#保存修改" class="headerlink" title="保存修改"></a>保存修改</h3><ol>
 <li><p>保存对容器的修改<br>当你对某一个容器做了修改之后（通过在容器中运行某一个命令），可以把对容器的修改保存下来，这样下次可以从保存后的最新状态运行该容器。docker中保存状态的过程称之为committing，它保存的新旧状态之间的区别，从而产生一个新的版本。</p>
 </li>
 <li><p>目标：<br>首先使用docker ps -l命令获得安装完ping命令之后容器的id。然后把这个镜像保存为learn/ping。</p>
@@ -495,7 +495,7 @@
 <li><p>正确的命令：<br>$docker commit 698 learn/ping</p>
 </li>
 </ol>
-<h3 id="Next-5"><a href="#Next-5" class="headerlink" title="Next"></a>Next</h3><ol>
+<h3 id="运行新的镜像"><a href="#运行新的镜像" class="headerlink" title="运行新的镜像"></a>运行新的镜像</h3><ol>
 <li><p>运行新的镜像<br>ok，到现在为止，你已经建立了一个完整的、自成体系的docker环境，并且安装了ping命令在里面。它可以在任何支持docker环境的系统中运行啦！(译者按：是不是很神奇呢？)让我们来体验一下吧！</p>
 </li>
 <li><p>目标：<br>在新的镜像中运行ping <a href="http://www.google.com命令。" target="_blank" rel="noopener">www.google.com命令。</a></p>
@@ -505,7 +505,7 @@
 <li><p>正确的命令：<br>$docker run lean/ping ping <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a></p>
 </li>
 </ol>
-<h3 id="Next-6"><a href="#Next-6" class="headerlink" title="Next"></a>Next</h3><ol>
+<h3 id="检查镜像"><a href="#检查镜像" class="headerlink" title="检查镜像"></a>检查镜像</h3><ol>
 <li>检查运行中的镜像<br>现在你已经运行了一个docker容器，让我们来看下正在运行的容器。</li>
 </ol>
 <p>使用docker ps命令可以查看所有正在运行中的容器列表，使用docker inspect命令我们可以查看更详细的关于某一个容器的信息。</p>
@@ -517,7 +517,7 @@
 <li><p>正确的命令：<br>$ docker inspect efe</p>
 </li>
 </ol>
-<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><ol>
+<h3 id="发布镜像"><a href="#发布镜像" class="headerlink" title="发布镜像"></a>发布镜像</h3><ol>
 <li><p>发布docker镜像<br>现在我们已经验证了新镜像可以正常工作，下一步我们可以将其发布到官方的索引网站。还记得我们最开始下载的learn/tutorial镜像吧，我们也可以把我们自己编译的镜像发布到索引页面，一方面可以自己重用，另一方面也可以分享给其他人使用。</p>
 </li>
 <li><p>目标：<br>把learn/ping镜像发布到docker的index网站。</p>
@@ -533,7 +533,18 @@
 <li><p>预期的命令：<br>$ docker push learn/ping</p>
 </li>
 </ol>
-<h2 id="Go-on"><a href="#Go-on" class="headerlink" title="Go on"></a>Go on</h2>
+<h2 id="Go-on"><a href="#Go-on" class="headerlink" title="Go on"></a>Go on</h2><h3 id="Mysql-官方镜像的使用"><a href="#Mysql-官方镜像的使用" class="headerlink" title="Mysql 官方镜像的使用"></a>Mysql 官方镜像的使用</h3><p>pull image，这里我拉取的是5.6.35:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull mysql:5.6.35</span><br></pre></td></tr></table></figure></p>
+<p>启动镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --name mysql -p 12345:3306 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:5.6.35</span><br></pre></td></tr></table></figure></p>
+<p>连接到docker bash</p>
+<p>sudo docker exec -it mysql bash</p>
+<p><a href="https://www.cnblogs.com/cfrost/p/6241892.html" target="_blank" rel="noopener">参考地址</a></p>
+<p>docker 设置 mysql</p>
+<p>-p 3306:3306：将容器的3306端口映射到主机的3306端口</p>
+<p>-v $PWD/conf/my.cnf:/etc/mysql/my.cnf：将主机当前目录下的conf/my.cnf挂载到容器的/etc/mysql/my.cnf</p>
+<p>-v $PWD/logs:/logs：将主机当前目录下的logs目录挂载到容器的/logs</p>
+<p>-v $PWD/data:/mysql_data：将主机当前目录下的data目录挂载到容器的/mysql_data</p>
+<p>-e MYSQL_ROOT_PASSWORD=123456：初始化root用户的密码</p>
+
       
     </div>
     
@@ -561,7 +572,7 @@
   <p><span>本文标题:</span><a href="/2018/03/31/docker/">Docker</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2018年03月31日 - 18:03</p>
-  <p><span>最后更新:</span>2018年03月31日 - 18:03</p>
+  <p><span>最后更新:</span>2018年05月22日 - 11:05</p>
   <p><span>原始链接:</span><a href="/2018/03/31/docker/" title="Docker">http://www.wowker.cn/2018/03/31/docker/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/31/docker/"  aria-label="复制成功！"></i></span>
   </p>
@@ -653,8 +664,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/28/hobby/" rel="next" title="My Hobby">
-                <i class="fa fa-chevron-left"></i> My Hobby
+              <a href="/2018/03/31/git/" rel="next" title="Git">
+                <i class="fa fa-chevron-left"></i> Git
               </a>
             
           </div>
@@ -753,7 +764,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -764,7 +775,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -775,7 +786,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -836,7 +847,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker"><span class="nav-number">1.1.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Start"><span class="nav-number">2.</span> <span class="nav-text">Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next"><span class="nav-number">2.2.</span> <span class="nav-text">Next</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-1"><span class="nav-number">2.3.</span> <span class="nav-text">Next</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-2"><span class="nav-number">2.4.</span> <span class="nav-text">Next</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-3"><span class="nav-number">2.5.</span> <span class="nav-text">Next</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-4"><span class="nav-number">2.6.</span> <span class="nav-text">Next</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-5"><span class="nav-number">2.7.</span> <span class="nav-text">Next</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-6"><span class="nav-number">2.8.</span> <span class="nav-text">Next</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#End"><span class="nav-number">2.9.</span> <span class="nav-text">End</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go-on"><span class="nav-number">3.</span> <span class="nav-text">Go on</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker"><span class="nav-number">1.1.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Start"><span class="nav-number">2.</span> <span class="nav-text">Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索docker-镜像"><span class="nav-number">2.2.</span> <span class="nav-text">搜索docker 镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-docker-镜像"><span class="nav-number">2.3.</span> <span class="nav-text">下载 docker 镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行-docker-容器"><span class="nav-number">2.4.</span> <span class="nav-text">运行 docker 容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装新程序"><span class="nav-number">2.5.</span> <span class="nav-text">安装新程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存修改"><span class="nav-number">2.6.</span> <span class="nav-text">保存修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行新的镜像"><span class="nav-number">2.7.</span> <span class="nav-text">运行新的镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查镜像"><span class="nav-number">2.8.</span> <span class="nav-text">检查镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布镜像"><span class="nav-number">2.9.</span> <span class="nav-text">发布镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go-on"><span class="nav-number">3.</span> <span class="nav-text">Go on</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql-官方镜像的使用"><span class="nav-number">3.1.</span> <span class="nav-text">Mysql 官方镜像的使用</span></a></li></ol></li></ol></div>
             
 
           </div>

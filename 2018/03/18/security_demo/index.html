@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+<script>
+    (function(){
+        if('stars2018'){
+            if (prompt('请输入文章密码') !== 'stars2018'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,security,权限," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="spring security 实例设计">
+<meta name="keywords" content="java,security,权限">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring security demo">
+<meta property="og:url" content="http://www.wowker.cn/2018/03/18/security_demo/index.html">
+<meta property="og:site_name" content="Wuwei` Blog">
+<meta property="og:description" content="spring security 实例设计">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-07T12:25:20.298Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring security demo">
+<meta name="twitter:description" content="spring security 实例设计">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.wowker.cn/2018/03/18/security_demo/"/>
+
+
+
+
+
+  <title>spring security demo | Wuwei` Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wuwei` Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wowker.cn/2018/03/18/security_demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p4ucv3uvl.bkt.clouddn.com/avatar/godnaruto.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wuwei` Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spring security demo</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T00:00:00+08:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/security/" itemprop="url" rel="index">
+                    <span itemprop="name">security</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/security/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/18/security_demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/18/security_demo/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  spring security 实例设计
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>权限概念什么的就不说了，主要的方面为请求权限控制，数据返回权限控制。<br>操作权限：菜单<br>资源权限：请求<br>数据权限：数据</p>
+<p>权限ER关系<br>用户<br>1 - N<br>角色<br>1 - N<br>权限</p>
+<p>权限类型字段 type 关联枚举 URL BUTTON IMGAGE 等，并提供相关的class 当clas 为null 时，不渲染此控件。<br>对按钮，图片，连接的控制。</p>
+<h3 id="请求控制策略"><a href="#请求控制策略" class="headerlink" title="请求控制策略"></a>请求控制策略</h3><p>请求权限控制：针对不同角色的不同权限，控制访问请求。</p>
+<ol>
+<li>角色的动态添加</li>
+<li>角色权限的添加</li>
+</ol>
+<h3 id="数据控制策略"><a href="#数据控制策略" class="headerlink" title="数据控制策略"></a>数据控制策略</h3><blockquote>
+<p>可以使用基础数据，便于扩展<br>例如 全部数据 自创建数据 自关联数据 数据脱敏 同一请求的数据控制策略可对应对过。策略需要后端代码支持 推荐使用，避免增加数据控制策略时，多次需要在权限表增加字段</p>
+</blockquote>
+<p>数据的权限控制: 针对不同角色的不同数据权限，控制返回的数据结果。</p>
+<ol>
+<li>数据权限 ：(1).显示全部数据；(2).显示自身数据<br>解决办法： 角色-权限表 -&gt; 增加字段 (1).数据范围 data_scope,关联枚举 全部ALL ,自身创建数据ONLY_YOURSELF ,自身关联数据RELATED_YOURSELF</li>
+<li>数据脱敏 ：(1).敏感信息是否需要脱敏。-&gt;说明：默认不需要<br>解决拌饭：-&gt; 增加字段 (1).is_sensitive Sensitive NotSensitive , Sensitive 敏感处理时脱敏处理。NotSensitive 时不处理数据。</li>
+</ol>
+<p>权限控制策略<br>父子权限：实现菜单和权限都从后台获取</p>
+<ol>
+<li><p>父权限：菜单<br>关键点：-&gt; 多级菜单：使用多级菜单时，用递归操作菜单返回的响应问题<br>解决办法：-&gt; 登录时，将获取的菜单存入缓存中，并且将菜单交给前端存储，调用菜单时，先从前端缓存中读取，读取不到时，再从后台缓存中读取，读取不到时，从数据中读取，并存入相关缓存。</p>
+</li>
+<li><p>子权限：主要的增删改查，其他次要权限。。。</p>
+</li>
+<li>例如：录入产品菜单<br>父权限 录入产品<br>子权限 新增产品；删除产品；修改产品；查询产品；全部；</li>
+</ol>
+<p>解决办法：表中设置 Access 枚举项 insert delete update select all 等项。每个权限针对不同的Access 枚举<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into `authority`</span><br><span class="line">( `name`, `url`, `create_time`, `creator`, `hassub` , `hierarchical`, `orderby_id`, `pid`, `show_menu`, `show_type`, `icon_class`, `access`)</span><br><span class="line">values</span><br><span class="line"> ( &apos;新增/删除/修改/查询产品/全部&apos;, &apos;/product&apos;, &apos;2017-12-14 14:58:08&apos;, null, &apos;true&apos;, &apos;5&apos;, &apos;5&apos;, &apos;7&apos;, &apos;true&apos;, &apos;menu&apos;, null, &apos;INSERT/DELETE/UPDATE/SELECT/ALL&apos;);</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>权限白名单： 对于一些非总要请求，或通用请求不需要校验的则加入请求白名单即可。（加个字段isSafeUri）</li>
+</ol>
+<h3 id="管理员策略"><a href="#管理员策略" class="headerlink" title="管理员策略"></a>管理员策略</h3><p>（不一定需要,而且麻烦，或者在操作之前发送验证码验证之后才允许操作。）</p>
+<ol>
+<li>管理员</li>
+<li>超级管理</li>
+</ol>
+<p>安全策略：</p>
+<ol>
+<li>内网登录</li>
+<li>rsa公钥秘钥登录</li>
+<li>独立的登录页</li>
+<li>短信，邮箱验证码校验</li>
+<li>可单独使用，也可以多个结合，管理员发个手机验证码就行，超级管理员可以结合多个。</li>
+</ol>
+<h3 id="权限的刷新"><a href="#权限的刷新" class="headerlink" title="权限的刷新"></a>权限的刷新</h3><p>修改权限后，需要对应用户刷新权限操作 需后端接口支持</p>
+<p>CREATE TABLE <code>sys_authority</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT COMMENT ‘权限id’,<br>  <code>name</code> varchar(255) DEFAULT NULL COMMENT ‘权限名称’,<br>  <code>url</code> varchar(255) DEFAULT NULL COMMENT ‘功能url’,<br>  <code>create_time</code> timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,<br>  <code>creator</code> varchar(255) DEFAULT NULL,<br>  <code>creator_id</code> bigint(20) DEFAULT NULL,<br>  <code>hassub</code> varchar(255) DEFAULT NULL,<br>  <code>state</code> varchar(2) DEFAULT NULL COMMENT ‘是否有效’,<br>  <code>update_time</code> timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,<br>  <code>hierarchical</code> varchar(255) DEFAULT NULL COMMENT ‘层级id（权限，例如：app_init_cashier_001_001;app_init_cashier_001;data_dictionary ）’,<br>  <code>orderby_id</code> int(10) DEFAULT NULL COMMENT ‘权限排序’,<br>  <code>pid</code> bigint(20) DEFAULT NULL COMMENT ‘父权限id’,<br>  <code>show_menu</code> varchar(20) DEFAULT NULL COMMENT ‘true表示显示菜单，false表示界面不显示菜单’,<br>  <code>show_type</code> varchar(20) DEFAULT NULL COMMENT ‘menu表示菜单，button表示操作按钮’,<br>  <code>icon_class</code> varchar(255) DEFAULT NULL COMMENT ‘菜单图标样式’,<br>  <code>access</code> varchar(255) DEFAULT NULL COMMENT ‘权限’,<br>  PRIMARY KEY (<code>id</code>)<br>) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT</p>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/18/security_demo/">spring security demo</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
+  <p><span>发布时间:</span>2018年03月18日 - 00:03</p>
+  <p><span>最后更新:</span>2018年05月07日 - 20:05</p>
+  <p><span>原始链接:</span><a href="/2018/03/18/security_demo/" title="spring security demo">http://www.wowker.cn/2018/03/18/security_demo/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/18/security_demo/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });
+</script>
+
+
+      
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/wechatpay0.5.png" alt="Wu Wei 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/alipay0.5.jpg" alt="Wu Wei 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/security/" rel="tag"># security</a>
+          
+            <a href="/tags/权限/" rel="tag"># 权限</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/17/bit_operation/" rel="next" title="java 位运算">
+                <i class="fa fa-chevron-left"></i> java 位运算
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/18/aspectj/" rel="prev" title="Spring Aop">
+                Spring Aop <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p4ucv3uvl.bkt.clouddn.com/avatar/godnaruto.jpeg"
+                alt="Wu Wei" />
+            
+              <p class="site-author-name" itemprop="name">Wu Wei</p>
+              <p class="site-description motion-element" itemprop="description">Be a thoutghtfull programer,做一个有思想的程序猿。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ambitionkingman/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ambition_kingman@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wu-wei-8-35/" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/WowkerFive" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概要"><span class="nav-number">1.</span> <span class="nav-text">概要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求控制策略"><span class="nav-number">1.1.</span> <span class="nav-text">请求控制策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据控制策略"><span class="nav-number">1.2.</span> <span class="nav-text">数据控制策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理员策略"><span class="nav-number">1.3.</span> <span class="nav-text">管理员策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限的刷新"><span class="nav-number">1.4.</span> <span class="nav-text">权限的刷新</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Wei</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'ambitionkingman',
+            repo: 'ambitionkingman.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'd68058794833aa6387839d94fa7f07165418803e',
+            
+                client_id: '4b1bc62cf280a7e4b8ae'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
