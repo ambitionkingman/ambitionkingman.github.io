@@ -147,7 +147,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="面试 笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-27T14:20:55.456Z">
+<meta property="og:updated_time" content="2019-03-10T13:17:17.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试 笔记">
 <meta name="twitter:description" content="面试 笔记">
@@ -419,7 +419,73 @@
       
 
       
-        <!-- [问题地址](https://segmentfault.com/a/1190000014000744) -->
+        <h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><ol>
+<li>面向对象的特征：封装、继承、和多态<blockquote>
+<p>封装：把一类对象，相似的属性汇总到一起，组成一类，这个类把该隐藏的隐藏，该暴露的暴露。继承：涉及到父子关系，子类可以得到父类的特征，相对是父类的拓展，达到代码重用的效果。多态：在代码中就是一个方法名字，多种实现形式。重载（overload）和重写（override）是多态的两种主要形式</p>
+</blockquote>
+</li>
+<li>final, finally, finalize 的区别<blockquote>
+<p>final用于声明属性，方法和类，分别表示属性不可变(基础类型，这个变量值不可改变，即一个常量，引用类型，引用地址不可改变，即对象)，方法不可覆盖，类不可继承。finally是异常处理语句结构的一部分，表示总是执行。finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，供垃圾收集时的其他资源回收，例如关闭文件等。</p>
+<!-- [问题地址](https://segmentfault.com/a/1190000014000744) --></blockquote>
+</li>
+<li>Exception、Error、运行时异常与一般异常有何异同<blockquote>
+<p>所有的异常都是由Throwable类，下一层分解为两个分支：Error和Exceprion。<br>Error层次结构描述了java运行时系统的内部错误和资源耗尽错误。大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题。应用程序不应该抛出这种类型的对象。<br>Exceprion这个层次结构又分解为连个分支：一个分支派生于RuntimeException；另一个分支包含其他异常。划分两个分支的规则是：由程序错误导致的异常属于RuntimeException；而程序本身没有没有问题，但由于像I/O错误这类异常导致的异常属于其他异常。<br>常见的RuntimeException（运行时异常）：<br>IndexOutOfBoundsException(下标越界异常)<br>NullPointerException(空指针异常)<br>NumberFormatException （String转换为指定的数字类型异常）<br>ArithmeticException -（算术运算异常 如除数为0）<br>ArrayStoreException - （向数组中存放与声明类型不兼容对象异常）<br>SecurityException -（安全异常）<br>IOException（其他异常）<br>FileNotFoundException（文件未找到异常。）<br>IOException（操作输入流和输出流时可能出现的异常。）<br>EOFException （文件已结束异常）</p>
+</blockquote>
+</li>
+<li>int 和 Integer 有什么区别，Integer的值缓存范围<blockquote>
+<p>Integer是int的包装类；int是基本数据类型；<br>Integer变量必须实例化后才能使用；int变量不需要；<br>Integer实际是对象的引用，指向此new的Integer对象；int是直接存储数据值；<br>Integer的默认值是null；int的默认值是0。<br>JVM会自动维护八种基本类型的常量池，int常量池中初始化-128~127的范围，所以当为Integer i=127时，在自动装箱过程中是取自常量池中的数值，而当Integer i=128时，128不在常量池范围内，所以在自动装箱过程中需new 128，所以地址不一样。具体见Integer 内部类 IntegerCache</p>
+</blockquote>
+</li>
+<li>包装类，装箱和拆箱</li>
+<li>String、StringBuilder、StringBuffer</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>“+”区别</th>
+<th>多线程</th>
+<th>性能</th>
+<th>使用场景</th>
+<th>优化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>不可变类,重新创建字符串</td>
+<td>不安全</td>
+<td>拼接时,性能差</td>
+<td>操作少量数据,字符串不变时</td>
+<td>无</td>
+</tr>
+<tr>
+<td>StringBuilder</td>
+<td>可变类,原字符串基础上生成字符串</td>
+<td>不安全</td>
+<td>性能最好(比StringBuffer高10%-15%)</td>
+<td>单线程操作大量数据(方法内部,用完回收)</td>
+<td>尽可能指定容量(默认:16,不超过16个字符不用指定),不指定显著降低性能</td>
+</tr>
+<tr>
+<td>StringBuffer</td>
+<td>可变类,原字符串基础上生成字符串</td>
+<td>安全</td>
+<td>性能好</td>
+<td>主要用在全局变量中,多线程下安全</td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>在现实的模块化编程中,负责某一模块的程序员不一定能清晰的判断该模块是否会放入多线程的环境中运行,除非确定系统的瓶颈是在StringBuffer上，并且确定你的模块不会运行在多线程模式下，才可以采用StringBuilder,否则还是用StringBuffer</p>
+<ol>
+<li>重载和重写的区别<br>方法重载：关键字overload，方法名和方法的返回类型都相同，方法参数个数和类型不一样<br>方法重写：也叫方法覆盖，关键字override，相对于类继承而言，重写的方法名，返回类型，参数个数，参数类型都要求和父类一样</li>
+<li>抽象类和接口有什么区别<br>抽象类是用来捕捉子类的通用特性的 。它不能被实例化，只能被用作子类的超类。抽象类是被用来创建继承层级里子类的模板。<br>接口是抽象方法的集合。如果一个类实现了某个接口，那么它就继承了这个接口的抽象方法。这就像契约模式，如果实现了这个接口，那么就必须确保使用这些方法。接口只是一种形式，接口自身不能做任何事情。</li>
+<li>说说反射的用途及实现<br>Reflection 是Java 程序开发语言的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类和对象的内部属性。获取一个对象对应的反射类，在 Java 中有下列方法可以获取一个对象的反射类<br>通过 getClass() 方法<br>通过 Class.forName() 方法<br>使用 类.class<br>通过类加载器实现，getClassLoader()<br>①、在运行时判断任意一个对象所属的类<br>②、在运行时构造任意一个类的对象<br>③、在运行时判断任意一个类所具有的成员变量和方法（通过反射设置可以调用 private）<br>④、在运行时调用人一个对象的方法</li>
+<li>说说自定义注解的场景及实现<br>登陆、权限拦截、日志处理，以及各种 Java 框架，如 Spring，Hibernate，JUnit 提到注解就不能不说反射，Java 自定义注解是通过运行时靠反射获取注解。实际开发中，例如我们要获取某个方法的调用日志，可以通过 AOP（动态代理机制）给方法添加切面，通过反射来获取方法包含的注解，如果包含日志注解，就进行日志记录。反射的实现在 Java 应用层面上讲，是通过对 Class 对象的操作实现的，Class 对象为我们提供了一系列方法对类进行操作。在 JVM 这个角度来说，Class 文件是一组以 8 位字节为基础单位的二进制流，各个数据项目按严格的顺序紧凑的排列在 Class 文件中，里面包含了类、方法、字段等等相关数据。通过对 Class 数据流的处理我们即可得到字段、方法等数据<br><a href="http://www.importnew.com/10294.html" target="_blank" rel="noopener">java 注解</a></li>
+</ol>
+</blockquote>
 <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
 <li>多个线程同时读写，读线程的数量远远⼤于写线程，你认为应该如何解决 并发的问题？你会选择加什么样的锁？</li>
 <li>JAVA的AQS是否了解，它是⼲嘛的？</li>
@@ -580,7 +646,7 @@
   <p><span>本文标题:</span><a href="/2018/03/15/interview/">面试 笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2018年03月15日 - 00:03</p>
-  <p><span>最后更新:</span>2018年03月27日 - 22:03</p>
+  <p><span>最后更新:</span>2019年03月10日 - 21:03</p>
   <p><span>原始链接:</span><a href="/2018/03/15/interview/" title="面试 笔记">http://www.wowker.cn/2018/03/15/interview/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/15/interview/"  aria-label="复制成功！"></i></span>
   </p>
@@ -670,8 +736,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/09/java_basic/" rel="next" title="java 基础">
-                <i class="fa fa-chevron-left"></i> java 基础
+              <a href="/2018/03/15/hello-world/" rel="next" title="hexo 标准配置">
+                <i class="fa fa-chevron-left"></i> hexo 标准配置
               </a>
             
           </div>
@@ -680,8 +746,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/15/hello-world/" rel="prev" title="hexo 标准配置">
-                hexo 标准配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/16/spring-security/" rel="prev" title="Spring Security based on Spring Boot">
+                Spring Security based on Spring Boot <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -770,7 +836,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -792,7 +858,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -853,7 +919,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">1.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答"><span class="nav-number">1.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-number">2.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-1"><span class="nav-number">2.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">3.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2"><span class="nav-number">3.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-2"><span class="nav-number">3.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jvm"><span class="nav-number">4.</span> <span class="nav-text">Jvm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-3"><span class="nav-number">4.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程-1"><span class="nav-number">5.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-4"><span class="nav-number">5.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-3"><span class="nav-number">5.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reids"><span class="nav-number">6.</span> <span class="nav-text">reids</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-5"><span class="nav-number">6.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-4"><span class="nav-number">6.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">7.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-6"><span class="nav-number">7.1.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答"><span class="nav-number">2.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-number">3.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1"><span class="nav-number">3.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-1"><span class="nav-number">3.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">4.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2"><span class="nav-number">4.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-2"><span class="nav-number">4.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jvm"><span class="nav-number">5.</span> <span class="nav-text">Jvm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-3"><span class="nav-number">5.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程-1"><span class="nav-number">6.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-4"><span class="nav-number">6.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-3"><span class="nav-number">6.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reids"><span class="nav-number">7.</span> <span class="nav-text">reids</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-5"><span class="nav-number">7.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-4"><span class="nav-number">7.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">8.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-6"><span class="nav-number">8.1.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -873,7 +939,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

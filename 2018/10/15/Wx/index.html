@@ -147,7 +147,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="Wx 小程序 学习，仅限个人使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T09:29:59.179Z">
+<meta property="og:updated_time" content="2018-10-16T06:49:36.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wx 小程序">
 <meta name="twitter:description" content="Wx 小程序 学习，仅限个人使用。">
@@ -426,7 +426,7 @@
 <ul>
 <li>前期条件：商户号+小程序 ，商户号与小程序绑定</li>
 <li>流程：后台审核通过：1. 后台系统推送消息到小程序 -&gt; 小程序弹出红包页,<a href="https://blog.csdn.net/qq_35713752/article/details/79506409" target="_blank" rel="noopener">例如</a>。2. 用户点击（发送用户的小程序openId）到后台系统，3. 后台系统调用接口<a href="https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=14_2" target="_blank" rel="noopener">企业付款到零钱接口</a>，付款到用户。4. 红包页面回显红包结果。（成功/失败）</li>
-<li>弊端：首先想到的是企业支付，简单快捷，只要在后端调用企业支付的接口即可。不过这种方式有一个很大的弊端，支付最低金额限制为1元。而公司营销为了节约成本，大多数都是几毛钱的红包</li>
+<li>弊端：<strong>小程序上线代码审核（审核不通过就死啦死啦地）</strong> 首先想到的是企业支付，简单快捷，只要在后端调用企业支付的接口即可。不过这种方式有一个很大的弊端，支付最低金额限制为1元。而公司营销为了节约成本，大多数都是几毛钱的红包</li>
 </ul>
 <ol>
 <li>公众号发红包：</li>
@@ -436,6 +436,7 @@
 <li>流程：后台审核通过：1.通过小程序获取unionId，判断用户是否关注公众号（调用接口/调用本地数据），否 -&gt; 发送关注提醒（关注微信红包公众号），2. 将红包记录存入本地库，（已关注）调用红包接口发送红包,(未关注) 轮询(特定轮询规则)红包记录表 -&gt; 当用户关注后发送红包，返回发送结果 -&gt; 发送失败补偿处理。</li>
 <li>逻辑：（1）先通过公众号接口获取access_token，(2)、在服务器调用接口获取已关注公众号的微信用户列表，列表能返回关注公众号的用户的openid(每个微信号针对每个公众号有唯一的openid)(3)、在服务器调用接口逐个获取用户基本信息，将获取到的unionid和openid保存(4)、通过小程序以同样的方法获取unionid及公众号的openid，在小程序服务端调用公众号发红包接口，给对应的微信用户发公众号红包</li>
 <li>弊端：使用公众号代替小程序发红包，先在微信公众平台关联小程序和公众号，由于每个用户针对小程序和公众号各有一个openid，所以只能使用unionid关联,必须关注公众号才可以发红包，要通过公众号发放红包，达不到最好的效果，而且在有设置活动的前提下，才能发低于1元的红包</li>
+<li><a href="https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=13_4&amp;index=3" target="_blank" rel="noopener">接口连接</a></li>
 </ul>
 <ol>
 <li><p>说明：都需要 用户的发送记录，（金额流水？），接口防刷策略（每次请求分发一个id？）</p>
@@ -477,7 +478,7 @@
   <p><span>本文标题:</span><a href="/2018/10/15/Wx/">Wx 小程序</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2018年10月15日 - 21:10</p>
-  <p><span>最后更新:</span>2018年10月15日 - 17:10</p>
+  <p><span>最后更新:</span>2018年10月16日 - 14:10</p>
   <p><span>原始链接:</span><a href="/2018/10/15/Wx/" title="Wx 小程序">http://www.wowker.cn/2018/10/15/Wx/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/10/15/Wx/"  aria-label="复制成功！"></i></span>
   </p>
@@ -579,6 +580,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/11/22/rabbitmq/" rel="prev" title="rabbitmq 学习">
+                rabbitmq 学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -665,7 +670,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -687,7 +692,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -768,7 +773,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
