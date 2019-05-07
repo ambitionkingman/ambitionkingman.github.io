@@ -128,7 +128,7 @@
 
 
 
-  <meta name="keywords" content="面试," />
+  <meta name="keywords" content="interview," />
 
 
 
@@ -139,18 +139,18 @@
 
 
 
-<meta name="description" content="面试 笔记">
-<meta name="keywords" content="面试">
+<meta name="description" content="interview 笔记">
+<meta name="keywords" content="interview">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面试 笔记">
+<meta property="og:title" content="interview 笔记">
 <meta property="og:url" content="http://www.wowker.cn/2018/03/15/interview/index.html">
 <meta property="og:site_name" content="Wuwei` Blog">
-<meta property="og:description" content="面试 笔记">
+<meta property="og:description" content="interview 笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-26T10:56:12.281Z">
+<meta property="og:updated_time" content="2019-04-03T09:46:39.953Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面试 笔记">
-<meta name="twitter:description" content="面试 笔记">
+<meta name="twitter:title" content="interview 笔记">
+<meta name="twitter:description" content="interview 笔记">
 
 
 
@@ -186,7 +186,7 @@
 
 
 
-  <title>面试 笔记 | Wuwei` Blog</title>
+  <title>interview 笔记 | Wuwei` Blog</title>
   
 
 
@@ -350,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">面试 笔记</h1>
+          <h1 class="post-title" itemprop="name headline">interview 笔记</h1>
         
 
         <div class="post-meta">
@@ -402,7 +402,7 @@
 
           
               <div class="post-description">
-                  面试 笔记
+                  interview 笔记
               </div>
           
 
@@ -487,36 +487,168 @@
 </ol>
 </blockquote>
 <ol>
-<li><p>HTTP请求的GET与POST方式的区别</p>
+<li>HTTP请求的GET与POST方式的区别<blockquote>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>GET 请求可被缓存</li>
+<li>GET 请求保留在浏览器历史记录中</li>
+<li>GET 请求可被收藏为书签</li>
+<li>GET 请求不应在处理敏感数据时使用</li>
+<li>GET 请求有长度限制</li>
+<li>GET 请求只应当用于取回数据</li>
+</ul>
 <blockquote>
+</blockquote>
+<ul>
+<li>POST 请求不会被缓存</li>
+<li>POST 请求不会保留在浏览器历史记录中</li>
+<li>POST 不能被收藏为书签</li>
+<li>POST 请求对数据长度没有要求<blockquote>
 <p><a href="http://www.w3school.com.cn/tags/html_ref_httpmethods.asp" target="_blank" rel="noopener">HTTP请求的GET与POST方式的区别</a><br><a href="https://www.cnblogs.com/zizo/p/3538820.html" target="_blank" rel="noopener">HTTP请求方式中get和post的区别</a></p>
 </blockquote>
 </li>
+</ul>
+<ol>
 <li><p>Session与Cookie区别</p>
-<blockquote>
+<ul>
+<li>Cookie 网页浏览器保存用户信息的文件，cookie存储的数量和字符数量都有限制，只能存储几十个，不超4096左右个字符,cookie存储在用户浏览器里也不安全，任何人都能直接查看。</li>
+<li>Session 会话指我们访问网站的一个周期，客户端浏览器访问网站的时候，服务器会向客户浏览器发送一个每个用户特有的会话编号sessionID，让他进入到cookie里。<blockquote>
 <p><a href="https://www.jianshu.com/p/9a561b36e9f3" target="_blank" rel="noopener">Session与Cookie区别</a></p>
 </blockquote>
 </li>
+</ul>
+</li>
 <li><p>列出自己常用的JDK包</p>
-<blockquote>
+<ul>
+<li>java.lang：语言包</li>
+<li>java.util：实用包</li>
+<li>java.awt：抽象窗口工具包</li>
+<li>javax.swing：轻量级的窗口工具包，这是目前使用最广泛的GUI程序设计包</li>
+<li>java.io：输入输出包</li>
+<li>java.net：网络函数包</li>
+<li>java.applet：编制applet用到的包（目前编制applet程序时，更多的是使用swing中的JApplet类）。<blockquote>
 <p><a href="https://www.jianshu.com/p/ba01512b8b4e" target="_blank" rel="noopener">列出自己常用的JDK包</a></p>
 </blockquote>
 </li>
+</ul>
+</li>
 <li><p>MVC设计思想</p>
-<blockquote>
+<ul>
+<li>模型，视图，控制器<blockquote>
 <p><a href="https://www.jianshu.com/p/3aa5cf63560e" target="_blank" rel="noopener">MVC设计思想</a></p>
 </blockquote>
 </li>
+</ul>
+</li>
 <li><p>equals与==的区别</p>
-<blockquote>
+<ul>
+<li>== 的作用：<br>　　基本类型：比较的就是值是否相同<br>　　引用类型：比较的就是地址值是否相同</li>
+<li>equals 的作用:<br>　　引用类型：默认情况下，比较的是地址值，不过，我们可以根据情况自己重写该方法。一般重写都是自动生成，比较对象的成员变量值是否相同<blockquote>
 <p><a href="https://www.jianshu.com/p/46cb275d1def" target="_blank" rel="noopener">equals与==的区别</a></p>
 </blockquote>
+</li>
+</ul>
 </li>
 <li><p>hashCode和equals方法的区别与联系</p>
 <blockquote>
 <p><a href="https://www.jianshu.com/p/05e9604d4c6b" target="_blank" rel="noopener">hashCode和equals方法的区别与联系</a><br><a href="https://www.jianshu.com/p/b43193223697" target="_blank" rel="noopener">hashCode和equals方法的区别与联系</a></p>
 </blockquote>
 </li>
+<li><p>什么是Java序列化和反序列化，如何实现Java序列化？或者请解释Serializable 接口的作用</p>
+</li>
+<li><p>Object类中常见的方法，为什么wait notify会放在Object里边？</p>
+<blockquote>
+</blockquote>
+<ul>
+<li>toString()、equals()、hashCode()</li>
+<li>因为synchronized中的这把锁可以是任意对象，所以任意对象都可以调用wait()和notify()；所以wait和notify属于Object。</li>
+</ul>
+</li>
+<li><p>Java的平台无关性如何体现出来的</p>
+</li>
+<li><p>JDK和JRE的区别</p>
+</li>
+<li><p>Java 8有哪些新特性<br>lambda stream 流操作</p>
+</li>
+<li><p>transient 关键字</p>
+<blockquote>
+<p>一旦变量被 transient 修饰，变量将不再是持久化对象的一部分，该变量内容在序列化后无法获得访问；<br>transient 关键字只能修饰变量，不能修饰方法和类。注意，本地变量是不能被 transient 关键字修饰的；<br>一个静态变量不管是否被 transient 关键字修饰，都不能被序列化</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="Java-集合"><a href="#Java-集合" class="headerlink" title="Java 集合"></a>Java 集合</h2><ol>
+<li>List 和 Set 区别  <a href="https://www.cnblogs.com/IvesHe/p/6108933.html" target="_blank" rel="noopener">参考</a></li>
+<li>hashCode以及equals方法的联系 <a href="https://www.cnblogs.com/keyi/p/7119825.html" target="_blank" rel="noopener">参考</a></li>
+<li>List 和 Map 区别</li>
+<li>Arraylist 与 LinkedList 区别</li>
+<li>ArrayList 与 Vector 区别 <a href="https://www.cnblogs.com/skywang12345/p/3308833.html" target="_blank" rel="noopener">参考</a></li>
+<li>HashMap 和 Hashtable 的区别 <a href="http://www.importnew.com/7010.html" target="_blank" rel="noopener">参考</a></li>
+<li>HashSet 和 HashMap 区别 <a href="http://www.importnew.com/6931.html" target="_blank" rel="noopener">参考</a></li>
+<li>HashMap 和 ConcurrentHashMap 的区别 <a href="http://www.importnew.com/28263.html" target="_blank" rel="noopener">参考</a></li>
+<li>HashMap 的工作原理及代码实现，什么时候用到红黑树 <a href="http://www.pianshen.com/article/1837107238/" target="_blank" rel="noopener">参考</a></li>
+<li>多线程情况下HashMap死循环的问题  <a href="https://www.cnblogs.com/dongguacai/p/5599100.html" target="_blank" rel="noopener">参考</a></li>
+<li>HashMap出现Hash DOS攻击的问题 <a href="https://www.freebuf.com/articles/web/14199.html" target="_blank" rel="noopener">参考</a></li>
+<li>ConcurrentHashMap 的工作原理及代码实现，如何统计所有的元素个数 <a href="https://www.jianshu.com/p/85d158455861" target="_blank" rel="noopener">参考</a></li>
+<li>手写简单的HashMap <a href="https://www.jianshu.com/p/2e585189423e" target="_blank" rel="noopener">参考</a></li>
+<li>看过那些Java集合类的源码 HashSet HashMap</li>
+</ol>
+<h2 id="Java-进程和线程"><a href="#Java-进程和线程" class="headerlink" title="Java 进程和线程"></a>Java 进程和线程</h2><ol>
+<li>线程和进程的概念、并行和并发的概念 <a href="https://blog.csdn.net/kisscatforever/article/details/81000016" target="_blank" rel="noopener">参考</a></li>
+<li>创建线程的方式及实现</li>
+<li>进程间通信的方式 <a href="https://www.jianshu.com/p/8636344c7960" target="_blank" rel="noopener">参考</a></li>
+<li>说说 CountDownLatch、CyclicBarrier 原理和区别 <a href="">参考</a></li>
+<li>说说 Semaphore 原理</li>
+<li>说说 Exchanger 原理</li>
+<li>ThreadLocal 原理分析，ThreadLocal为什么会出现OOM，出现的深层次原理 <a href="https://www.cnblogs.com/dolphin0520/p/3920407.html" target="_blank" rel="noopener">参考</a></li>
+<li>讲讲线程池的实现原理 <a href="https://www.cnblogs.com/dongguacai/p/6030187.html" target="_blank" rel="noopener">参考</a></li>
+<li>线程池的几种实现方式</li>
+<li>线程的生命周期，状态是如何转移的</li>
+<li>可参考：《Java多线程编程核心技术》<h2 id="Java-锁机制"><a href="#Java-锁机制" class="headerlink" title="Java 锁机制"></a>Java 锁机制</h2></li>
+<li>说说线程安全问题，什么是线程安全，如何保证线程安全</li>
+<li>重入锁的概念，重入锁为什么可以防止死锁</li>
+<li>产生死锁的四个条件（互斥、请求与保持、不剥夺、循环等待）</li>
+<li>如何检查死锁（通过jConsole检查死锁）</li>
+<li>volatile 实现原理（禁止指令重排、刷新内存）</li>
+<li>synchronized 实现原理（对象监视器）</li>
+<li>synchronized 与 lock 的区别</li>
+<li>AQS同步队列</li>
+<li>CAS无锁的概念、乐观锁和悲观锁</li>
+<li>常见的原子操作类</li>
+<li>什么是ABA问题，出现ABA问题JDK是如何解决的</li>
+<li>乐观锁的业务场景及实现方式</li>
+<li>Java 8并法包下常见的并发类</li>
+<li>偏向锁、轻量级锁、重量级锁、自旋锁的概念<h2 id="Java-JVM"><a href="#Java-JVM" class="headerlink" title="Java JVM"></a>Java JVM</h2></li>
+<li>JVM运行时内存区域划分</li>
+<li>内存溢出OOM和堆栈溢出SOE的示例及原因、如何排查与解决</li>
+<li>如何判断对象是否可以回收或存活</li>
+<li>常见的GC回收算法及其含义</li>
+<li>常见的JVM性能监控和故障处理工具类：jps、jstat、jmap、jinfo、jconsole等</li>
+<li>JVM如何设置参数</li>
+<li>JVM性能调优</li>
+<li>类加载器、双亲委派模型、一个类的生命周期、类是如何加载到JVM中的</li>
+<li>类加载的过程：加载、验证、准备、解析、初始化</li>
+<li>强引用、软引用、弱引用、虚引用</li>
+<li>Java内存模型JMM</li>
+</ol>
+<h2 id="Java-设计模式"><a href="#Java-设计模式" class="headerlink" title="Java 设计模式"></a>Java 设计模式</h2><ol>
+<li>常见的设计模式</li>
+<li>设计模式的的六大原则及其含义</li>
+<li>常见的单例模式以及各种实现方式的优缺点，哪一种最好，手写常见的单利模式</li>
+<li>设计模式在实际场景中的应用</li>
+<li>Spring中用到了哪些设计模式</li>
+<li>MyBatis中用到了哪些设计模式</li>
+<li>你项目中有使用哪些设计模式</li>
+<li>说说常用开源框架中设计模式使用分析</li>
+<li>动态代理很重要！！！</li>
+</ol>
+<h2 id="Java-数据结构"><a href="#Java-数据结构" class="headerlink" title="Java 数据结构"></a>Java 数据结构</h2><ol>
+<li>树（二叉查找树、平衡二叉树、红黑树、B树、B+树）</li>
+<li>深度有限算法、广度优先算法</li>
+<li>克鲁斯卡尔算法、普林母算法、迪克拉斯算法</li>
+<li>什么是一致性Hash及其原理、Hash环问题</li>
+<li>常见的排序算法和查找算法：快排、折半查找、堆排序等</li>
 </ol>
 <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
 <li>多个线程同时读写，读线程的数量远远⼤于写线程，你认为应该如何解决 并发的问题？你会选择加什么样的锁？</li>
@@ -683,11 +815,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/03/15/interview/">面试 笔记</a></p>
+  <p><span>本文标题:</span><a href="/2018/03/15/interview/">interview 笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2018年03月15日 - 00:03</p>
-  <p><span>最后更新:</span>2019年03月26日 - 18:03</p>
-  <p><span>原始链接:</span><a href="/2018/03/15/interview/" title="面试 笔记">http://www.wowker.cn/2018/03/15/interview/</a>
+  <p><span>最后更新:</span>2019年04月03日 - 17:04</p>
+  <p><span>原始链接:</span><a href="/2018/03/15/interview/" title="interview 笔记">http://www.wowker.cn/2018/03/15/interview/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/15/interview/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
@@ -748,7 +880,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/面试/" rel="tag"># 面试</a>
+            <a href="/tags/interview/" rel="tag"># interview</a>
           
         </div>
       
@@ -786,8 +918,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/15/hello-world/" rel="prev" title="hexo 标准配置">
-                hexo 标准配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/16/spring-security/" rel="prev" title="Spring Security based on Spring Boot">
+                Spring Security based on Spring Boot <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -876,7 +1008,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -898,7 +1030,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -959,7 +1091,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答"><span class="nav-number">2.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-number">3.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1"><span class="nav-number">3.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-1"><span class="nav-number">3.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">4.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2"><span class="nav-number">4.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-2"><span class="nav-number">4.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jvm"><span class="nav-number">5.</span> <span class="nav-text">Jvm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-3"><span class="nav-number">5.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程-1"><span class="nav-number">6.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-4"><span class="nav-number">6.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-3"><span class="nav-number">6.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reids"><span class="nav-number">7.</span> <span class="nav-text">reids</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-5"><span class="nav-number">7.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-4"><span class="nav-number">7.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">8.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-6"><span class="nav-number">8.1.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-集合"><span class="nav-number">2.</span> <span class="nav-text">Java 集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-进程和线程"><span class="nav-number">3.</span> <span class="nav-text">Java 进程和线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-锁机制"><span class="nav-number">4.</span> <span class="nav-text">Java 锁机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-JVM"><span class="nav-number">5.</span> <span class="nav-text">Java JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-设计模式"><span class="nav-number">6.</span> <span class="nav-text">Java 设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-数据结构"><span class="nav-number">7.</span> <span class="nav-text">Java 数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">8.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">8.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答"><span class="nav-number">8.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-number">9.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1"><span class="nav-number">9.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-1"><span class="nav-number">9.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">10.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2"><span class="nav-number">10.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-2"><span class="nav-number">10.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jvm"><span class="nav-number">11.</span> <span class="nav-text">Jvm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-3"><span class="nav-number">11.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程-1"><span class="nav-number">12.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-4"><span class="nav-number">12.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-3"><span class="nav-number">12.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reids"><span class="nav-number">13.</span> <span class="nav-text">reids</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-5"><span class="nav-number">13.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-4"><span class="nav-number">13.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">14.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-6"><span class="nav-number">14.1.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
             
 
           </div>
