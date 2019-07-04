@@ -147,7 +147,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="并发 笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-04T03:18:16.962Z">
+<meta property="og:updated_time" content="2019-07-04T06:47:32.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并发控制 笔记">
 <meta name="twitter:description" content="并发 笔记">
@@ -428,7 +428,45 @@
 <li>锁 :在计算机科学中，锁(lock)或互斥(mutex)是一种同步机制，用于在有许多执行线程的环境中强制对资源的访问限制。锁旨在强制实施互斥排他、并发控制策略。锁通常需要硬件支持才能有效实施。这种支持通常采取一个或多个原子指令的形式，如”test-and-set”, “fetch-and-add” or “compare-and-swap””。这些指令允许单个进程测试锁是否空闲，如果空闲，则通过单个原子操作获取锁。</li>
 <li>悲观锁 :悲观锁是就是悲观思想，即认为写多，遇到并发写的可能性高，每次去拿数据的时候都认为别人会修改，所以每次在读写数据的时候都会上锁，这样别人想读写这个数据就会block直到拿到锁。java中的悲观锁就是Synchronized,AQS框架下的锁则是先尝试cas乐观锁去获取锁，获取不到，才会转换为悲观锁，如RetreenLock。</li>
 <li>乐观锁 :乐观锁是一种乐观思想，即认为读多写少，遇到并发写的可能性低，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，采取在写时先读出当前版本号，然后加锁操作（比较跟上一次的版本号，如果一样则更新），如果失败则要重复读-比较-写的操作。java中的乐观锁基本都是通过CAS操作实现的，CAS是一种更新的原子操作，比较当前值跟传入值是否一样，一样则更新（同时更新业务数据与版本号），否则失败。</li>
-<li>markword :<a href="https://blog.csdn.net/zqz_zqz/article/details/70246212" target="_blank" rel="noopener">参考</a> markword是java对象数据结构中的一部分,markword数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32bit和64bit，它的最后2bit是锁状态标志位，用来标记当前对象的状态，对象的所处的状态，决定了markword存储的内容，如下表所示<br>|状态|标志位|存储内容|<br>|-|-|-|<br>|未锁定|01|对象哈希码，对象分代年龄|<br>|轻量级锁定|00|指向锁记录指针|<br>|膨胀(重量级锁定)|10|执行重量级锁定的指针|<br>|GC标记|11|空(不需要记录信息)|<br>|可偏向|01|偏向线程ID、偏向时间戳、对象分代年龄|</li>
+<li>markword :<a href="https://blog.csdn.net/zqz_zqz/article/details/70246212" target="_blank" rel="noopener">参考</a> markword是java对象数据结构中的一部分,markword数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32bit和64bit，它的最后2bit是锁状态标志位，用来标记当前对象的状态，对象的所处的状态，决定了markword存储的内容，如下表所示</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>标志位</th>
+<th>存储内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>未锁定</td>
+<td>01</td>
+<td>对象哈希码，对象分代年龄</td>
+</tr>
+<tr>
+<td>轻量级锁定</td>
+<td>00</td>
+<td>指向锁记录指针</td>
+</tr>
+<tr>
+<td>膨胀(重量级锁定)</td>
+<td>10</td>
+<td>执行重量级锁定的指针</td>
+</tr>
+<tr>
+<td>GC标记</td>
+<td>11</td>
+<td>空(不需要记录信息)</td>
+</tr>
+<tr>
+<td>可偏向</td>
+<td>01</td>
+<td>偏向线程ID、偏向时间戳、对象分代年龄</td>
+</tr>
+</tbody>
+</table>
+<ol>
 <li>行锁 : 对数据库中指定条记录进行锁定（select * from t where id = 1 for update,需指定主键，否则为表锁），开销大，加锁慢；会出现死锁；锁定粒度小，发生锁冲突的概率低，并发度高</li>
 <li>表锁 : 对数据库中的指定表进行锁定，开销小，加锁快；不会出现死锁；锁定力度大，发生锁冲突概率高，并发度最低</li>
 </ol>
@@ -493,7 +531,7 @@
   <p><span>本文标题:</span><a href="/2019/07/03/concurrency_control/">并发控制 笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2019年07月03日 - 17:07</p>
-  <p><span>最后更新:</span>2019年07月04日 - 11:07</p>
+  <p><span>最后更新:</span>2019年07月04日 - 14:07</p>
   <p><span>原始链接:</span><a href="/2019/07/03/concurrency_control/" title="并发控制 笔记">http://www.wowker.cn/2019/07/03/concurrency_control/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2019/07/03/concurrency_control/"  aria-label="复制成功！"></i></span>
   </p>

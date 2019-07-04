@@ -147,7 +147,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="项目案例 Case ，主要关注大型高并发系统的解决方案。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-31T15:36:34.045Z">
+<meta property="og:updated_time" content="2019-07-04T03:25:06.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目案例 Case">
 <meta name="twitter:description" content="项目案例 Case ，主要关注大型高并发系统的解决方案。">
@@ -422,7 +422,12 @@
         <blockquote>
 <p>本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。<br><br>邮箱地址:<a href="mailto:ambition_kingman@163.com" target="_blank" rel="noopener">ambition_kingman@163.com</a><br><br>QQ:864113210</p>
 </blockquote>
-<h2 id="案例1-高并发支持"><a href="#案例1-高并发支持" class="headerlink" title="案例1 高并发支持"></a>案例1 高并发支持</h2><h3 id="原系统"><a href="#原系统" class="headerlink" title="原系统"></a>原系统</h3><ol>
+<h2 id="案例1-重构"><a href="#案例1-重构" class="headerlink" title="案例1 重构"></a>案例1 重构</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="新旧数据同步"><a href="#新旧数据同步" class="headerlink" title="新旧数据同步"></a>新旧数据同步</h4><ol>
+<li>新旧数据梳理：</li>
+<li>新到旧：</li>
+<li>旧到新：</li>
+</ol>
+<h4 id="新旧系统切换"><a href="#新旧系统切换" class="headerlink" title="新旧系统切换"></a>新旧系统切换</h4><h4 id="原系统痛点"><a href="#原系统痛点" class="headerlink" title="原系统痛点"></a>原系统痛点</h4><h2 id="案例n-高并发支持"><a href="#案例n-高并发支持" class="headerlink" title="案例n 高并发支持"></a>案例n 高并发支持</h2><h3 id="原系统"><a href="#原系统" class="headerlink" title="原系统"></a>原系统</h3><ol>
 <li>环境<br>同一请求并发高峰1000左右，单表数据量1千万左右。<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3></li>
 <li>环境<br>阿里的三台服务器：东北，华北，华南。</li>
 <li>要求<br>读写分离<br>访问分流</li>
@@ -448,8 +453,6 @@
 <li>代码自动部署用svn钩子 用socket 通知所有服务器更新代码，返回执行结果给用户。</li>
 </ul>
 <p>就是先用Update之行，把并发问题抛给数据库去解决。之行成功后存入消息列队！后台处理接下来的问题，最后从消息队列里面取得执行结果嘛？然后返回，减少执行时间。</p>
-<h2 id="案例2-商品购买"><a href="#案例2-商品购买" class="headerlink" title="案例2 商品购买"></a>案例2 商品购买</h2><p>update减一操作<br>能之行成功就是有货<br>然后告诉用户抢到了商品<br>其他业务逻辑，让后台服务根据列队慢慢处理</p>
-<p>一 处理时间短，并发量大。<br>二 自己不用考虑多线程锁问题</p>
 
       
     </div>
@@ -478,7 +481,7 @@
   <p><span>本文标题:</span><a href="/2018/03/31/case/">项目案例 Case</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2018年03月31日 - 23:03</p>
-  <p><span>最后更新:</span>2018年03月31日 - 23:03</p>
+  <p><span>最后更新:</span>2019年07月04日 - 11:07</p>
   <p><span>原始链接:</span><a href="/2018/03/31/case/" title="项目案例 Case">http://www.wowker.cn/2018/03/31/case/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/31/case/"  aria-label="复制成功！"></i></span>
   </p>
@@ -570,8 +573,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/31/oracle/" rel="next" title="Oracle 学习笔记">
-                <i class="fa fa-chevron-left"></i> Oracle 学习笔记
+              <a href="/2018/03/31/docker/" rel="next" title="Docker">
+                <i class="fa fa-chevron-left"></i> Docker
               </a>
             
           </div>
@@ -753,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#案例1-高并发支持"><span class="nav-number">1.</span> <span class="nav-text">案例1 高并发支持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原系统"><span class="nav-number">1.1.</span> <span class="nav-text">原系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例2-商品购买"><span class="nav-number">2.</span> <span class="nav-text">案例2 商品购买</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#案例1-重构"><span class="nav-number">1.</span> <span class="nav-text">案例1 重构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新旧数据同步"><span class="nav-number">1.1.1.</span> <span class="nav-text">新旧数据同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新旧系统切换"><span class="nav-number">1.1.2.</span> <span class="nav-text">新旧系统切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原系统痛点"><span class="nav-number">1.1.3.</span> <span class="nav-text">原系统痛点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例n-高并发支持"><span class="nav-number">2.</span> <span class="nav-text">案例n 高并发支持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原系统"><span class="nav-number">2.1.</span> <span class="nav-text">原系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li></ol></div>
             
 
           </div>
