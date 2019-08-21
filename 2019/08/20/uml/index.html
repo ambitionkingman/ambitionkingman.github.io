@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="设计,Uml,关系," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Uml 笔记">
+<meta name="keywords" content="设计,Uml,关系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Uml 笔记">
+<meta property="og:url" content="http://www.wowker.cn/2019/08/20/uml/index.html">
+<meta property="og:site_name" content="Wuwei` Blog">
+<meta property="og:description" content="Uml 笔记">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.wowker.cn/2019/08/20/img/uml/sxgl.png">
+<meta property="og:image" content="http://www.wowker.cn/2019/08/20/img/uml/dsgl.png">
+<meta property="og:image" content="http://www.wowker.cn/2019/08/20/img/uml/zh.png">
+<meta property="og:image" content="http://www.wowker.cn/2019/08/20/img/uml/jh.png">
+<meta property="og:image" content="http://www.wowker.cn/2019/08/20/img/uml/sx.png">
+<meta property="og:updated_time" content="2019-08-21T03:34:15.614Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Uml 笔记">
+<meta name="twitter:description" content="Uml 笔记">
+<meta name="twitter:image" content="http://www.wowker.cn/2019/08/20/img/uml/sxgl.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.wowker.cn/2019/08/20/uml/"/>
+
+
+
+
+
+  <title>Uml 笔记 | Wuwei` Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wuwei` Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wowker.cn/2019/08/20/uml/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/moonzelda.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wuwei` Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Uml 笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T11:30:00+08:00">
+                2019-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/20/uml/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/20/uml/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  Uml 笔记
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。<br><br>邮箱地址:<a href="mailto:ambition_kingman@163.com" target="_blank" rel="noopener">ambition_kingman@163.com</a><br><br>QQ:864113210</p>
+</blockquote>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ol>
+<li>UML类图是描述类之间的关系<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1></li>
+<li>类（Class）：使用三层矩形框表示，第一层显示类的名称，如果是抽象类，则就用斜体显示。第二层是字段和属性。第三层是类的方法。注意前面的符号，‘+’表示public，‘-’表示private，‘#’表示protected。后面跟 : 属性或方法的类型。</li>
+<li>接口：使用两层矩形框表示，与类图的区别主要是顶端有&lt;&gt;显示,第一行是接口名称。第二行是接口方法。</li>
+<li>继承类（extends）：用空心三角形+实线来表示。</li>
+<li>实现接口（implements）：用空心三角形+虚线来表示</li>
+<li>关联（Association）：用实线箭头来表示，例如：燕子与气候</li>
+<li>聚合（Aggregation）：用空心的菱形+实线箭头来表示</li>
+<li>聚合：表示一种弱的‘拥有’关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分，例如：公司和员工</li>
+<li>组合（Composition）: 部分和整体的关系，并且生命周期是相同的。例如：人与手,用实心的菱形+实线箭头来表示</li>
+<li>依赖（Dependency）: 用虚线箭头来表示，例如：动物与氧气</li>
+<li>基数: 连线两端的数字表明这一端的类可以有几个实例，比如：一个鸟应该有两只翅膀。如果一个类可能有无数个实例，则就用‘n’来表示。关联、聚合、组合是有基数的。</li>
+<li>重复度：<ul>
+<li>单重复度，只存在一对一的关系。</li>
+<li>多重复度，用列表、vector或其它的数据结构维护一对多，多对多的关系</li>
+<li>说明：这里再说一下重复度，其实看完了上面的描述之后，我们应该清楚了各个关系间的关系以及具体对应到代码是怎么样的，所谓的重复度，也只不过是上面的扩展，例如A和B有着“1对多”的重复度，那在A中就有一个列表，保存着B对象的N个引用，就是这样而已。</li>
+</ul>
+</li>
+<li>形式：<ul>
+<li>依赖/关联, 组合/聚合,继承/实现</li>
+<li>Dependency /Association,Composition/ Aggregation,Generalization/Realization<h1 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h1><h2 id="关联-属性指针-associate"><a href="#关联-属性指针-associate" class="headerlink" title="关联-属性指针-associate"></a>关联-属性指针-associate</h2><h3 id="双向关联-相互关联，相互把对方作为自己的指针"><a href="#双向关联-相互关联，相互把对方作为自己的指针" class="headerlink" title="双向关联-相互关联，相互把对方作为自己的指针"></a>双向关联-相互关联，<strong>相互把对方作为自己的指针</strong></h3></li>
+</ul>
+</li>
+<li><img src="../img/uml/sxgl.png" alt="双向关联图"></li>
+<li>C1-C2：指双方都知道对方的存在，都可以调用对方的公共属性和方法。<br>在GOF的设计模式书上是这样描述的：虽然在分析阶段这种关系是适用的，但我们觉得它对于描述设计模式内的类关系来说显得太抽象了，因为在设计阶段关联关 系必须被映射为对象引用或指针。对象引用本身就是有向的，更适合表达我们所讨论的那种关系。所以这种关系在设计的时候比较少用到，关联一般都是有向的。双向关联在代码的表现为双方都拥有对方的一个指针，当然也可以是引用或者是值。</li>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  class C1&#123;</span><br><span class="line">public C2 theC2;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C2 &#123;</span><br><span class="line">public C1 theC1;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="单向关联-关联到它就把它当做自己的属性指针"><a href="#单向关联-关联到它就把它当做自己的属性指针" class="headerlink" title="单向关联-关联到它就把它当做自己的属性指针"></a>单向关联-关联到它就把它当做自己的属性指针</h3><ol>
+<li><img src="../img/uml/dsgl.png" alt="单向关联"></li>
+<li>C3-&gt;C4：表示相识关系，指C3知道C4，C3可以调用C4的公共属性和方法。</li>
+<li>没有生命期的依赖。一般是表示为一种引用,单向关联的代码就表现为C3有C4的指针，而C4对C3一无所知。</li>
+<li>生成代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class C3&#123;</span><br><span class="line"></span><br><span class="line">public C4 theC4;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C4&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="自身关联（反身关联）-关联到自己，就是把自己当做属性指针"><a href="#自身关联（反身关联）-关联到自己，就是把自己当做属性指针" class="headerlink" title="自身关联（反身关联）-关联到自己，就是把自己当做属性指针"></a>自身关联（反身关联）-关联到自己，就是把自己当做属性指针</h3><ol>
+<li><a href="../img/uml/zsgl.png">自身关联</a></li>
+<li>自己引用自己，带着一个自己的引用</li>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class C5&#123;</span><br><span class="line">public C5 theC5;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="依赖-依赖-就把它的指针或引用，作为自己的函数形参-dependency"><a href="#依赖-依赖-就把它的指针或引用，作为自己的函数形参-dependency" class="headerlink" title="依赖-依赖 就把它的指针或引用，作为自己的函数形参-dependency"></a>依赖-依赖 就把它的指针或引用，作为自己的函数形参-dependency</h3><ol>
+<li>单向依赖<ul>
+<li><a href="../img/uml/dxyl.png">单向依赖</a></li>
+</ul>
+</li>
+<li>依赖:指C5可能要用到C6的一些方法，也可以这样说，要完成C5里的所有功能，一定要有C6的方法协助才行。C5依赖于C6的定义，一般是在C5类的头文件中包含了C6的头文件。注意，要避免双向依赖。一般来说，不应该存在双向依赖。</li>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class C6</span><br><span class="line">&#123;</span><br><span class="line"> public void Func(C7 *pC7Obj);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C7</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="组合-聚合-属性对象-composite-aggreate"><a href="#组合-聚合-属性对象-composite-aggreate" class="headerlink" title="组合/聚合-属性对象-composite/aggreate"></a>组合/聚合-属性对象-composite/aggreate</h3><h4 id="组合-composite"><a href="#组合-composite" class="headerlink" title="组合 composite"></a>组合 composite</h4><ol>
+<li>是整体与部分的关系，但部分不能离开整体而独立存在，如公司和部门是整体和部分的关系，没有公司就不存在部门。组合关系是关联关系的一种，是比聚合关系还要强的关系，它要求普通的聚合关系中代表整体的对象负责部分的对象的生命周期。</li>
+<li>代码体现: 成员变量</li>
+<li>箭头及指向:带实心菱形的实线，菱形指向整体。</li>
+<li><img src="../img/uml/zh.png" alt="组合"></li>
+<li>组合（也有人称为包容）：一般是实心菱形加实线箭头表示，如上图所示，表示的是C8被C7包容，而且C8不能离开C7而独立存在。但这是视问题域而定的， 例如在关心汽车的领域里，轮胎是一定要组合在汽车类中的，因为它离开了汽车就没有意义了。但是在卖轮胎的店铺业务里，就算轮胎离开了汽车，它也是有意义 的，这就可以用聚合了。<br>在《敏捷开发》中还说到，A组合B，则A需要知道B的生存周期，即可能A负责生成或者释放B，或者A通过某种途径知道B的生成和释放。</li>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class C8</span><br><span class="line">&#123;</span><br><span class="line">public C9 theC9;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C9</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h4><ol>
+<li>聚合-自己空心的，去聚合它，把它当做自己的属性对象，被聚合的类可以单独存在(自己构造函数中不使用)</li>
+<li><img src="../img/uml/jh.png" alt="聚合"></li>
+<li>当类之间有整体-部分关系的时候，我们就可以使用组合或者聚合。<br>聚合：表示C9聚合C10，但是C10可以离开C9而独立存在（独立存在的意思是在某个应用的问题域中这个类的存在有意义。这句话怎么解，请看下面组合里的解释）。</li>
+<li>代码如下：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class C10</span><br><span class="line">&#123;</span><br><span class="line">public C11 theC11;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C11</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="总结聚合和组合："><a href="#总结聚合和组合：" class="headerlink" title="总结聚合和组合："></a>总结聚合和组合：</h4><p>问题域的语义上：组合中被组合类单独存在没有意义; 聚合中被聚合类在可以有单独存在的意义。<br>生命期上：组合中必须要负责被组合类的生命期; 聚合中可不负责被聚合类的声明期，可以由外部程序来创建和消亡（可用赋值）。</p>
+<h3 id="泛化和实现-derived-implement"><a href="#泛化和实现-derived-implement" class="headerlink" title="泛化和实现 derived/implement"></a>泛化和实现 derived/implement</h3><h4 id="泛华"><a href="#泛华" class="headerlink" title="泛华"></a>泛华</h4><ol>
+<li>继承（Derived）-子对象指向父对象</li>
+<li><a href="../img/uml/jc.png">继承</a></li>
+<li>泛化关系：如果两个类存在泛化的关系时就使用，例如父和子，动物和老虎，植物和花等。</li>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class C12 extends C13</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="接口实现（implement）"><a href="#接口实现（implement）" class="headerlink" title="接口实现（implement）"></a>接口实现（implement）</h4><ol>
+<li>实现关系指定两个实体之间的一个合约。换言之，一个实体定义一个 合约 ，而另一个实体保证履行该合约 。</li>
+<li><img src="../img/uml/sx.png" alt="实现"></li>
+</ol>
+<h3 id="关系之间的区别"><a href="#关系之间的区别" class="headerlink" title="关系之间的区别"></a>关系之间的区别</h3><ol>
+<li>那依赖和聚合\组合、关联等有什么不同呢？</li>
+<li>关联是类之间的一种关系，例如老师教学生，老公和老婆，水壶装水等就是一种关系。这种关系是非常明显的，在问题领域中通过分析直接就能得出。</li>
+<li>依赖是一种弱关联，只要一个类用到另一个类，但是和另一个类的关系不是太明显的时候（可以说是“uses”了那个类），就可以把这种关系看成是依赖，依赖 也可说是一种偶然的关系，而不是必然的关系，就是“我在某个方法中偶然用到了它，但在现实中我和它并没多大关系”。例如我和锤子，我和锤子本来是没关系 的，但在有一次要钉钉子的时候，我用到了它，这就是一种依赖，依赖锤子完成钉钉子这件事情。</li>
+<li>组合是一种整体-部分的关系，在问题域中这种关系很明显，直接分析就可以得出的。例如轮胎是车的一部分，树叶是树的一部分，手脚是身体的一部分这种的关系，非常明显的整体-部分关系。<br>上述的几种关系（关联、聚合/组合、依赖）在代码中可能以指针、引用、值等的方式在另一个类中出现，不拘于形式，但在逻辑上他们就有以上的区别。</li>
+<li>说明:这里还要说明一下，所谓的这些关系只是在某个问题域才有效，离开了这个问题域，可能这些关系就不成立了，例如可能在某个问题域中，我是一个木匠，需要拿着 锤子去干活，可能整个问题的描述就是我拿着锤子怎么钉桌子，钉椅子，钉柜子；既然整个问题就是描述这个，我和锤子就不仅是偶然的依赖关系了，我和锤子的关 系变得非常的紧密，可能就上升为组合关系（让我突然想起武侠小说的剑不离身，剑亡人亡…）。这个例子可能有点荒谬，但也是为了说明一个道理，就是关系 和类一样，它们都是在一个问题领域中才成立的，离开了这个问题域，他们可能就不复存在了</li>
+</ol>
+<p>2.</p>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/08/20/uml/">Uml 笔记</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
+  <p><span>发布时间:</span>2019年08月20日 - 11:08</p>
+  <p><span>最后更新:</span>2019年08月21日 - 11:08</p>
+  <p><span>原始链接:</span><a href="/2019/08/20/uml/" title="Uml 笔记">http://www.wowker.cn/2019/08/20/uml/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2019/08/20/uml/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });
+</script>
+
+
+      
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/wechatpay0.5.png" alt="Wu Wei 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/alipay0.5.jpg" alt="Wu Wei 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计/" rel="tag"># 设计</a>
+          
+            <a href="/tags/Uml/" rel="tag"># Uml</a>
+          
+            <a href="/tags/关系/" rel="tag"># 关系</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/03/concurrency_control/" rel="next" title="并发控制 笔记">
+                <i class="fa fa-chevron-left"></i> 并发控制 笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/moonzelda.jpeg"
+                alt="Wu Wei" />
+            
+              <p class="site-author-name" itemprop="name">Wu Wei</p>
+              <p class="site-description motion-element" itemprop="description">Be a thoutghtfull programer,做一个有思想的程序猿。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ambitionkingman/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ambition_kingman@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wu-wei-8-35/" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/WowkerFive" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图解"><span class="nav-number">3.</span> <span class="nav-text">图解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关联-属性指针-associate"><span class="nav-number">3.1.</span> <span class="nav-text">关联-属性指针-associate</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#双向关联-相互关联，相互把对方作为自己的指针"><span class="nav-number">3.1.1.</span> <span class="nav-text">双向关联-相互关联，相互把对方作为自己的指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单向关联-关联到它就把它当做自己的属性指针"><span class="nav-number">3.1.2.</span> <span class="nav-text">单向关联-关联到它就把它当做自己的属性指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自身关联（反身关联）-关联到自己，就是把自己当做属性指针"><span class="nav-number">3.1.3.</span> <span class="nav-text">自身关联（反身关联）-关联到自己，就是把自己当做属性指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖-依赖-就把它的指针或引用，作为自己的函数形参-dependency"><span class="nav-number">3.1.4.</span> <span class="nav-text">依赖-依赖 就把它的指针或引用，作为自己的函数形参-dependency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合-聚合-属性对象-composite-aggreate"><span class="nav-number">3.1.5.</span> <span class="nav-text">组合/聚合-属性对象-composite/aggreate</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组合-composite"><span class="nav-number">3.1.5.1.</span> <span class="nav-text">组合 composite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合"><span class="nav-number">3.1.5.2.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结聚合和组合："><span class="nav-number">3.1.5.3.</span> <span class="nav-text">总结聚合和组合：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛化和实现-derived-implement"><span class="nav-number">3.1.6.</span> <span class="nav-text">泛化和实现 derived/implement</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#泛华"><span class="nav-number">3.1.6.1.</span> <span class="nav-text">泛华</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口实现（implement）"><span class="nav-number">3.1.6.2.</span> <span class="nav-text">接口实现（implement）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系之间的区别"><span class="nav-number">3.1.7.</span> <span class="nav-text">关系之间的区别</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Wei</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'ambitionkingman',
+            repo: 'ambitionkingman.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'd68058794833aa6387839d94fa7f07165418803e',
+            
+                client_id: '4b1bc62cf280a7e4b8ae'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
