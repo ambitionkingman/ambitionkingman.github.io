@@ -139,19 +139,19 @@
 
 
 
-<meta name="description" content="概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长s。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。">
+<meta name="description" content="概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。">
 <meta name="keywords" content="java,HashMap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java HashMap">
 <meta property="og:url" content="http://www.wowker.cn/2018/03/17/hashmap/index.html">
 <meta property="og:site_name" content="Wuwei` Blog">
-<meta property="og:description" content="概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长s。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。">
+<meta property="og:description" content="概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p4ucv3uvl.bkt.clouddn.com/post/HashMap.png">
-<meta property="og:updated_time" content="2018-03-26T14:26:37.147Z">
+<meta property="og:updated_time" content="2019-07-30T07:00:50.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java HashMap">
-<meta name="twitter:description" content="概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长s。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。">
+<meta name="twitter:description" content="概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。">
 <meta name="twitter:image" content="http://p4ucv3uvl.bkt.clouddn.com/post/HashMap.png">
 
 
@@ -404,7 +404,7 @@
 
           
               <div class="post-description">
-                  概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长s。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。
+                  概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。
               </div>
           
 
@@ -425,7 +425,7 @@
 <p>本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。<br><br>邮箱地址:<a href="mailto:ambition_kingman@163.com" target="_blank" rel="noopener">ambition_kingman@163.com</a><br><br>QQ:864113210</p>
 </blockquote>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ol>
-<li>概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长s。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</li>
+<li>概述 :HashMap基于哈希表的 Map 接口的实现,每一个元素是一个key-value对,其内部通过单链表解决冲突问题，容量不足（超过了阀值）时，同样会自动增长。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。（除了不同步和允许使用 null 之外，HashMap 类与 Hashtable 大致相同。）此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</li>
 <li>特点 : HashMap是非线程安全的，只是用于单线程环境下，多线程环境下可以采用concurrent并发包下的concurrentHashMap。HashMap 实现了Serializable接口，因此它支持序列化，实现了Cloneable接口，能被克隆。</li>
 </ol>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ol>
@@ -559,8 +559,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/18/aspectj/" rel="prev" title="Spring Aop">
-                Spring Aop <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/18/jvm/" rel="prev" title="Jvm">
+                Jvm <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -660,7 +660,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -671,7 +671,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

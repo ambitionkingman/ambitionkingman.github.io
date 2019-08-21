@@ -23,8 +23,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('stars'){
+            if (prompt('请输入文章密码') !== 'stars'){
                 alert('密码错误！');
                 history.back();
             }
@@ -128,7 +128,7 @@
 
 
 
-  <meta name="keywords" content="interview," />
+  <meta name="keywords" content="interview,面试," />
 
 
 
@@ -140,14 +140,14 @@
 
 
 <meta name="description" content="interview 笔记">
-<meta name="keywords" content="interview">
+<meta name="keywords" content="interview,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="interview 笔记">
 <meta property="og:url" content="http://www.wowker.cn/2018/03/15/interview/index.html">
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="interview 笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-03T09:46:39.953Z">
+<meta property="og:updated_time" content="2019-07-08T03:48:41.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="interview 笔记">
 <meta name="twitter:description" content="interview 笔记">
@@ -786,9 +786,172 @@
 <li>NameNode的内存结构？</li>
 <li><p>NameNode的重启优化？</p>
 </li>
-<li><p>Git的使用？</p>
+<li><p>Git的使用</p>
 </li>
 <li>Maven的使用</li>
+</ol>
+<h2 id="dubbo"><a href="#dubbo" class="headerlink" title="dubbo"></a>dubbo</h2><ol>
+<li><p>Dubbo中zookeeper做注册中心，如果注册中心集群都挂掉，发布者和订阅者之间还能通信么？<br>可以通信的，启动dubbo时，消费者会从zk拉取注册的生产者的地址接口等数据，缓存在本地。每次调用时，按照本地存储的地址进行调用；<br>注册中心对等集群，任意一台宕机后，将会切换到另一台；注册中心全部宕机后，服务的提供者和消费者仍能通过本地缓存通讯。服务提供者无状态，任一台 宕机后，不影响使用；服务提供者全部宕机，服务消费者会无法使用，并无限次重连等待服务者恢复；<br>挂掉是不要紧的，但前提是你没有增加新的服务，如果你要调用新的服务，则是不能办到的。</p>
+</li>
+<li><p>dubbo服务负载均衡策略？<br>Random LoadBalance<br> 随机，按权重设置随机概率。在一个截面上碰撞的概率高，但调用量越大分布越均匀，而且按概率使用权重后也比较均匀，有利于动态调整提供者权重。(权重可以在dubbo管控台配置)</p>
+</li>
+</ol>
+<p>RoundRobin LoadBalance<br>    轮循，按公约后的权重设置轮循比率。存在慢的提供者累积请求问题，比如：第二台机器很慢，但没挂，当请求调到第二台时就卡在那，久而久之，所有请求都卡在调到第二台上。</p>
+<p>LeastActive LoadBalance<br>   最少活跃调用数，相同活跃数的随机，活跃数指调用前后计数差。使慢的提供者收到更少请求，因为越慢的提供者的调用前后计数差会越大。</p>
+<p>ConsistentHash LoadBalance<br>  一致性Hash，相同参数的请求总是发到同一提供者。当某一台提供者挂时，原本发往该提供者的请求，基于虚拟节点，平摊到其它提供者，不会引起剧烈变动。缺省只对第一个参数Hash，如果要修改，请配置</p>
+<ol>
+<li><p>Dubbo在安全机制方面是如何解决的<br>Dubbo通过Token令牌防止用户绕过注册中心直连，然后在注册中心上管理授权。Dubbo还提供服务黑白名单，来控制服务所允许的调用方。</p>
+</li>
+<li><p>dubbo连接注册中心和直连的区别<br>在开发及测试环境下，经常需要绕过注册中心，只测试指定服务提供者，这时候可能需要点对点直连，<br>点对点直联方式，将以服务接口为单位，忽略注册中心的提供者列表，</p>
+</li>
+</ol>
+<p>服务注册中心，动态的注册和发现服务，使服务的位置透明，并通过在消费方获取服务提供方地址列表，实现软负载均衡和Failover， 注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。<br>服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。注册中心负责服务地址的注册与查找，相当于目录服务，服务提供者和消费者只在启动时与注册中心交互，注册中心不转发请求，服务消费者向注册中心获取服务提供者地址列表，并根据负载算法直接调用提供者，注册中心，服务提供者，服务消费者三者之间均为长连接，监控中心除外，注册中心通过长连接感知服务提供者的存在，服务提供者宕机，注册中心将立即推送事件通知消费者<br>注册中心和监控中心全部宕机，不影响已运行的提供者和消费者，消费者在本地缓存了提供者列表<br>注册中心和监控中心都是可选的，服务消费者可以直连服务提供者</p>
+<ol>
+<li>dubbo服务集群配置（集群容错模式）<br>在集群调用失败时，Dubbo 提供了多种容错方案，缺省为 failover 重试。可以自行扩展集群容错策略<br>Failover Cluster(默认)<br>失败自动切换，当出现失败，重试其它服务器。(缺省)通常用于读操作，但重试会带来更长延迟。可通过retries=”2”来设置重试次数(不含第一次)。</li>
+</ol>
+<p>Failfast Cluster<br>快速失败，只发起一次调用，失败立即报错。通常用于非幂等性的写操作，比如新增记录。</p>
+<p>Failsafe Cluster<br>失败安全，出现异常时，直接忽略。通常用于写入审计日志等操作。</p>
+<p>Failback Cluster<br>失败自动恢复，后台记录失败请求，定时重发。通常用于消息通知操作。</p>
+<p>Forking Cluster<br>并行调用多个服务器，只要一个成功即返回。通常用于实时性要求较高的读操作，但需要浪费更多服务资源。可通过forks=”2”来设置最大并行数。</p>
+<ol>
+<li><p>dubbo通信协议dubbo协议为什么要消费者比提供者个数多：<br>因dubbo协议采用单一长连接，假设网络为千兆网卡(1024Mbit=128MByte)，<br>根据测试经验数据每条连接最多只能压满7MByte(不同的环境可能不一样，供参考)，理论上1个服务提供者需要20个服务消费者才能压满网卡。</p>
+</li>
+<li><p>dubbo通信协议dubbo协议为什么不能传大包：<br>因dubbo协议采用单一长连接，<br>如果每次请求的数据包大小为500KByte，假设网络为千兆网卡(1024Mbit=128MByte)，每条连接最大7MByte(不同的环境可能不一样，供参考)，<br>单个服务提供者的TPS(每秒处理事务数)最大为：128MByte / 500KByte = 262。<br>单个消费者调用单个服务提供者的TPS(每秒处理事务数)最大为：7MByte / 500KByte = 14。<br>如果能接受，可以考虑使用，否则网络将成为瓶颈。</p>
+</li>
+<li><p>dubbo通信协议dubbo协议为什么采用异步单一长连接：<br>因为服务的现状大都是服务提供者少，通常只有几台机器，<br>而服务的消费者多，可能整个网站都在访问该服务，<br>比如Morgan的提供者只有6台提供者，却有上百台消费者，每天有1.5亿次调用，<br>如果采用常规的hessian服务，服务提供者很容易就被压跨，<br>通过单一连接，保证单一消费者不会压死提供者，<br>长连接，减少连接握手验证等，<br>并使用异步IO，复用线程池，防止C10K问题。</p>
+</li>
+<li><p>dubbo通信协议dubbo协议适用范围和适用场景<br>适用范围：传入传出参数数据包较小（建议小于100K），消费者比提供者个数多，单一消费者无法压满提供者，尽量不要用dubbo协议传输大文件或超大字符串。<br>适用场景：常规远程服务方法调用<br>dubbo协议补充：<br>连接个数：单连接<br>连接方式：长连接<br>传输协议：TCP<br>传输方式：NIO异步传输<br>序列化：Hessian二进制序列化</p>
+</li>
+</ol>
+<ol>
+<li><p>RMI协议<br>RMI协议采用JDK标准的java.rmi. 实现，采用阻塞式短连接和JDK标准序列化方式，Java标准的远程调用协议。<br>连接个数：多连接<br>连接方式：短连接<br>传输协议：TCP<br>传输方式：同步传输<br>序列化：Java标准二进制序列化<br>适用范围：传入传出参数数据包大小混合，消费者与提供者个数差不多，可传文件。<br>适用场景：常规远程服务方法调用，与原生RMI服务互操作</p>
+</li>
+<li><p>Hessian协议</p>
+</li>
+</ol>
+<p>Hessian协议用于集成Hessian的服务，Hessian底层采用Http通讯，采用Servlet暴露服务，Dubbo缺省内嵌Jetty作为服务器实现<br>基于Hessian的远程调用协议。<br>连接个数：多连接<br>连接方式：短连接<br>传输协议：HTTP<br>传输方式：同步传输<br>序列化：Hessian二进制序列化<br>适用范围：传入传出参数数据包较大，提供者比消费者个数多，提供者压力较大，可传文件。<br>适用场景：页面传输，文件传输，或与原生hessian服务互操作</p>
+<ol>
+<li>http</li>
+</ol>
+<p>采用Spring的HttpInvoker实现<br>基于http表单的远程调用协议。<br>连接个数：多连接<br>连接方式：短连接<br>传输协议：HTTP<br>传输方式：同步传输<br>序列化：表单序列化（JSON）<br>适用范围：传入传出参数数据包大小混合，提供者比消费者个数多，可用浏览器查看，可用表单或URL传入参数，暂不支持传文件。<br>适用场景：需同时给应用程序和浏览器JS使用的服务。</p>
+<ol>
+<li>Webservice</li>
+</ol>
+<p>基于CXF的frontend-simple和transports-http实现<br>基于WebService的远程调用协议。<br>连接个数：多连接<br>连接方式：短连接<br>传输协议：HTTP<br>传输方式：同步传输<br>序列化：SOAP文本序列化<br>适用场景：系统集成，跨语言调用。</p>
+<ol>
+<li>Thrif</li>
+</ol>
+<p>Thrift是Facebook捐给Apache的一个RPC框架，当前 dubbo 支持的 thrift 协议是对 thrift 原生协议的扩展，在原生协议的基础上添加了一些额外的头信息，比如service name，magic number等</p>
+<h3 id="dubbo-注册中心"><a href="#dubbo-注册中心" class="headerlink" title="dubbo 注册中心"></a>dubbo 注册中心</h3><p>1）Multicast 注册中心<br>Multicast 注册中心不需要启动任何中心节点，只要广播地址一样，就可以互相发现。</p>
+<p>提供方启动时广播自己的地址<br>消费方启动时广播订阅请求<br>提供方收到订阅请求时，单播自己的地址给订阅者，如果设置了 unicast=false，则广播给订阅者<br>消费方收到提供方地址时，连接该地址进行 RPC 调用。<br>组播受网络结构限制，只适合小规模应用或开发阶段使用。组播地址段: 224.0.0.0 - 239.255.255.255</p>
+<p>2）zookeeper 注册中心<br>Zookeeper 是 Apacahe Hadoop 的子项目，是一个树型的目录服务，支持变更推送，适合作为 Dubbo 服务的注册中心，工业强度较高，可用于生产环境，并推荐使用 1。<br>流程说明：</p>
+<p>服务提供者启动时: 向 /dubbo/com.foo.BarService/providers 目录下写入自己的 URL 地址<br>服务消费者启动时: 订阅 /dubbo/com.foo.BarService/providers 目录下的提供者 URL 地址。并向 /dubbo/com.foo.BarService/consumers 目录下写入自己的 URL 地址<br>监控中心启动时: 订阅 /dubbo/com.foo.BarService 目录下的所有提供者和消费者 URL 地址。<br>支持以下功能：</p>
+<p>当提供者出现断电等异常停机时，注册中心能自动删除提供者信息<br>当注册中心重启时，能自动恢复注册数据，以及订阅请求<br>当会话过期时，能自动恢复注册数据，以及订阅请求<br>当设置 &lt;dubbo:registry check=”false” /&gt; 时，记录失败注册和订阅请求，后台定时重试<br>可通过 &lt;dubbo:registry username=”admin” password=”1234” /&gt; 设置 zookeeper 登录信息<br>可通过 &lt;dubbo:registry group=”dubbo” /&gt; 设置 zookeeper 的根节点，不设置将使用无根树<br>支持 <em> 号通配符 &lt;dubbo:reference group=”</em>“ version=”*” /&gt;，可订阅服务的所有分组和所有版本的提供者</p>
+<p>3）Redis 注册中心<br>基于 Redis 1 实现的注册中心 2。</p>
+<p>使用 Redis 的 Key/Map 结构存储数据结构：</p>
+<p>主 Key 为服务名和类型<br>Map 中的 Key 为 URL 地址<br>Map 中的 Value 为过期时间，用于判断脏数据，脏数据由监控中心删除 3<br>使用 Redis 的 Publish/Subscribe 事件通知数据变更：</p>
+<p>通过事件的值区分事件类型：register, unregister, subscribe, unsubscribe<br>普通消费者直接订阅指定服务提供者的 Key，只会收到指定服务的 register, unregister 事件<br>监控中心通过 psubscribe 功能订阅 /dubbo/<em> ，会收到所有服务的所有变更事件<br>调用过程：<br>服务提供方启动时，向 Key:/dubbo/com.foo.BarService/providers 下，添加当前提供者的地址<br>并向 Channel:/dubbo/com.foo.BarService/providers 发送 register 事件<br>服务消费方启动时，从 Channel:/dubbo/com.foo.BarService/providers 订阅 register 和 unregister 事件<br>并向 Key:/dubbo/com.foo.BarService/providers 下，添加当前消费者的地址<br>服务消费方收到 register 和 unregister 事件后，从 Key:/dubbo/com.foo.BarService/providers 下获取提供者地址列表<br>服务监控中心启动时，从 Channel:/dubbo/</em> 订阅 register 和 unregister，以及 subscribe 和unsubsribe事件<br>服务监控中心收到 register 和 unregister 事件后，从 Key:/dubbo/com.foo.BarService/providers 下获取提供者地址列表<br>服务监控中心收到 subscribe 和 unsubsribe 事件后，从 Key:/dubbo/com.foo.BarService/consumers 下获取消费者地址列表</p>
+<ol>
+<li><p><a href="/img/dubbo-register.png">!画一画服务注册与发现的流程图</a></p>
+</li>
+<li><p>dubbo 核心配置</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>配置说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dubbo:service</td>
+<td>服务配置Â</td>
+</tr>
+<tr>
+<td>dubbo:reference</td>
+<td>引用配置</td>
+</tr>
+<tr>
+<td>dubbo:protocol</td>
+<td>协议配置</td>
+</tr>
+<tr>
+<td>dubbo:application</td>
+<td>应用配置</td>
+</tr>
+<tr>
+<td>dubbo:module</td>
+<td>模块配置</td>
+</tr>
+<tr>
+<td>dubbo:register</td>
+<td>注册中心配置</td>
+</tr>
+<tr>
+<td>dubbo:monitor</td>
+<td>监控中心配置</td>
+</tr>
+<tr>
+<td>dubbo:provider</td>
+<td>提供者配置</td>
+</tr>
+<tr>
+<td>dubbo:consumer</td>
+<td>提供者配置</td>
+</tr>
+<tr>
+<td>dubbo:method</td>
+<td>方法配置</td>
+</tr>
+<tr>
+<td>dubbo:argument</td>
+<td>参数配置</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>在 Provider 上可以配置的 Consumer 端的属性有哪些？</li>
+</ol>
+<p>1）timeout：方法调用超时<br>2）retries：失败重试次数，默认重试 2 次<br>3）loadbalance：负载均衡算法，默认随机<br>4）actives 消费者端，最大并发调用限制</p>
+<ol>
+<li>Dubbo推荐使用什么序列化框架，你知道的还有哪些？</li>
+</ol>
+<p>推荐使用Hessian序列化，还有Duddo、FastJson、Java自带序列化。</p>
+<ol>
+<li><p>Dubbo默认使用的是什么通信框架，还有别的选择吗？<br>Dubbo 默认使用 Netty 框架，也是推荐的选择，另外内容还集成有Mina、Grizzly。</p>
+</li>
+<li><p>Dubbo支持服务多协议吗？<br>Dubbo 允许配置多协议，在不同服务上支持不同协议或者同一服务上同时支持多种协议。</p>
+</li>
+<li><p>当一个服务接口有多种实现时怎么做？<br>当一个接口有多种实现时，可以用 group 属性来分组，服务提供方和消费方都指定同一个 group 即可。</p>
+</li>
+<li><p>服务上线怎么兼容旧版本？<br>可以用版本号（version）过渡，多个不同版本的服务注册到注册中心，版本号不同的服务相互间不引用。这个和服务分组的概念有一点类似</p>
+</li>
+<li><p>Dubbo可以对结果进行缓存吗？<br>可以，Dubbo 提供了声明式缓存，用于加速热门数据的访问速度，以减少用户加缓存的工作量。</p>
+</li>
+<li><p>Dubbo服务之间的调用是阻塞的吗？<br>默认是同步等待结果阻塞的，支持异步调用。<br>Dubbo 是基于 NIO 的非阻塞实现并行调用，客户端不需要启动多线程即可完成并行调用多个远程服务，相对多线程开销较小，异步调用会返回一个 Future 对象。</p>
+</li>
+</ol>
+<p>25、Dubbo telnet 命令能做什么？</p>
+<p>dubbo 通过 telnet 命令来进行服务治理</p>
+<p>27、Dubbo如何优雅停机？</p>
+<p>Dubbo 是通过 JDK 的 ShutdownHook 来完成优雅停机的，所以如果使用 kill -9 PID 等强制关闭指令，是不会执行优雅停机的，只有通过 kill PID 时，才会执行</p>
+<p>28、服务提供者能实现失效踢出是什么原理？</p>
+<p>服务失效踢出基于 Zookeeper 的临时节点原理。</p>
+<p>29、如何解决服务调用链过长的问题？</p>
+<p>Dubbo 可以使用 Pinpoint 和 Apache Skywalking(Incubator) 实现分布式服务追踪，当然还有其他很多方案。</p>
+<p>30、服务读写推荐的容错策略是怎样的？</p>
+<p>读操作建议使用 Failover 失败自动切换，默认重试两次其他服务器。</p>
+<p>写操作建议使用 Failfast 快速失败，发一次调用失败就立即报错。</p>
+<p>32、Dubbo的管理控制台能做什么？</p>
+<p>管理控制台主要包含：路由规则，动态配置，服务降级，访问控制，权重调整，负载均衡，等管理功能。</p>
+<p>33、说说 Dubbo 服务暴露的过程。</p>
+<p>Dubbo 会在 Spring 实例化完 bean 之后，在刷新容器最后一步发布 ContextRefreshEvent 事件的时候，通知实现了 ApplicationListener 的 ServiceBean 类进行回调 onApplicationEvent 事件方法，Dubbo 会在这个方法中调用 ServiceBean 父类 ServiceConfig 的 export 方法，而该方法真正实现了服务的（异步或者非异步）发布。</p>
+<p>38、在使用过程中都遇到了些什么问题？<br>Dubbo 的设计目的是为了满足高并发小数据量的 rpc 调用，在大数据量下的性能表现并不好，建议使用 rmi 或 http 协议。</p>
+<p>##引用</p>
+<ol>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU5NTAzNjM0Mw==&amp;mid=2247485145&amp;idx=1&amp;sn=0299d3991225b6989cc3ef82119fb09a&amp;chksm=fe795701c90ede1771126941a7b9707ae7f1e0714aae4a9335a17919fa71be541c61a18a94b1&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">java基础-附带答案</a></li>
 </ol>
 
       
@@ -818,7 +981,7 @@
   <p><span>本文标题:</span><a href="/2018/03/15/interview/">interview 笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2018年03月15日 - 00:03</p>
-  <p><span>最后更新:</span>2019年04月03日 - 17:04</p>
+  <p><span>最后更新:</span>2019年07月08日 - 11:07</p>
   <p><span>原始链接:</span><a href="/2018/03/15/interview/" title="interview 笔记">http://www.wowker.cn/2018/03/15/interview/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/15/interview/"  aria-label="复制成功！"></i></span>
   </p>
@@ -881,6 +1044,8 @@
         <div class="post-tags">
           
             <a href="/tags/interview/" rel="tag"># interview</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
           
         </div>
       
@@ -1019,7 +1184,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1030,7 +1195,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1091,7 +1256,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-集合"><span class="nav-number">2.</span> <span class="nav-text">Java 集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-进程和线程"><span class="nav-number">3.</span> <span class="nav-text">Java 进程和线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-锁机制"><span class="nav-number">4.</span> <span class="nav-text">Java 锁机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-JVM"><span class="nav-number">5.</span> <span class="nav-text">Java JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-设计模式"><span class="nav-number">6.</span> <span class="nav-text">Java 设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-数据结构"><span class="nav-number">7.</span> <span class="nav-text">Java 数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">8.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">8.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答"><span class="nav-number">8.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-number">9.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1"><span class="nav-number">9.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-1"><span class="nav-number">9.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">10.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2"><span class="nav-number">10.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-2"><span class="nav-number">10.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jvm"><span class="nav-number">11.</span> <span class="nav-text">Jvm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-3"><span class="nav-number">11.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程-1"><span class="nav-number">12.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-4"><span class="nav-number">12.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-3"><span class="nav-number">12.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reids"><span class="nav-number">13.</span> <span class="nav-text">reids</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-5"><span class="nav-number">13.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-4"><span class="nav-number">13.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">14.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-6"><span class="nav-number">14.1.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-集合"><span class="nav-number">2.</span> <span class="nav-text">Java 集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-进程和线程"><span class="nav-number">3.</span> <span class="nav-text">Java 进程和线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-锁机制"><span class="nav-number">4.</span> <span class="nav-text">Java 锁机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-JVM"><span class="nav-number">5.</span> <span class="nav-text">Java JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-设计模式"><span class="nav-number">6.</span> <span class="nav-text">Java 设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-数据结构"><span class="nav-number">7.</span> <span class="nav-text">Java 数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">8.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">8.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答"><span class="nav-number">8.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-number">9.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1"><span class="nav-number">9.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-1"><span class="nav-number">9.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">10.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2"><span class="nav-number">10.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-2"><span class="nav-number">10.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jvm"><span class="nav-number">11.</span> <span class="nav-text">Jvm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-3"><span class="nav-number">11.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程-1"><span class="nav-number">12.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-4"><span class="nav-number">12.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-3"><span class="nav-number">12.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reids"><span class="nav-number">13.</span> <span class="nav-text">reids</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-5"><span class="nav-number">13.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-4"><span class="nav-number">13.2.</span> <span class="nav-text">解答</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">14.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-6"><span class="nav-number">14.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo"><span class="nav-number">15.</span> <span class="nav-text">dubbo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dubbo-注册中心"><span class="nav-number">15.1.</span> <span class="nav-text">dubbo 注册中心</span></a></li></ol></li></ol></div>
             
 
           </div>

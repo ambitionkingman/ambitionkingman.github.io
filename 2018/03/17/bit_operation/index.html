@@ -147,7 +147,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="程序中的所有数在计算机内存中都是以二进制的形式储存的。位运算说穿了，就是直接对整数在内存中的二进制位进行操作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-07T10:25:05.730Z">
+<meta property="og:updated_time" content="2019-07-30T07:00:51.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 位运算">
 <meta name="twitter:description" content="程序中的所有数在计算机内存中都是以二进制的形式储存的。位运算说穿了，就是直接对整数在内存中的二进制位进行操作。">
@@ -446,7 +446,7 @@
 <h2 id="按位与（-amp-）"><a href="#按位与（-amp-）" class="headerlink" title="按位与（&amp;）"></a>按位与（&amp;）</h2><p> 这次我们使用数字3和5，-3和-5，-3和5来测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">3的二进制表示为：    [0] 0000 0011</span><br><span class="line">5的二进制表示为：    [0] 0000 0101</span><br><span class="line">进行逻辑与之后：    [0]0000 0001 十进制：1</span><br><span class="line"></span><br><span class="line">-3的二进制表示为：</span><br><span class="line">原码： [1] 0000 0011    补码：[1] 1111 1101</span><br><span class="line">-5的二进制表示为：</span><br><span class="line">原码：[1] 0000 0101    补码： [1] 1111 1011</span><br><span class="line">补码按位与的结果是：</span><br><span class="line">补码：[1] 1111 1001    原码：[1] 0000 0111 十进制：-7</span><br><span class="line"></span><br><span class="line">-3的二进制表示为：</span><br><span class="line">原码： [1] 0000 0011    补码：[1] 1111 1101</span><br><span class="line">5的二进制表示为：    [0] 0000 0101</span><br><span class="line">补码按位与计算的结果是：</span><br><span class="line">补码：[0] 0000 0101    原码：[0] 0000 0101 十进制：5</span><br></pre></td></tr></table></figure></p>
 <p> 这里还要说一点，符号位参与位运算。</p>
 <h2 id="按位或（-）"><a href="#按位或（-）" class="headerlink" title="按位或（|）"></a>按位或（|）</h2><p> 这次我们还是使用数字3和5来测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3的二进制表示为：    [0] 0000 0011</span><br><span class="line">5的二进制表示为：    [0] 0000 0101</span><br><span class="line">进行按位或之后：    [0]0000 0111 十进制：7</span><br></pre></td></tr></table></figure></p>
-<h2 id="按位非"><a href="#按位非" class="headerlink" title="按位非"></a>按位非</h2><p> 将操作数的每一位都取反，包括符号位。</p>
+<h2 id="按位非（-）"><a href="#按位非（-）" class="headerlink" title="按位非（~）"></a>按位非（~）</h2><p> 将操作数的每一位都取反，包括符号位。</p>
 <p> 这次我们还是使用数字3来测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3的二进制表示为：    [0] 0000 0011</span><br><span class="line">进行按位非之后：</span><br><span class="line">补码 [1]1111 1100    原码：[1]0000 0100</span><br><span class="line">十进制：-4</span><br></pre></td></tr></table></figure></p>
 <h2 id="按位异或（-）"><a href="#按位异或（-）" class="headerlink" title="按位异或（^）"></a>按位异或（^）</h2><p> 这个简单来说，就是相同的为0，不同的为1，包括符号位。</p>
 <p> 这次我们使用数字-3和5来测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-3的二进制表示为：</span><br><span class="line">原码： [1] 0000 0011    补码：[1] 1111 1101</span><br><span class="line">5的二进制补码表示为：    [0] 0000 0101</span><br><span class="line">补码按位异或计算的结果是：</span><br><span class="line">补码：[1] 1111 1000    原码：[1] 0000 1000 十进制：-8</span><br></pre></td></tr></table></figure></p>
@@ -655,7 +655,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -666,7 +666,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -727,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左移（-lt-lt-）"><span class="nav-number">2.</span> <span class="nav-text">左移（&lt;&lt;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右移（-gt-gt-）"><span class="nav-number">3.</span> <span class="nav-text">右移（&gt;&gt;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无符号右移（-gt-gt-gt-）"><span class="nav-number">4.</span> <span class="nav-text">无符号右移（&gt;&gt;&gt;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位与（-amp-）"><span class="nav-number">5.</span> <span class="nav-text">按位与（&amp;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位或（-）"><span class="nav-number">6.</span> <span class="nav-text">按位或（|）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位非"><span class="nav-number">7.</span> <span class="nav-text">按位非</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位异或（-）"><span class="nav-number">8.</span> <span class="nav-text">按位异或（^）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左移（-lt-lt-）"><span class="nav-number">2.</span> <span class="nav-text">左移（&lt;&lt;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右移（-gt-gt-）"><span class="nav-number">3.</span> <span class="nav-text">右移（&gt;&gt;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无符号右移（-gt-gt-gt-）"><span class="nav-number">4.</span> <span class="nav-text">无符号右移（&gt;&gt;&gt;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位与（-amp-）"><span class="nav-number">5.</span> <span class="nav-text">按位与（&amp;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位或（-）"><span class="nav-number">6.</span> <span class="nav-text">按位或（|）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位非（-）"><span class="nav-number">7.</span> <span class="nav-text">按位非（~）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位异或（-）"><span class="nav-number">8.</span> <span class="nav-text">按位异或（^）</span></a></li></ol></div>
             
 
           </div>

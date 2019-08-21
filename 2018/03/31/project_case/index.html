@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+<script>
+    (function(){
+        if('stars'){
+            if (prompt('请输入文章密码') !== 'stars'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Case,项目案例," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="项目案例 Case ，主要关注大型高并发系统的解决方案。">
+<meta name="keywords" content="Case,项目案例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目案例 Case">
+<meta property="og:url" content="http://www.wowker.cn/2018/03/31/project_case/index.html">
+<meta property="og:site_name" content="Wuwei` Blog">
+<meta property="og:description" content="项目案例 Case ，主要关注大型高并发系统的解决方案。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-04T08:54:53.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目案例 Case">
+<meta name="twitter:description" content="项目案例 Case ，主要关注大型高并发系统的解决方案。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.wowker.cn/2018/03/31/project_case/"/>
+
+
+
+
+
+  <title>项目案例 Case | Wuwei` Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wuwei` Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wowker.cn/2018/03/31/project_case/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/moonzelda.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wuwei` Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">项目案例 Case</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T23:36:00+08:00">
+                2018-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/31/project_case/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/03/31/project_case/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  项目案例 Case ，主要关注大型高并发系统的解决方案。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文只用于个人笔记，相关借鉴都会标出来源。若您有其他宝贵意见，请发邮件或QQ联系作者讨论，不胜感谢。<br><br>邮箱地址:<a href="mailto:ambition_kingman@163.com" target="_blank" rel="noopener">ambition_kingman@163.com</a><br><br>QQ:864113210</p>
+</blockquote>
+<h2 id="案例1-重构项目"><a href="#案例1-重构项目" class="headerlink" title="案例1 重构项目"></a>案例1 <em>重构项目</em></h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="新旧数据同步"><a href="#新旧数据同步" class="headerlink" title="新旧数据同步"></a>新旧数据同步</h4><ol>
+<li>前提： 旧系统完全停用或部分城市可用（按城市区分）。</li>
+<li>新旧数据梳理：表结构、字段、数据类型。</li>
+<li>新到旧：消息队列，实时同步。</li>
+<li>旧到新：定时扫表 ,根据增加辅助字段定时进行同步(增加 syn_data_id,syn_data_time) 。<h4 id="新旧系统切换"><a href="#新旧系统切换" class="headerlink" title="新旧系统切换"></a>新旧系统切换</h4></li>
+<li>灰度替换 :（按城市切换，先切换业务量小的城市，稳定运行后，进行大批城市切换）</li>
+<li>旧系统设置 : 切换时，原系统禁用切换新系统城市，防止旧系统进行业务逻辑操作，导致数据错误问题。</li>
+<li>新系统对应app : 切换时，发布新app限定切换城市使用。<h4 id="原系统痛点"><a href="#原系统痛点" class="headerlink" title="原系统痛点"></a>原系统痛点</h4></li>
+<li>数据库结构 : 复杂、冗余、结构混乱、错误数据多、</li>
+<li>数据数量 : 多个核心表百w级数据起始、</li>
+<li>查询sql : 查询缓慢，业务数据直接读取百w级数据表、索引混乱，没有有效的索引结构。</li>
+<li>导出功能 : 导出功能经常导致系统crash，主要是查询sql缓慢，慢查询，系统运行高峰时导出，导致数据库rds 内存飙升，项目无反应，数据库无反应。<h3 id="新系统"><a href="#新系统" class="headerlink" title="新系统"></a>新系统</h3><h4 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h4><h5 id="环境组件"><a href="#环境组件" class="headerlink" title="环境组件"></a>环境组件</h5></li>
+<li>数据库：redis 、mysql</li>
+<li><p>消息队列：rabbitmq</p>
+</li>
+<li><p>项目架构：redis 做内存数据库，mysql 关系型数据库</p>
+</li>
+<li>业务：（1）创建订单-&gt;（2） 派单-&gt;（3）确认到达-&gt;（4）现场成功/现场失败/待跟进/扑空</li>
+<li>描述：1234同时操作redis 与mysql，创建时订单redis与mysql各存一份，从创建到到达现场数据操作redis与mysql同时操作，4操作完成后从redis中删除，更新mysql数据库做持久化。</li>
+</ol>
+<h3 id="救援大师问题"><a href="#救援大师问题" class="headerlink" title="救援大师问题"></a>救援大师问题</h3><h4 id="待改进"><a href="#待改进" class="headerlink" title="待改进"></a>待改进</h4><ol>
+<li>消息队列的接入：如，给app端发送订单消息</li>
+<li>数据库版本控制 todo</li>
+</ol>
+<h4 id="技术问题："><a href="#技术问题：" class="headerlink" title="技术问题："></a>技术问题：</h4><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><blockquote>
+<p>当面对较多的并发时，使用redis进行读后写操作，是非常容易出问题的，常常使得程序不具备鲁棒性即健壮性，bug很难稳定复现（得到的值往往跟并发数有关）。</p>
+<ol>
+<li>redis 与mysql 数据一致性问题：（1）数据库事务；（2）redis 事务；解决办法：1.数据库事务使用注解@Transaction，2.redis可使用watch multi exce 等命令(项目中涉及多条数据更新的地方很少)。<strong>todo</strong></li>
+<li>redis 并发问题：分布式/并发 同一条数据锁问题</li>
+<li>分布式问题：（1）session 共享，（2）websocket共享，（3）netty server ；解决办法：12可以使用spring session</li>
+<li>单一职责原则或业务隔离：（1）redis中心跳主体只包括心跳数据，不包括其他业务数据；（2）redis 中及时雨人员数据只包括人员数据，不包含其他业务数据。（3）redis中订单业务数据只包括订单业务数据。</li>
+<li>系统容错：统计纠正接口</li>
+<li>原改派问题处理解决：解决办法：1.先读后写  <strong>（改为只写不读或加锁 肯定不行的）</strong>，2.使用redis watch 命令，待操作测试。</li>
+</ol>
+</blockquote>
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><h4 id="设计问题："><a href="#设计问题：" class="headerlink" title="设计问题："></a>设计问题：</h4><h5 id="架构-1"><a href="#架构-1" class="headerlink" title="架构"></a>架构</h5><ol>
+<li>业务逻辑一定要屡清楚：不然代码没法写，逻辑不清楚，只能边写边发现（太难受了），而且有些问题也不容易发现。（开业务讨论的时候最好参与的人都能够参加，时间后面都能够找的回来）；</li>
+<li>架构中相关组件：特性一定要调研清楚，否则后面出现问题，很难处理（讲道理开发之前会有一段时间做调研的）。</li>
+<li>业务与数据表设计一定要相合才行；不能存在冲突，如：某个ziduan字段字段在a表中有，但是某些特殊数据不会再a表写记录，然后ziduan，还有逻辑处理，查询更新等操作，根本没字段存，你让我怎么操作。（尴尬的一匹），后面改表实在是浪费开发时间（动辄一到两天，一起商量设计也就半天左右）。<h5 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h5></li>
+<li>数据库结构一定要复核业务，而且粒度尽可能细化，如状态、类型、，一个表20-30字段，(我觉得没啥问题)。（只要保证大部分字段使用频率较高且大部分生命周期都有值的。频率低的可以单独抽成表，或者与部分查询统计有关的可以存在冗余，不如大部分查询，如关联的公司，门店，人，都可以冗余相对应的名称）</li>
+<li>数据库的注意事项特殊标明：如不能扫表，不能做大数据量导入，大数据量查询，不能锁表等。</li>
+<li>数据库事务：常见处理方法 注解</li>
+<li>数据库锁问题：没有并发写入验证（应该不需要行锁，表锁）<h4 id="业务问题："><a href="#业务问题：" class="headerlink" title="业务问题："></a>业务问题：</h4><h5 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h5></li>
+<li>文档一定要出、出、出：对于一些常见的，如：（1）页面输入框的类型，长度，上下限，默认值；（2）多个输入框之间的关系，如时间输入框，开始时间一般都不会大于结束时间。这种存在起始小于终止的。可以做成一个规范，开发时规范即可。</li>
+<li>业务涉及的数据，中不能空的字段，范围等，提前敲定（否则后期改代码太耽误事了，设计好的话直接就限定）；</li>
+<li>页面：所有的查询要有条件，如时间，是否需要默认值，开始时间不可以大于结束时间，时间格式，日期，日期时间，时间，文本框输入长度的限制，</li>
+<li>toast 文本，可以创建规范。</li>
+<li>列表：都哪些是模糊搜索，按什么排序，是否分页，查询列标题；是否关联操作。</li>
+<li>日志：最好有统一的日志规范；操作时间，操作人，描述，备注，</li>
+<li>一再原有功能基础之上抽离出设计来。否则太丑了，太功能化了。</li>
+<li>各个业务跳转等，要有详细的流程图</li>
+<li>文档的及时性，先于开发才行。<h5 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h5></li>
+<li>业务一定要提前共享出来：把产品的所思所想同步给开发<h3 id="规范、规范、规范"><a href="#规范、规范、规范" class="headerlink" title="规范、规范、规范"></a>规范、规范、规范</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3>Watch命令<br>大家可能知道redis提供了基于incr命令来操作一个整数型数值的原子递增，那么我们假设如果redis没有这个incr命令，我们该怎么实现这个incr的操作呢？那么我们下面的正主watch就要上场了。<br>如何使用watch命令<br>正常情况下我们想要对一个整形数值做修改是这么做的(伪代码实现)：<br>   val = GET mykey<br>   val = val + 1<br>   SET mykey $val<br>但是上述的代码会出现一个问题,因为上面吧正常的一个incr(原子递增操作)分为了两部分,那么在多线程(分布式)环境中，这个操作就有可能不再具有 <strong>原子性</strong> 了。<br>研究过java的juc包的人应该都知道cas，那么redis也提供了这样的一个机制，就是利用watch命令来实现的。<br>WATCH命令可以监控一个或多个键，一旦其中有一个键被修改（或删除），之后的事务就不会执行。监控一直持续到EXEC命令（事务中的命令是在EXEC之后才执行的，所以在MULTI命令后可以修改WATCH监控的键值）<br><a href="https://www.jianshu.com/p/935e3a06d0bb" target="_blank" rel="noopener">redis Watch 使用</a><br><a href="https://www.jianshu.com/p/c9f5718e58f0" target="_blank" rel="noopener">redis 事务</a><br><a href="https://www.jianshu.com/p/c9f5718e58f0" target="_blank" rel="noopener">redis 事务</a><br><a href="http://redisdoc.com/index.html" target="_blank" rel="noopener">redis 官方文档</a></li>
+</ol>
+<h4 id="websocket-集群问题解决办法"><a href="#websocket-集群问题解决办法" class="headerlink" title="websocket 集群问题解决办法"></a>websocket 集群问题解决办法</h4><ol>
+<li><a href="https://www.jianshu.com/p/2c5c4b0349df" target="_blank" rel="noopener">websocketSession 共享</a></li>
+<li><a href="https://www.sojson.com/blog/238.html" target="_blank" rel="noopener">同上</a></li>
+<li>救援大师 websocket 类似广播推送，而非点对点推送；所以使用阿里 阿里的 “Tengine 的session sticky 组件” 不如使用 保证业务信息肯定能推送到的  消息队列方式，（创建订单发送消息，所有应用订阅该消息，然后websocket 推送。保证连接到本应用的websocket都能过收到推送。）</li>
+</ol>
+<h2 id="案例n-高并发支持"><a href="#案例n-高并发支持" class="headerlink" title="案例n 高并发支持"></a>案例n 高并发支持</h2><h3 id="原系统"><a href="#原系统" class="headerlink" title="原系统"></a>原系统</h3><ol>
+<li>环境<br>同一请求并发高峰1000左右，单表数据量1千万左右。<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3></li>
+<li>环境<br>阿里的三台服务器：东北，华北，华南。</li>
+<li>要求<br>读写分离<br>访问分流</li>
+<li>概述: 数据库的读写，使用数据分析主从架构，主数据库负责写操作，从数据库负责读操作。</li>
+<li>解决方案：根据用户的ip进行访问分流。分区服务器压力，根据ip地址库，获取地址计算距离。或者调用第三方接口获取地址，访问最近服务器</li>
+<li>缓存层处理<ul>
+<li>概述：使用redis 或其他缓存工具进行缓存，将读取周期长的sql缓存起来。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>例如：可以取sql的hash做key，把查询结果做vlue缓存。</li>
+<li>优点：对程序员来说是无感的，他们开发时是不会知道有这么一层的，不需要改动任何逻辑。</li>
+</ul>
+<ol>
+<li>其他解决办法，或优化办法。</li>
+</ol>
+<ul>
+<li>比如会有一个代码集中部署方案。</li>
+<li>比如会有一个平台 集中观测各个服务器运行状态。</li>
+<li>这两个方案用到了一个socket 框架。</li>
+<li>执行Linux 命令用websocket 送到前台。</li>
+<li>代码自动部署用svn钩子 用socket 通知所有服务器更新代码，返回执行结果给用户。</li>
+</ul>
+<p>就是先用Update之行，把并发问题抛给数据库去解决。之行成功后存入消息列队！后台处理接下来的问题，最后从消息队列里面取得执行结果嘛？然后返回，减少执行时间。</p>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/31/project_case/">项目案例 Case</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
+  <p><span>发布时间:</span>2018年03月31日 - 23:03</p>
+  <p><span>最后更新:</span>2019年07月04日 - 16:07</p>
+  <p><span>原始链接:</span><a href="/2018/03/31/project_case/" title="项目案例 Case">http://www.wowker.cn/2018/03/31/project_case/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/03/31/project_case/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+        });
+    });
+</script>
+
+
+      
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/wechatpay0.5.png" alt="Wu Wei 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://p4ucv3uvl.bkt.clouddn.com/pay/image/alipay0.5.jpg" alt="Wu Wei 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Case/" rel="tag"># Case</a>
+          
+            <a href="/tags/项目案例/" rel="tag"># 项目案例</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/31/springboot-debug/" rel="next" title="Spring Boot 远程调试">
+                <i class="fa fa-chevron-left"></i> Spring Boot 远程调试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/07/create_pdf/" rel="prev" title="java 后端生成 pdf">
+                java 后端生成 pdf <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/moonzelda.jpeg"
+                alt="Wu Wei" />
+            
+              <p class="site-author-name" itemprop="name">Wu Wei</p>
+              <p class="site-description motion-element" itemprop="description">Be a thoutghtfull programer,做一个有思想的程序猿。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ambitionkingman/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ambition_kingman@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/wu-wei-8-35/" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/WowkerFive" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#案例1-重构项目"><span class="nav-number">1.</span> <span class="nav-text">案例1 重构项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新旧数据同步"><span class="nav-number">1.1.1.</span> <span class="nav-text">新旧数据同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新旧系统切换"><span class="nav-number">1.1.2.</span> <span class="nav-text">新旧系统切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原系统痛点"><span class="nav-number">1.1.3.</span> <span class="nav-text">原系统痛点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新系统"><span class="nav-number">1.2.</span> <span class="nav-text">新系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#架构"><span class="nav-number">1.2.1.</span> <span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#环境组件"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">环境组件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#救援大师问题"><span class="nav-number">1.3.</span> <span class="nav-text">救援大师问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#待改进"><span class="nav-number">1.3.1.</span> <span class="nav-text">待改进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术问题："><span class="nav-number">1.3.2.</span> <span class="nav-text">技术问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概述"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">概述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建议"><span class="nav-number">1.4.</span> <span class="nav-text">建议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设计问题："><span class="nav-number">1.4.1.</span> <span class="nav-text">设计问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#架构-1"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">数据库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#业务问题："><span class="nav-number">1.4.2.</span> <span class="nav-text">业务问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文档"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">业务逻辑</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规范、规范、规范"><span class="nav-number">1.5.</span> <span class="nav-text">规范、规范、规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">1.6.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#websocket-集群问题解决办法"><span class="nav-number">1.6.1.</span> <span class="nav-text">websocket 集群问题解决办法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例n-高并发支持"><span class="nav-number">2.</span> <span class="nav-text">案例n 高并发支持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原系统"><span class="nav-number">2.1.</span> <span class="nav-text">原系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Wei</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'ambitionkingman',
+            repo: 'ambitionkingman.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'd68058794833aa6387839d94fa7f07165418803e',
+            
+                client_id: '4b1bc62cf280a7e4b8ae'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
