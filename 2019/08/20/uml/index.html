@@ -147,17 +147,18 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="Uml 笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wowker.cn/2019/08/20/img/uml/sxgl.png">
+<meta property="og:image" content="http://www.wowker.cn/img/uml/sxgl.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/dsgl.png">
+<meta property="og:image" content="http://www.wowker.cn/img/uml/zsgl.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/dxyl.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/zh.png">
 <meta property="og:image" content="http://www.wowker.cn/2019/08/20/img/uml/jh.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/sx.png">
-<meta property="og:updated_time" content="2019-08-21T03:39:15.535Z">
+<meta property="og:updated_time" content="2019-08-21T03:41:13.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Uml 笔记">
 <meta name="twitter:description" content="Uml 笔记">
-<meta name="twitter:image" content="http://www.wowker.cn/2019/08/20/img/uml/sxgl.png">
+<meta name="twitter:image" content="http://www.wowker.cn/img/uml/sxgl.png">
 
 
 
@@ -452,7 +453,7 @@
 <li>Dependency /Association,Composition/ Aggregation,Generalization/Realization<h1 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h1><h2 id="关联-属性指针-associate"><a href="#关联-属性指针-associate" class="headerlink" title="关联-属性指针-associate"></a>关联-属性指针-associate</h2><h3 id="双向关联-相互关联，相互把对方作为自己的指针"><a href="#双向关联-相互关联，相互把对方作为自己的指针" class="headerlink" title="双向关联-相互关联，相互把对方作为自己的指针"></a>双向关联-相互关联，<strong>相互把对方作为自己的指针</strong></h3></li>
 </ul>
 </li>
-<li><img src="../img/uml/sxgl.png" alt="双向关联图"></li>
+<li><img src="/img/uml/sxgl.png" alt="双向关联图"></li>
 <li>C1-C2：指双方都知道对方的存在，都可以调用对方的公共属性和方法。<br>在GOF的设计模式书上是这样描述的：虽然在分析阶段这种关系是适用的，但我们觉得它对于描述设计模式内的类关系来说显得太抽象了，因为在设计阶段关联关 系必须被映射为对象引用或指针。对象引用本身就是有向的，更适合表达我们所讨论的那种关系。所以这种关系在设计的时候比较少用到，关联一般都是有向的。双向关联在代码的表现为双方都拥有对方的一个指针，当然也可以是引用或者是值。</li>
 <li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  class C1&#123;</span><br><span class="line">public C2 theC2;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C2 &#123;</span><br><span class="line">public C1 theC1;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -465,7 +466,7 @@
 </li>
 </ol>
 <h3 id="自身关联（反身关联）-关联到自己，就是把自己当做属性指针"><a href="#自身关联（反身关联）-关联到自己，就是把自己当做属性指针" class="headerlink" title="自身关联（反身关联）-关联到自己，就是把自己当做属性指针"></a>自身关联（反身关联）-关联到自己，就是把自己当做属性指针</h3><ol>
-<li><a href="/img/uml/zsgl.png">自身关联</a></li>
+<li><img src="/img/uml/zsgl.png" alt="自身关联"></li>
 <li>自己引用自己，带着一个自己的引用</li>
 <li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class C5&#123;</span><br><span class="line">public C5 theC5;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
