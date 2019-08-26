@@ -147,16 +147,16 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="Uml 笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wowker.cn/img/uml/dsgl.png">
+<meta property="og:image" content="http://www.wowker.cn/img/uml/dxgl.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/dxyl.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/zh.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/jh.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/sx.png">
-<meta property="og:updated_time" content="2019-08-26T07:12:38.708Z">
+<meta property="og:updated_time" content="2019-08-26T07:14:26.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Uml 笔记">
 <meta name="twitter:description" content="Uml 笔记">
-<meta name="twitter:image" content="http://www.wowker.cn/img/uml/dsgl.png">
+<meta name="twitter:image" content="http://www.wowker.cn/img/uml/dxgl.png">
 
 
 
@@ -452,7 +452,7 @@
 </li>
 <li>是一种拥有的关系，它使一个类知道另一个类的属性和方法；如：老师与学生，丈夫与妻子关联可以是双向的，也可以是单向的，双向的关联可以有两个箭头或者没有箭头，单向关联只有一个箭头，关联到它就把它当做自己的属性指针。</li>
 <li>代码实现: 成员变量</li>
-<li><img src="/img/uml/dsgl.png" alt="单向关联"></li>
+<li><img src="/img/uml/dxgl.png" alt="单向关联"></li>
 <li>C3-&gt;C4：表示相识关系，指C3知道C4，C3可以调用C4的公共属性和方法。</li>
 <li>没有生命期的依赖。一般是表示为一种引用,单向关联的代码就表现为C3有C4的指针，而C4对C3一无所知。</li>
 <li>生成代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class C3&#123;</span><br><span class="line">  public C4 theC4;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C4&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
