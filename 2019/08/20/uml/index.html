@@ -147,18 +147,16 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="Uml 笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wowker.cn/img/uml/sxgl.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/dsgl.png">
-<meta property="og:image" content="http://www.wowker.cn/img/uml/zsgl.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/dxyl.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/zh.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/jh.png">
 <meta property="og:image" content="http://www.wowker.cn/img/uml/sx.png">
-<meta property="og:updated_time" content="2019-08-21T04:01:11.284Z">
+<meta property="og:updated_time" content="2019-08-26T07:12:38.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Uml 笔记">
 <meta name="twitter:description" content="Uml 笔记">
-<meta name="twitter:image" content="http://www.wowker.cn/img/uml/sxgl.png">
+<meta name="twitter:image" content="http://www.wowker.cn/img/uml/dsgl.png">
 
 
 
@@ -449,74 +447,59 @@
 </li>
 <li>形式：<ul>
 <li>依赖/关联, 组合/聚合,继承/实现</li>
-<li>Dependency /Association,Composition/ Aggregation,Generalization/Realization<h1 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h1><h3 id="关联-属性指针-associate"><a href="#关联-属性指针-associate" class="headerlink" title="关联-属性指针-associate"></a>关联-属性指针-associate</h3></li>
+<li>Dependency /Association,Composition/ Aggregation,Generalization/Realization<h3 id="关联-属性指针-associate"><a href="#关联-属性指针-associate" class="headerlink" title="关联-属性指针-associate"></a>关联-属性指针-associate</h3></li>
 </ul>
 </li>
-<li>是一种拥有的关系，它使一个类知道另一个类的属性和方法；如：老师与学生，丈夫与妻子关联可以是双向的，也可以是单向的，双向的关联可以有两个箭头或者没有箭头，单向关联只有一个箭头。  </li>
-<li>代码实现: 成员变量<h4 id="双向关联-相互关联，相互把对方作为自己的指针"><a href="#双向关联-相互关联，相互把对方作为自己的指针" class="headerlink" title="双向关联-相互关联，相互把对方作为自己的指针"></a>双向关联-相互关联，<strong>相互把对方作为自己的指针</strong></h4></li>
-<li><img src="/img/uml/sxgl.png" alt="双向关联图"></li>
-<li>C1-C2：指双方都知道对方的存在，都可以调用对方的公共属性和方法。<br>在GOF的设计模式书上是这样描述的：虽然在分析阶段这种关系是适用的，但我们觉得它对于描述设计模式内的类关系来说显得太抽象了，因为在设计阶段关联关 系必须被映射为对象引用或指针。对象引用本身就是有向的，更适合表达我们所讨论的那种关系。所以这种关系在设计的时候比较少用到，关联一般都是有向的。双向关联在代码的表现为双方都拥有对方的一个指针，当然也可以是引用或者是值。</li>
-<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class C1&#123;</span><br><span class="line">public C2 theC2;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C2 &#123;</span><br><span class="line">public C1 theC1;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="单向关联-关联到它就把它当做自己的属性指针"><a href="#单向关联-关联到它就把它当做自己的属性指针" class="headerlink" title="单向关联-关联到它就把它当做自己的属性指针"></a>单向关联-关联到它就把它当做自己的属性指针</h4><ol>
+<li>是一种拥有的关系，它使一个类知道另一个类的属性和方法；如：老师与学生，丈夫与妻子关联可以是双向的，也可以是单向的，双向的关联可以有两个箭头或者没有箭头，单向关联只有一个箭头，关联到它就把它当做自己的属性指针。</li>
+<li>代码实现: 成员变量</li>
 <li><img src="/img/uml/dsgl.png" alt="单向关联"></li>
 <li>C3-&gt;C4：表示相识关系，指C3知道C4，C3可以调用C4的公共属性和方法。</li>
 <li>没有生命期的依赖。一般是表示为一种引用,单向关联的代码就表现为C3有C4的指针，而C4对C3一无所知。</li>
-<li>生成代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class C3&#123;</span><br><span class="line"></span><br><span class="line">public C4 theC4;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C4&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>生成代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class C3&#123;</span><br><span class="line">  public C4 theC4;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C4&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="自身关联（反身关联）-关联到自己，就是把自己当做属性指针"><a href="#自身关联（反身关联）-关联到自己，就是把自己当做属性指针" class="headerlink" title="自身关联（反身关联）-关联到自己，就是把自己当做属性指针"></a>自身关联（反身关联）-关联到自己，就是把自己当做属性指针</h4><ol>
-<li><img src="/img/uml/zsgl.png" alt="自身关联"></li>
-<li>自己引用自己，带着一个自己的引用</li>
-<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class C5&#123;</span><br><span class="line">public C5 theC5;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="依赖-依赖-就把它的指针或引用，作为自己的函数形参-dependency"><a href="#依赖-依赖-就把它的指针或引用，作为自己的函数形参-dependency" class="headerlink" title="依赖-依赖 就把它的指针或引用，作为自己的函数形参-dependency"></a>依赖-依赖 就把它的指针或引用，作为自己的函数形参-dependency</h3><ol>
-<li>是一种使用的关系，即一个类的实现需要另一个类的协助，所以要尽量不适用双向的相互依赖</li>
-<li>代码实现：局部变量、方法的参数或者对静态方法的调用。<ul>
+<h3 id="依赖-dependency-就把它的指针或引用，作为自己的函数形参"><a href="#依赖-dependency-就把它的指针或引用，作为自己的函数形参" class="headerlink" title="依赖 (dependency) 就把它的指针或引用，作为自己的函数形参"></a>依赖 (dependency) 就把它的指针或引用，作为自己的函数形参</h3><ol>
+<li>是一种使用的关系，即一个类的实现需要另一个类的协助，所以要尽量不适用双向的相互依赖。指C5可能要用到C6的一些方法，也可以这样说，要完成C5里的所有功能，一定要有C6的方法协助才行。C5依赖于C6的定义，一般是在C5类的头文件中包含了C6的头文件。注意，要避免双向依赖。一般来说，不应该存在双向依赖。</li>
+<li>代码实现：局部变量、方法的参数或者对静态方法的调用。</li>
 <li><img src="/img/uml/dxyl.png" alt="单向依赖"></li>
-</ul>
-</li>
-<li>依赖:指C5可能要用到C6的一些方法，也可以这样说，要完成C5里的所有功能，一定要有C6的方法协助才行。C5依赖于C6的定义，一般是在C5类的头文件中包含了C6的头文件。注意，要避免双向依赖。一般来说，不应该存在双向依赖。</li>
-<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class C6</span><br><span class="line">&#123;</span><br><span class="line"> public void Func(C7 *pC7Obj);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C7</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class C6</span><br><span class="line">&#123;</span><br><span class="line">  public void Func(C7 *pC7Obj);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C7</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="组合-聚合-属性对象-composite-aggreate"><a href="#组合-聚合-属性对象-composite-aggreate" class="headerlink" title="组合/聚合-属性对象-composite/aggreate"></a>组合/聚合-属性对象-composite/aggreate</h3><h4 id="组合-composite"><a href="#组合-composite" class="headerlink" title="组合 composite"></a>组合 composite</h4><ol>
+<h3 id="组合-聚合-Composition-Aggregation"><a href="#组合-聚合-Composition-Aggregation" class="headerlink" title="组合/聚合 Composition/Aggregation"></a>组合/聚合 Composition/Aggregation</h3><h4 id="组合-composite"><a href="#组合-composite" class="headerlink" title="组合 composite"></a>组合 composite</h4><ol>
 <li>是整体与部分的关系，但部分不能离开整体而独立存在，如公司和部门是整体和部分的关系，没有公司就不存在部门。组合关系是关联关系的一种，是比聚合关系还要强的关系，它要求普通的聚合关系中代表整体的对象负责部分的对象的生命周期。</li>
 <li>代码体现: 成员变量</li>
 <li>箭头及指向:带实心菱形的实线，菱形指向整体。</li>
 <li>图示：<br><img src="/img/uml/zh.png" alt="组合"></li>
 <li>组合（也有人称为包容）：一般是实心菱形加实线箭头表示，如上图所示，表示的是C8被C7包容，而且C8不能离开C7而独立存在。但这是视问题域而定的， 例如在关心汽车的领域里，轮胎是一定要组合在汽车类中的，因为它离开了汽车就没有意义了。但是在卖轮胎的店铺业务里，就算轮胎离开了汽车，它也是有意义 的，这就可以用聚合了。<br>在《敏捷开发》中还说到，A组合B，则A需要知道B的生存周期，即可能A负责生成或者释放B，或者A通过某种途径知道B的生成和释放。</li>
-<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class C8</span><br><span class="line">&#123;</span><br><span class="line">public C9 theC9;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C9</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class C8</span><br><span class="line">&#123;</span><br><span class="line">  public C9 theC9;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C9</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h4><ol>
+<h4 id="聚合-Aggregation"><a href="#聚合-Aggregation" class="headerlink" title="聚合 Aggregation"></a>聚合 Aggregation</h4><ol>
 <li>是整体与部分的关系，且部分可以离开整体而单独存在。如车和轮胎是整体和部分的关系，轮胎离开车仍然可以存在。聚合关系是关联关系的一种，是强的关联关系；组合和聚合再语法上无法区别，必须考察具体的逻辑关系。</li>
 <li>代码体现:成员变量</li>
 <li><img src="/img/uml/jh.png" alt="聚合"></li>
 <li>当类之间有整体-部分关系的时候，我们就可以使用组合或者聚合。<br>聚合：表示C9聚合C10，但是C10可以离开C9而独立存在（独立存在的意思是在某个应用的问题域中这个类的存在有意义。这句话怎么解，请看下面组合里的解释）。</li>
-<li>代码如下：</li>
+<li>代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class C10</span><br><span class="line">&#123;</span><br><span class="line">  public C11 theC11;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C11</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class C10</span><br><span class="line">&#123;</span><br><span class="line">public C11 theC11;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C11</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="总结聚合和组合："><a href="#总结聚合和组合：" class="headerlink" title="总结聚合和组合："></a>总结聚合和组合：</h4><p>问题域的语义上：组合中被组合类单独存在没有意义; 聚合中被聚合类在可以有单独存在的意义。<br>生命期上：组合中必须要负责被组合类的生命期; 聚合中可不负责被聚合类的声明期，可以由外部程序来创建和消亡（可用赋值）。</p>
-<h3 id="泛化和实现-Generalization-Realization"><a href="#泛化和实现-Generalization-Realization" class="headerlink" title="泛化和实现 Generalization/Realization"></a>泛化和实现 Generalization/Realization</h3><h4 id="泛化"><a href="#泛化" class="headerlink" title="泛化"></a>泛化</h4><ol>
+<h3 id="泛化和实现-Generalization-Realization"><a href="#泛化和实现-Generalization-Realization" class="headerlink" title="泛化和实现 Generalization/Realization"></a>泛化和实现 Generalization/Realization</h3><h4 id="泛化-Generalization"><a href="#泛化-Generalization" class="headerlink" title="泛化 Generalization"></a>泛化 Generalization</h4><ol>
 <li>是一种继承关系，表示一般与特殊的关系，它指定了子类如何特化父类的所有特征和行为。例如：老虎是动物的一种，既有老虎的特性也有动物的共性。</li>
 <li><a href="/img/uml/jc.png">继承</a></li>
 <li>泛化关系：如果两个类存在泛化的关系时就使用，例如父和子，动物和老虎，植物和花等。</li>
 <li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class C12 extends C13</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="实现（-Realization-）"><a href="#实现（-Realization-）" class="headerlink" title="实现（ Realization ）"></a>实现（ Realization ）</h4><ol>
+<h4 id="实现-Realization"><a href="#实现-Realization" class="headerlink" title="实现 Realization"></a>实现 Realization</h4><ol>
 <li>是一种类与接口的关系，表示类是接口所有特征和行为的实现。</li>
 <li><img src="/img/uml/sx.png" alt="实现"></li>
 </ol>
 <h3 id="关系之间的区别"><a href="#关系之间的区别" class="headerlink" title="关系之间的区别"></a>关系之间的区别</h3><ol>
-<li>那依赖和聚合\组合、关联等有什么不同呢？</li>
+<li>那依赖和聚合组合、关联等有什么不同呢？</li>
 <li>关联是类之间的一种关系，例如老师教学生，老公和老婆，水壶装水等就是一种关系。这种关系是非常明显的，在问题领域中通过分析直接就能得出。</li>
 <li>依赖是一种弱关联，只要一个类用到另一个类，但是和另一个类的关系不是太明显的时候（可以说是“uses”了那个类），就可以把这种关系看成是依赖，依赖 也可说是一种偶然的关系，而不是必然的关系，就是“我在某个方法中偶然用到了它，但在现实中我和它并没多大关系”。例如我和锤子，我和锤子本来是没关系 的，但在有一次要钉钉子的时候，我用到了它，这就是一种依赖，依赖锤子完成钉钉子这件事情。</li>
 <li>组合是一种整体-部分的关系，在问题域中这种关系很明显，直接分析就可以得出的。例如轮胎是车的一部分，树叶是树的一部分，手脚是身体的一部分这种的关系，非常明显的整体-部分关系。<br>上述的几种关系（关联、聚合/组合、依赖）在代码中可能以指针、引用、值等的方式在另一个类中出现，不拘于形式，但在逻辑上他们就有以上的区别。</li>
-<li>说明:这里还要说明一下，所谓的这些关系只是在某个问题域才有效，离开了这个问题域，可能这些关系就不成立了，例如可能在某个问题域中，我是一个木匠，需要拿着 锤子去干活，可能整个问题的描述就是我拿着锤子怎么钉桌子，钉椅子，钉柜子；既然整个问题就是描述这个，我和锤子就不仅是偶然的依赖关系了，我和锤子的关 系变得非常的紧密，可能就上升为组合关系（让我突然想起武侠小说的剑不离身，剑亡人亡…）。这个例子可能有点荒谬，但也是为了说明一个道理，就是关系 和类一样，它们都是在一个问题领域中才成立的，离开了这个问题域，他们可能就不复存在了</li>
+<li>说明:这里还要说明一下，所谓的这些关系只是在某个问题域才有效，离开了这个问题域，可能这些关系就不成立了，例如可能在某个问题域中，我是一个木匠，需要拿着 锤子去干活，可能整个问题的描述就是我拿着锤子怎么钉桌子，钉椅子，钉柜子；既然整个问题就是描述这个，我和锤子就不仅是偶然的依赖关系了，我和锤子的关 系变得非常的紧密，可能就上升为组合关系（让我突然想起武侠小说的剑不离身，剑亡人亡…）。这个例子可能有点荒谬，但也是为了说明一个道理，就是关系和类一样，它们都是在一个问题领域中才成立的，离开了这个问题域，他们可能就不复存在了</li>
 </ol>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.cnblogs.com/pangjianxin/p/7877868.html" target="_blank" rel="noopener">Uml类图与类的关系详解</a></p>
 
@@ -547,7 +530,7 @@
   <p><span>本文标题:</span><a href="/2019/08/20/uml/">Uml 笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2019年08月20日 - 11:08</p>
-  <p><span>最后更新:</span>2019年08月21日 - 12:08</p>
+  <p><span>最后更新:</span>2019年08月26日 - 15:08</p>
   <p><span>原始链接:</span><a href="/2019/08/20/uml/" title="Uml 笔记">http://www.wowker.cn/2019/08/20/uml/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2019/08/20/uml/"  aria-label="复制成功！"></i></span>
   </p>
@@ -820,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图解"><span class="nav-number">3.</span> <span class="nav-text">图解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关联-属性指针-associate"><span class="nav-number">3.0.1.</span> <span class="nav-text">关联-属性指针-associate</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#双向关联-相互关联，相互把对方作为自己的指针"><span class="nav-number">3.0.1.1.</span> <span class="nav-text">双向关联-相互关联，相互把对方作为自己的指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单向关联-关联到它就把它当做自己的属性指针"><span class="nav-number">3.0.1.2.</span> <span class="nav-text">单向关联-关联到它就把它当做自己的属性指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自身关联（反身关联）-关联到自己，就是把自己当做属性指针"><span class="nav-number">3.0.1.3.</span> <span class="nav-text">自身关联（反身关联）-关联到自己，就是把自己当做属性指针</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖-依赖-就把它的指针或引用，作为自己的函数形参-dependency"><span class="nav-number">3.0.2.</span> <span class="nav-text">依赖-依赖 就把它的指针或引用，作为自己的函数形参-dependency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合-聚合-属性对象-composite-aggreate"><span class="nav-number">3.0.3.</span> <span class="nav-text">组合/聚合-属性对象-composite/aggreate</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组合-composite"><span class="nav-number">3.0.3.1.</span> <span class="nav-text">组合 composite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合"><span class="nav-number">3.0.3.2.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结聚合和组合："><span class="nav-number">3.0.3.3.</span> <span class="nav-text">总结聚合和组合：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛化和实现-Generalization-Realization"><span class="nav-number">3.0.4.</span> <span class="nav-text">泛化和实现 Generalization/Realization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#泛化"><span class="nav-number">3.0.4.1.</span> <span class="nav-text">泛化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现（-Realization-）"><span class="nav-number">3.0.4.2.</span> <span class="nav-text">实现（ Realization ）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系之间的区别"><span class="nav-number">3.0.5.</span> <span class="nav-text">关系之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">3.0.6.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关联-属性指针-associate"><span class="nav-number">2.0.1.</span> <span class="nav-text">关联-属性指针-associate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖-dependency-就把它的指针或引用，作为自己的函数形参"><span class="nav-number">2.0.2.</span> <span class="nav-text">依赖 (dependency) 就把它的指针或引用，作为自己的函数形参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合-聚合-Composition-Aggregation"><span class="nav-number">2.0.3.</span> <span class="nav-text">组合/聚合 Composition/Aggregation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组合-composite"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">组合 composite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合-Aggregation"><span class="nav-number">2.0.3.2.</span> <span class="nav-text">聚合 Aggregation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结聚合和组合："><span class="nav-number">2.0.3.3.</span> <span class="nav-text">总结聚合和组合：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛化和实现-Generalization-Realization"><span class="nav-number">2.0.4.</span> <span class="nav-text">泛化和实现 Generalization/Realization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#泛化-Generalization"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">泛化 Generalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-Realization"><span class="nav-number">2.0.4.2.</span> <span class="nav-text">实现 Realization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系之间的区别"><span class="nav-number">2.0.5.</span> <span class="nav-text">关系之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">2.0.6.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
