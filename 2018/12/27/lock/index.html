@@ -147,7 +147,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="java 锁 学习，仅限个人使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-27T10:31:40.913Z">
+<meta property="og:updated_time" content="2019-08-26T08:01:07.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 锁">
 <meta name="twitter:description" content="java 锁 学习，仅限个人使用。">
@@ -452,7 +452,7 @@
 <li>原理：我们从jmm的角度来看一下，每个线程拥有自己的工作内存，实际上线程所修改的共享变量是从主内存中拷贝的副本，当一个共享变量被volatile修饰时，它会保证修改的值会立即被更新到主存，当有其他线程需要读取时，它会去内存中读取新值。</li>
 </ul>
 <h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><ol>
-<li>概念 ReentrantLock重入锁，是实现Lock接口的一个类，也是在实际编程中使用频率很高的一个锁，支持重入性，表示能够对共享资源能够重复加锁，即当前线程获取该锁再次获取不会被阻塞。要想完完全全的弄懂ReentrantLock的话，主要也就是ReentrantLock同步语义的学习：1. 重入性的实现原理；2. 公平锁和非公平锁。</li>
+<li>概念 ReentrantLock 重入锁，是实现Lock接口的一个类，也是在实际编程中使用频率很高的一个锁，支持重入性，表示能够对共享资源能够重复加锁，即当前线程获取该锁再次获取不会被阻塞。要想完完全全的弄懂ReentrantLock的话，主要也就是ReentrantLock同步语义的学习：1. 重入性的实现原理；2. 公平锁和非公平锁。</li>
 <li>缩写</li>
 </ol>
 <ul>
@@ -472,7 +472,7 @@
 </li>
 </ol>
 <ul>
-<li>在使用lock()以及unlock()时候，请使用try…finally语句块，为什么这样呢？因为这样可以防止在try语句块中的处理即使抛了异常等使得处理中断，最终还是可以安全的释放掉当前线程的锁，避免这个锁因为处理错误而永远也获取不到的情况，ReentrantLock源码注释中也提及了这点。</li>
+<li>在使用lock()以及unlock()时候，请使用 try…finally 语句块，为什么这样呢？因为这样可以防止在try语句块中的处理即使抛了异常等使得处理中断，最终还是可以安全的释放掉当前线程的锁，避免这个锁因为处理错误而永远也获取不到的情况，ReentrantLock 源码注释中也提及了这点。</li>
 <li>如果我在一个线程中多次获取同一个锁会发生什么呢？会不会出现死锁呢？放心，并不会死锁，因为ReentrantLock本身是可重入锁，你可以多次上锁，ReentrantLock对于多次上锁的操作仅仅是对在每次上锁时上锁次数加一，不过你要切记lock()了几次，就得unlock()几次，最终锁才能被真正释放。</li>
 <li>ReentrantLock如果多次newCondition()有什么用呢？这是一个很好的线程调度方式，每个condition管理着自己的节点处理其await以及signal。比如某方法中处理逻辑需要一些准备好的内容，如果内容未准备好，则调用await等待其他线程提供了内容以后通知他，这可以通过一个condition来操作，那么如果有多个呢？就可以使用多个condition来操作，方案有一个lock中new多个condition，或者多个lock分别new condition。</li>
 <li>ReentrantLock其实本身是通过CLH队列，CAS(compare and swap)，线程休眠等方式处理的，从性能上而言显然是比你直接用for，while无限轮询的效率高的</li>
@@ -506,7 +506,7 @@
   <p><span>本文标题:</span><a href="/2018/12/27/lock/">java 锁</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Wu Wei 的个人博客">Wu Wei</a></p>
   <p><span>发布时间:</span>2018年12月27日 - 20:12</p>
-  <p><span>最后更新:</span>2018年12月27日 - 18:12</p>
+  <p><span>最后更新:</span>2019年08月26日 - 16:08</p>
   <p><span>原始链接:</span><a href="/2018/12/27/lock/" title="java 锁">http://www.wowker.cn/2018/12/27/lock/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wowker.cn/2018/12/27/lock/"  aria-label="复制成功！"></i></span>
   </p>
