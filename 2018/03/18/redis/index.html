@@ -147,7 +147,7 @@
 <meta property="og:site_name" content="Wuwei` Blog">
 <meta property="og:description" content="Redis是一个开源(BSD许可)的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-27T01:08:11.579Z">
+<meta property="og:updated_time" content="2019-08-26T07:18:33.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis">
 <meta name="twitter:description" content="Redis是一个开源(BSD许可)的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。">
@@ -450,7 +450,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-server &amp;</span><br></pre></td></tr></table></figure>
 <h4 id="2-通过指定配置文件启动"><a href="#2-通过指定配置文件启动" class="headerlink" title="2. 通过指定配置文件启动"></a>2. 通过指定配置文件启动</h4><p>&emsp;&emsp;可以为redis服务启动指定配置文件，例如配置为/etc/redis/6379.conf<br><br>&emsp;&emsp;进入redis根目录，输入命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-server /etc/redis/6379.conf</span><br></pre></td></tr></table></figure>
-
+<h2 id="事物"><a href="#事物" class="headerlink" title="事物"></a>事物</h2><h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><h2 id="redision"><a href="#redision" class="headerlink" title="redision"></a>redision</h2><h2 id="集群部署"><a href="#集群部署" class="headerlink" title="集群部署"></a>集群部署</h2><h2 id="哨兵"><a href="#哨兵" class="headerlink" title="哨兵"></a>哨兵</h2>
       
     </div>
     
@@ -541,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/18/axios/" rel="next" title="axios">
-                <i class="fa fa-chevron-left"></i> axios
+              <a href="/2018/03/18/aspectj/" rel="next" title="Spring Aop">
+                <i class="fa fa-chevron-left"></i> Spring Aop
               </a>
             
           </div>
@@ -551,8 +551,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/22/http_request_type/" rel="prev" title="POST 提交数据的四种">
-                POST 提交数据的四种 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/18/axios/" rel="prev" title="axios">
+                axios <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -724,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#REmote-DIctionary-Server-Redis"><span class="nav-number">1.</span> <span class="nav-text">REmote DIctionary Server(Redis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis-启动"><span class="nav-number">3.</span> <span class="nav-text">redis 启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-直接启动"><span class="nav-number">3.1.</span> <span class="nav-text">1. 直接启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-通过指定配置文件启动"><span class="nav-number">3.1.1.</span> <span class="nav-text">2. 通过指定配置文件启动</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#REmote-DIctionary-Server-Redis"><span class="nav-number">1.</span> <span class="nav-text">REmote DIctionary Server(Redis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis-启动"><span class="nav-number">3.</span> <span class="nav-text">redis 启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-直接启动"><span class="nav-number">3.1.</span> <span class="nav-text">1. 直接启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-通过指定配置文件启动"><span class="nav-number">3.1.1.</span> <span class="nav-text">2. 通过指定配置文件启动</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事物"><span class="nav-number">4.</span> <span class="nav-text">事物</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁"><span class="nav-number">5.</span> <span class="nav-text">锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redision"><span class="nav-number">6.</span> <span class="nav-text">redision</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群部署"><span class="nav-number">7.</span> <span class="nav-text">集群部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哨兵"><span class="nav-number">8.</span> <span class="nav-text">哨兵</span></a></li></ol></div>
             
 
           </div>
